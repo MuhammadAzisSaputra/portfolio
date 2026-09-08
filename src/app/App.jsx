@@ -1,12 +1,6 @@
-function App() {
-  return (
-    <div className="container" style={{ paddingTop: 'var(--space-8)' }}>
-      <h1>Muhammad Azis Saputra</h1>
-      <p style={{ marginTop: 'var(--space-4)', color: 'var(--color-text-secondary)' }}>
-        Portfolio development environment is ready.
-      </p>
-    </div>
-  )
-}
+import { RouterProvider } from 'react-router-dom';
+import { router } from './router';
 
-export default App
+export default function App() {
+  return <RouterProvider router={router} />;
+}
