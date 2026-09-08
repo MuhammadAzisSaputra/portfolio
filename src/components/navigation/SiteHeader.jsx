@@ -19,7 +19,7 @@ export default function SiteHeader() {
               <li><Link to="/projects">Projects</Link></li>
               <li><Link to="/#skills">Skills</Link></li>
               <li><Link to="/#contact">Contact</Link></li>
-              <li><a href="/assets/resume.pdf" target="_blank" rel="noopener noreferrer" className={styles.resumeLink}>Resume</a></li>
+              <li><a href="/assets/documents/resume/muhammad-azis-saputra-resume.pdf" target="_blank" rel="noopener noreferrer" className={styles.resumeLink}>Resume</a></li>
             </ul>
           </nav>
           

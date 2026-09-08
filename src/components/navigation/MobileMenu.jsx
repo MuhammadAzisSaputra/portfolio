@@ -49,7 +49,7 @@ export default function MobileMenu() {
             <li><Link to="/projects" onClick={closeMenu}>Projects</Link></li>
             <li><Link to="/#skills" onClick={closeMenu}>Skills</Link></li>
             <li><Link to="/#contact" onClick={closeMenu}>Contact</Link></li>
-            <li><a href="/assets/resume.pdf" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>Resume</a></li>
+            <li><a href="/assets/documents/resume/muhammad-azis-saputra-resume.pdf" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>Resume</a></li>
           </ul>
         </nav>
       )}
