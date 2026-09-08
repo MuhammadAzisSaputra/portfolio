@@ -1,0 +1,29 @@
+.section {
+  margin-bottom: var(--space-12);
+  max-width: 800px;
+}
+
+@media (min-width: 768px) {
+  .section {
+    margin-bottom: var(--space-16);
+  }
+}
+
+.title {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-6);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.content {
+  font-size: 1.125rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+.content p {
+  margin-bottom: var(--space-4);
+}

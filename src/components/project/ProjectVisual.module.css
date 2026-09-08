@@ -1,0 +1,36 @@
+.visualContainer {
+  margin-bottom: var(--space-10);
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .visualContainer {
+    margin-bottom: var(--space-13);
+  }
+}
+
+.placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: var(--color-bg-secondary);
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  text-align: center;
+}
+
+.placeholderText {
+  font-family: monospace;
+  font-size: 0.875rem;
+  color: var(--color-text-tertiary);
+  word-break: break-word;
+}
+
+.placeholderText small {
+  font-size: 1rem;
+  font-family: var(--font-sans);
+  color: var(--color-text-secondary);
+}
