@@ -73,18 +73,24 @@ export const superSoybean = {
     contribution: {
       role: 'AI Engineer, UI/UX Designer, Backend Developer',
       focus: 'The contribution covered the AI development pipeline, application interface design, and backend integration. The strongest technical focus is YOLO26 Seed Counting.',
-      objective: 'Develop an object-detection model capable of detecting and counting soybean seeds, including cases where objects are small, close together, or overlapping.',
-      process: [
-        'Dataset Collection',
-        'Data Annotation',
-        'Data Augmentation',
-        'Model Training',
-        'Model Evaluation',
-        'Model Integration'
-      ],
-      implementation: [
-        'The seed counting feature was developed using YOLO26 Object Detection, Ultralytics, and PyTorch.',
-        'Augmented soybean seed images were used to improve detection performance in cluttered conditions.'
+      sections: [
+        {
+          title: 'AI Development — YOLO26 Seed Counting',
+          objective: 'Develop an object-detection model capable of detecting and counting soybean seeds, including cases where objects are small, close together, or overlapping.',
+          process: [
+            'Dataset Collection',
+            'Data Annotation',
+            'Data Augmentation',
+            'Model Training',
+            'Model Evaluation',
+            'Model Integration'
+          ],
+          implementationTitle: 'Model Implementation',
+          implementation: [
+            'The seed counting feature was developed using YOLO26 Object Detection, Ultralytics, and PyTorch.',
+            'Augmented soybean seed images were used to improve detection performance in cluttered conditions.'
+          ]
+        }
       ]
     },
     performance: {
@@ -95,8 +101,17 @@ export const superSoybean = {
         { label: 'FPS', value: '60.13' }
       ]
     },
+    performanceImage: {
+      src: '/assets/projects/super-soybean/hitungbijiuploadhasil-deploy-web-dark.png',
+      alt: 'Seed Counting Inference Result',
+      caption: 'Seed Counting Inference Result using YOLO26'
+    },
     architecture: {
       description: 'The system architecture consists of a Researcher interacting with a Web Interface, which sends requests to a Flask Backend. The backend routes features to the YOLO26 Seed Detection model or other AI models. The detection results are then returned to the Web Interface.',
+      image: {
+        src: '/assets/projects/super-soybean/System Architecture.png',
+        alt: 'Super Soybean System Architecture'
+      },
       flow: [
         'Researcher',
         'Web Interface',
@@ -124,9 +139,18 @@ export const superSoybean = {
         'Dark Mode support',
         'Clear user instructions'
       ],
-      description: 'The interface was designed for researchers who may use the application in laboratory and field environments.'
+      description: 'The interface was designed for researchers who may use the application in laboratory and field environments.',
+      images: [
+        { src: '/assets/projects/super-soybean/about-deploy-web-dark.png', alt: 'Super Soybean About Interface' },
+        { src: '/assets/projects/super-soybean/klasifikasi-deploy-web-dark.png', alt: 'Super Soybean Classification Interface' },
+        { src: '/assets/projects/super-soybean/prediksi-deploy-web-dark.png', alt: 'Super Soybean Chlorophyll Prediction Interface' }
+      ]
     },
     workflow: {
+      image: {
+        src: '/assets/projects/super-soybean/Workflow.png',
+        alt: 'Super Soybean Application Workflow'
+      },
       flow: [
         'Open Application',
         'Dashboard',

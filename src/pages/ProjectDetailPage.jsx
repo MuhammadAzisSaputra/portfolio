@@ -70,24 +70,48 @@ export default function ProjectDetailPage() {
             <ProjectFeatureGrid title="The Solution" items={cs.solution} />
           )}
 
+          {cs.keyFeatures && (
+            <ProjectFeatureGrid title="Key Features" items={cs.keyFeatures} />
+          )}
+
           {cs.contribution && (
             <CaseStudySection title="My Contribution">
               <p><strong>Role:</strong> {cs.contribution.role}</p>
-              <p>{cs.contribution.focus}</p>
+              {cs.contribution.focus && <p>{cs.contribution.focus}</p>}
               
-              <h3>AI Development — YOLO26 Seed Counting</h3>
-              <p><strong>Objective:</strong> {cs.contribution.objective}</p>
-              
-              <h4>Development Process</h4>
-              <ul>
-                {cs.contribution.process.map((step, i) => (
-                  <li key={i}>{step}</li>
-                ))}
-              </ul>
+              {cs.contribution.sections && cs.contribution.sections.map((section, idx) => (
+                <div key={idx}>
+                  <h3>{section.title}</h3>
+                  {section.objective && <p><strong>Objective:</strong> {section.objective}</p>}
+                  
+                  {section.process && (
+                    <>
+                      <h4>{section.processTitle || 'Development Process'}</h4>
+                      <ul>
+                        {section.process.map((step, i) => (
+                          <li key={i}>{step}</li>
+                        ))}
+                      </ul>
+                    </>
+                  )}
 
-              <h4>Model Implementation</h4>
-              {cs.contribution.implementation.map((para, i) => (
-                <p key={i}>{para}</p>
+                  {section.implementation && (
+                    <>
+                      {section.implementationTitle && <h4>{section.implementationTitle}</h4>}
+                      {section.implementation.map((para, i) => (
+                        <p key={i}>{para}</p>
+                      ))}
+                    </>
+                  )}
+
+                  {section.content && (
+                    <>
+                      {section.content.map((para, i) => (
+                        <p key={i}>{para}</p>
+                      ))}
+                    </>
+                  )}
+                </div>
               ))}
             </CaseStudySection>
           )}
@@ -98,24 +122,35 @@ export default function ProjectDetailPage() {
             </CaseStudySection>
           )}
 
-          {/* Model Result Image */}
-          {project.slug === 'super-soybean' && (
+          {cs.performanceImage && (
             <ProjectImage 
-              src="/assets/projects/super-soybean/hitungbijiuploadhasil-deploy-web-dark.png" 
-              alt="Seed Counting Inference Result" 
-              caption="Seed Counting Inference Result using YOLO26" 
+              src={cs.performanceImage.src} 
+              alt={cs.performanceImage.alt} 
+              caption={cs.performanceImage.caption} 
             />
           )}
 
           {cs.architecture && (
             <CaseStudySection title="System Architecture">
-              {project.slug === 'super-soybean' ? (
+              {cs.architecture.image && (
                 <ProjectImage 
-                  src="/assets/projects/super-soybean/System Architecture.png" 
-                  alt="Super Soybean System Architecture" 
+                  src={cs.architecture.image.src} 
+                  alt={cs.architecture.image.alt} 
                 />
-              ) : null}
+              )}
               <p>{cs.architecture.description}</p>
+            </CaseStudySection>
+          )}
+
+          {cs.databaseDesign && (
+            <CaseStudySection title="Database Design">
+              {cs.databaseDesign.image && (
+                <ProjectImage 
+                  src={cs.databaseDesign.image.src} 
+                  alt={cs.databaseDesign.image.alt} 
+                />
+              )}
+              <p>{cs.databaseDesign.description}</p>
             </CaseStudySection>
           )}
 
@@ -123,7 +158,7 @@ export default function ProjectDetailPage() {
             <CaseStudySection title="Backend Development">
               <p>{cs.backend.description}</p>
               <ul>
-                {cs.backend.processing.map((proc, i) => (
+                {cs.backend.processing && cs.backend.processing.map((proc, i) => (
                   <li key={i}>{proc}</li>
                 ))}
               </ul>
@@ -132,47 +167,40 @@ export default function ProjectDetailPage() {
 
           {cs.frontend && (
             <CaseStudySection title="Frontend & UI/UX Design">
-              <p>{cs.frontend.description}</p>
-              <ul>
-                {cs.frontend.considerations.map((item, i) => (
-                  <li key={i}>{item}</li>
-                ))}
-              </ul>
-              
-              {/* UI Screenshots for Super Soybean */}
-              {project.slug === 'super-soybean' && (
-                <>
-                  <ProjectImage 
-                    src="/assets/projects/super-soybean/about-deploy-web-dark.png" 
-                    alt="Super Soybean About Interface" 
-                  />
-                  <ProjectImage 
-                    src="/assets/projects/super-soybean/klasifikasi-deploy-web-dark.png" 
-                    alt="Super Soybean Classification Interface" 
-                  />
-                  <ProjectImage 
-                    src="/assets/projects/super-soybean/prediksi-deploy-web-dark.png" 
-                    alt="Super Soybean Chlorophyll Prediction Interface" 
-                  />
-                </>
+              {cs.frontend.description && <p>{cs.frontend.description}</p>}
+              {cs.frontend.considerations && (
+                <ul>
+                  {cs.frontend.considerations.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ul>
               )}
+              
+              {cs.frontend.images && cs.frontend.images.map((img, i) => (
+                <ProjectImage 
+                  key={i}
+                  src={img.src} 
+                  alt={img.alt} 
+                />
+              ))}
             </CaseStudySection>
           )}
 
           {cs.workflow && (
             <CaseStudySection title="Application Workflow">
-              {project.slug === 'super-soybean' ? (
+              {cs.workflow.image ? (
                 <ProjectImage 
-                  src="/assets/projects/super-soybean/Workflow.png" 
-                  alt="Super Soybean Application Workflow" 
+                  src={cs.workflow.image.src} 
+                  alt={cs.workflow.image.alt} 
                 />
               ) : (
                 <ol>
-                  {cs.workflow.flow.map((step, i) => (
+                  {cs.workflow.flow && cs.workflow.flow.map((step, i) => (
                     <li key={i}>{step}</li>
                   ))}
                 </ol>
               )}
+              {cs.workflow.description && <p>{cs.workflow.description}</p>}
             </CaseStudySection>
           )}
 
