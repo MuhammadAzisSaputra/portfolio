@@ -1,7 +1,19 @@
 import styles from './ProjectVisual.module.css';
 
 export default function ProjectVisual({ project }) {
-  // Since we verified no real assets exist yet, we use the development placeholder.
+  if (project.coverImage) {
+    return (
+      <div className={styles.visualContainer}>
+        <img 
+          src={project.coverImage} 
+          alt={`${project.name} project cover`} 
+          className={styles.image} 
+        />
+      </div>
+    );
+  }
+
+  // Development placeholder
   return (
     <div className={styles.visualContainer} aria-hidden="true">
       <div className={styles.placeholder}>
