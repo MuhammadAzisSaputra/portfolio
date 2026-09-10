@@ -142,6 +142,19 @@ export default function ProjectDetailPage() {
             </CaseStudySection>
           )}
 
+          {cs.analysis && (
+            <CaseStudySection title="Data Analysis">
+              {cs.analysis.description && <p>{cs.analysis.description}</p>}
+              {cs.analysis.steps && (
+                <ul>
+                  {cs.analysis.steps.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ul>
+              )}
+            </CaseStudySection>
+          )}
+
           {cs.databaseDesign && (
             <CaseStudySection title="Database Design">
               {cs.databaseDesign.image && (
@@ -177,6 +190,26 @@ export default function ProjectDetailPage() {
               )}
               
               {cs.frontend.images && cs.frontend.images.map((img, i) => (
+                <ProjectImage 
+                  key={i}
+                  src={img.src} 
+                  alt={img.alt} 
+                />
+              ))}
+            </CaseStudySection>
+          )}
+
+          {cs.dashboard && (
+            <CaseStudySection title="Interactive Dashboard">
+              {cs.dashboard.description && <p>{cs.dashboard.description}</p>}
+              {cs.dashboard.features && (
+                <ul>
+                  {cs.dashboard.features.map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ul>
+              )}
+              {cs.dashboard.images && cs.dashboard.images.map((img, i) => (
                 <ProjectImage 
                   key={i}
                   src={img.src} 
