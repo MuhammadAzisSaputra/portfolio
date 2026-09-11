@@ -13,6 +13,8 @@ import ProjectFeatureGrid from '../components/project/ProjectFeatureGrid';
 import { getProjectBySlug, projects } from '../content/projects';
 import styles from './ProjectDetailPage.module.css';
 
+import SibukuCaseStudy from './projects/SibukuCaseStudy';
+
 export default function ProjectDetailPage() {
   const { slug } = useParams();
   const project = getProjectBySlug(slug);
@@ -38,6 +40,10 @@ export default function ProjectDetailPage() {
   const currentIndex = projects.findIndex(p => p.slug === slug);
   const previous = currentIndex > 0 ? projects[currentIndex - 1] : null;
   const next = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
+
+  if (slug === 'sibuku') {
+    return <SibukuCaseStudy project={project} />;
+  }
 
   // Fallback for projects without the full caseStudy object yet
   const cs = project.caseStudy || {

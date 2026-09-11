@@ -1,0 +1,174 @@
+.gallerySection {
+  margin-bottom: var(--space-cs-section, var(--space-12));
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: var(--space-cs-block, var(--space-6));
+}
+
+.textContent {
+  max-width: 60ch;
+}
+
+.title {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-cs-internal, var(--space-2));
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.description {
+  font-size: 1.125rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.controlButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--color-border-soft);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  box-shadow: var(--shadow-surface);
+}
+
+.controlPrev {
+  left: var(--space-4);
+}
+
+.controlNext {
+  right: var(--space-4);
+}
+
+.controlButton:hover {
+  background-color: var(--color-bg-secondary);
+  border-color: var(--color-border-medium);
+}
+
+.controlButton:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+/* Hide arrows on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .controlButton {
+    display: none;
+  }
+}
+
+.stage {
+  position: relative;
+  width: 100%;
+  padding: var(--space-4) 0;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  outline: none; /* Removed default outline, managed by focus-visible globally */
+}
+
+/* Fallback focus styles for stage */
+.stage:focus-visible {
+  box-shadow: var(--focus-ring);
+}
+
+.track {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 60vw; /* Responsive height */
+  min-height: 250px;
+  max-height: 600px;
+  perspective: 1200px;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-slow), opacity var(--transition-slow), z-index 0ms;
+  transform: translateX(calc(var(--offset) * 25%)) scale(calc(1 - var(--abs-offset) * 0.12));
+  opacity: calc(1 - var(--abs-offset) * 0.55);
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .slide {
+    transform: translateX(calc(var(--offset) * 35%)) scale(calc(1 - var(--abs-offset) * 0.12));
+    opacity: calc(1 - var(--abs-offset) * 0.55);
+  }
+}
+
+.slideActive {
+  cursor: default;
+  opacity: 1;
+  transform: translateX(0) scale(1);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 90%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border-soft);
+}
+
+@media (min-width: 768px) {
+  .imageWrapper {
+    width: 80%;
+  }
+}
+
+.image {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  border-radius: calc(var(--radius-md) - 1px);
+}
+
+.imageDesktop {
+  aspect-ratio: 16 / 9;
+  max-width: 1000px;
+}
+
+.imageMobile {
+  aspect-ratio: 9 / 16;
+  max-width: 400px; /* portrait cap */
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-bg-secondary);
+  opacity: 0.1;
+  pointer-events: none;
+}
