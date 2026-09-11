@@ -14,7 +14,7 @@ import { getProjectBySlug, projects } from '../content/projects';
 import styles from './ProjectDetailPage.module.css';
 
 import SibukuCaseStudy from './projects/SibukuCaseStudy';
-
+import SuperSoybeanCaseStudy from './projects/SuperSoybeanCaseStudy';
 export default function ProjectDetailPage() {
   const { slug } = useParams();
   const project = getProjectBySlug(slug);
@@ -43,6 +43,10 @@ export default function ProjectDetailPage() {
 
   if (slug === 'sibuku') {
     return <SibukuCaseStudy project={project} />;
+  }
+
+  if (slug === 'super-soybean') {
+    return <SuperSoybeanCaseStudy project={project} />;
   }
 
   // Fallback for projects without the full caseStudy object yet
