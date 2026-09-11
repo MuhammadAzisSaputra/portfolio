@@ -2555,7 +2555,37 @@ Any implementation agent must:
 
 ---
 
-# 99. Design Status
+# 99. Project Case Study Presentation Pattern
+
+The approved presentation pattern for project case studies was established by the **SIBUKU** implementation. Future case studies must adhere to these reusable decisions:
+
+## 99.1 Overall Composition
+- **Recruiter-Friendly:** Keep presentation compact.
+- **Mobile-First:** Ensure case-study layouts scale up cleanly.
+- **Content Width:** Use readable prose widths (max 68ch) alongside wider visual/grid containers to balance text and visuals.
+- **Major-Section Spacing:** Maintain consistent, intentional spacing that clearly separates topics without excessive whitespace.
+
+## 99.2 Card Compositions
+- **Balanced Grids:** Use dynamic CSS Grid structures to balance card counts.
+- **Equal Dimensions:** Cards within the same card family/row must naturally align to equal heights and widths (e.g., using `grid-auto-rows: 1fr`) without brittle fixed heights, and without forcing equal heights on stacked mobile cards.
+- **Centering:** For 5-card arrays, naturally center the bottom two cards to maintain exact widths.
+
+## 99.3 Technical Visuals
+- **Standalone Images:** Present architecture diagrams and workflow visuals natively without placing them inside redundant outer visual cards or colored backgrounds.
+- **Controlled Sizing:** Preserve actual aspect ratios and rely on a restrained border-radius, optional subtle border, and subtle shadow when useful.
+
+## 99.4 Demo App Carousel
+The circular center-focused Demo App carousel is the approved pattern when a project has a multi-screenshot demo gallery. Do not force a carousel onto projects that do not need one. When used:
+- **Circular Center-Focused:** Exactly three positions are visible—Previous (left), Active (center), Next (right). This pattern applies to galleries with three or more screenshots. Smaller galleries should use the simplest appropriate presentation rather than duplicating assets merely to satisfy the pattern.
+- **Depth:** Active screenshot is dominant (opacity 1, scale 1). Neighbors are faded, scaled down, and layered behind.
+- **Touch-First Swipe:** On touch devices (`@media (hover: none) and (pointer: coarse)`), make swipe the primary visible interaction and hide arrows, while preserving other accessible navigation methods where applicable.
+- **Overlay Arrows:** On precise-pointer desktop/laptop devices, overlay Previous/Next arrows directly on top of the carousel edge (e.g., inset 16px).
+- **Asset Integrity:** Include all relevant real demo screenshots and preserve their native aspect ratios (e.g., landscape ~16:9, portrait ~9:16) without aggressive cropping.
+- **Minimal UI:** Do not display visible slide numbers or text captions inside the gallery unless functionally required by the project.
+
+---
+
+# 100. Design Status
 
 **Document:** `DESIGN_SYSTEM.md`  
 **Project:** Muhammad Azis Saputra Professional Portfolio  

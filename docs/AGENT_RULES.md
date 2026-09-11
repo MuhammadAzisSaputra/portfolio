@@ -1975,9 +1975,21 @@ If the coding agent supports persistent project instructions, use this summary:
 
 > Read and follow all project specification files before implementation. Do not invent personal, professional, project, metric, asset, or link information. Do not change the approved React + Vite + JavaScript + Express + PostgreSQL architecture, install major dependencies, introduce Tailwind/Next.js/TypeScript/ORMs, redesign the visual system, or add major features without approval. Preserve the light-first minimal modern "Precision Glass" design, real semi-formal portrait, real project evidence, mobile-first responsiveness, accessibility, security, and interview explainability. Prefer simple explicit solutions over unnecessary abstraction.
 
+# 110. Case Study Presentation Rules
+
+When implementing or modifying project case studies, the agent must adhere to the established presentation pattern defined in `DESIGN_SYSTEM.md` (based on the SIBUKU reference implementation).
+
+The agent must not:
+- Invent new visual card layouts arbitrarily.
+- Re-introduce five narrow columns for 5-card arrays.
+- Introduce new carousel dependencies. When a project uses a multi-screenshot Demo App gallery, reuse the approved circular center-focused carousel unless the project's actual assets or presentation needs clearly require a different treatment.
+- Wrap standalone technical diagrams (Architecture, Database) in redundant visual cards.
+
+Re-use the established balanced grids (with naturally equal heights per row), center-focused coverflow carousels (only when a multi-screenshot gallery is actually required), and consistent, intentional spacing tokens.
+
 ---
 
-# 110. Document Status
+# 111. Document Status
 
 **Document:** `AGENT_RULES.md`  
 **Project:** Muhammad Azis Saputra Professional Portfolio  
