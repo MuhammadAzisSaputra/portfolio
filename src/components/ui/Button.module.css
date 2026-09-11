@@ -36,6 +36,7 @@
 .primary:hover {
   background-color: var(--color-accent-hover);
   border-color: var(--color-accent-hover);
+  color: var(--color-text-inverse);
   box-shadow: var(--shadow-sm);
 }
 
@@ -49,5 +50,6 @@
 .secondary:hover {
   background-color: var(--color-bg-secondary);
   border-color: var(--color-border-strong);
+  color: var(--color-text-primary);
 }
 

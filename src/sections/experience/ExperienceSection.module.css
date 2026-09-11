@@ -61,15 +61,15 @@
   top: 0;
   bottom: 0;
   left: 0;
-  width: 1px;
-  background-color: var(--color-border-soft);
+  width: 2px;
+  background-color: var(--color-border-medium);
   display: none;
 }
 
 @media (min-width: 768px) {
   .timeline::before {
     display: block;
-    left: 8px;
+    left: 8px; /* Center of 2px line is 9px */
   }
 }
 
@@ -95,11 +95,12 @@
     position: absolute;
     left: 4px;
     top: 8px;
-    width: 9px;
-    height: 9px;
+    width: 10px; /* Center is 4 + 5 = 9px */
+    height: 10px;
     border-radius: 50%;
     background-color: var(--color-accent);
     border: 2px solid var(--color-bg);
+    z-index: 1; /* Ensure dot stays above the timeline line */
   }
 }
 
