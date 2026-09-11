@@ -1,39 +1,58 @@
 .contactSection {
-  padding: var(--spacing-4xl) 0;
-  border-top: 1px solid var(--glass-border);
+  padding: var(--space-10) 0;
+  border-top: 1px solid var(--color-border-soft);
 }
 
+@media (min-width: 768px) {
+  .contactSection {
+    padding: var(--space-11) 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contactSection {
+    padding: var(--space-12) 0;
+  }
+}
+
+/* --- Panel --- */
+
 .panel {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
+  background: var(--color-bg-primary);
+  border: 1px solid var(--color-border-soft);
   border-radius: var(--radius-xl);
-  padding: var(--spacing-3xl);
+  padding: var(--space-7);
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--spacing-3xl);
+  gap: var(--space-9);
+  box-shadow: var(--shadow-surface);
 }
 
 @media (min-width: 768px) {
   .panel {
     grid-template-columns: 1fr 1fr;
-    gap: var(--spacing-4xl);
+    gap: var(--space-10);
+    padding: var(--space-9);
   }
 }
+
+/* --- Info Column --- */
 
 .info {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xl);
+  gap: var(--space-6);
+  min-width: 0;
 }
 
 .header {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
+  gap: var(--space-4);
 }
 
 .label {
-  font-size: var(--font-size-sm);
+  font-size: 0.75rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -41,7 +60,7 @@
 }
 
 .title {
-  font-size: var(--font-size-3xl);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
   font-weight: 600;
   line-height: 1.2;
   color: var(--color-text-primary);
@@ -50,58 +69,64 @@
 }
 
 .summary {
-  font-size: var(--font-size-lg);
+  font-size: 1.125rem;
   color: var(--color-text-secondary);
   line-height: 1.6;
   margin: 0;
 }
 
+/* --- Contact Details --- */
+
 .details {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
+  gap: var(--space-4);
 }
 
 .detailItem {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-2xs);
+  gap: var(--space-1);
 }
 
 .detailLabel {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-tertiary);
+  font-size: 0.75rem;
+  color: var(--color-text-tertiary-strong);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
 .detailValue {
-  font-size: var(--font-size-base);
+  font-size: 1rem;
   color: var(--color-text-primary);
   font-weight: 500;
   text-decoration: none;
-  transition: color var(--transition-fast) ease;
+  transition: color var(--transition-fast);
+  word-break: break-word;
 }
 
 .detailValue[href]:hover {
   color: var(--color-accent);
 }
 
+/* --- Form --- */
+
 .form {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-lg);
+  gap: var(--space-5);
+  min-width: 0;
 }
 
 .formGroup {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xs);
+  gap: var(--space-2);
 }
 
 .formLabel {
-  font-size: var(--font-size-sm);
+  font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text-primary);
 }
@@ -109,21 +134,22 @@
 .formInput,
 .formTextarea {
   width: 100%;
-  background: var(--color-background);
-  border: 1px solid var(--glass-border);
+  /* box-sizing: border-box is inherited from reset.css */
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-medium);
   border-radius: var(--radius-md);
-  padding: var(--spacing-md);
+  padding: var(--space-3) var(--space-4);
   color: var(--color-text-primary);
-  font-size: var(--font-size-base);
+  font-size: 1rem;
   font-family: inherit;
-  transition: border-color var(--transition-fast) ease, box-shadow var(--transition-fast) ease;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .formInput:focus,
 .formTextarea:focus {
   outline: none;
   border-color: var(--color-accent);
-  box-shadow: 0 0 0 1px var(--color-accent);
+  box-shadow: var(--focus-ring);
 }
 
 .formInput::placeholder,
@@ -137,13 +163,15 @@
 }
 
 .submitButton {
-  margin-top: var(--spacing-sm);
+  margin-top: var(--space-2);
 }
 
-/* Development placeholder styles */
+/* --- Dev Notice --- */
+
 .devNotice {
-  font-size: var(--font-size-xs);
+  font-size: 0.75rem;
   color: var(--color-text-tertiary);
   text-align: center;
-  margin-top: var(--spacing-xs);
+  margin-top: var(--space-2);
 }
+

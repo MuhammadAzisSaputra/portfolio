@@ -1,35 +1,57 @@
 .skillsSection {
-  padding: var(--spacing-4xl) 0;
-  border-top: 1px solid var(--glass-border);
+  padding: var(--space-10) 0;
+  border-top: 1px solid var(--color-border-soft);
 }
 
+@media (min-width: 768px) {
+  .skillsSection {
+    padding: var(--space-11) 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .skillsSection {
+    padding: var(--space-12) 0;
+  }
+}
+
+/* --- Section Header --- */
+
 .header {
-  margin-bottom: var(--spacing-3xl);
+  margin-bottom: var(--space-9);
   max-width: 800px;
+}
+
+@media (min-width: 768px) {
+  .header {
+    margin-bottom: var(--space-10);
+  }
 }
 
 .label {
   display: block;
-  font-size: var(--font-size-sm);
+  font-size: 0.75rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--color-accent);
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: var(--space-3);
 }
 
 .title {
-  font-size: var(--font-size-3xl);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
   font-weight: 600;
   line-height: 1.2;
   color: var(--color-text-primary);
   letter-spacing: -0.02em;
 }
 
+/* --- Skills Grid --- */
+
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--spacing-2xl);
+  gap: var(--space-8);
 }
 
 @media (min-width: 768px) {
@@ -44,45 +66,56 @@
   }
 }
 
+/* --- Category Block --- */
+
 .category {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
+  gap: var(--space-4);
+  min-width: 0;
 }
 
 .categoryTitle {
-  font-size: var(--font-size-lg);
+  font-size: 1.125rem;
   font-weight: 600;
   color: var(--color-text-primary);
   margin: 0;
-  padding-bottom: var(--spacing-sm);
-  border-bottom: 1px solid var(--glass-border);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-border-soft);
 }
+
+/* --- Skill Tags --- */
 
 .skillList {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--spacing-sm);
+  gap: var(--space-2);
 }
 
 .skillTag {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-md);
-  padding: var(--spacing-xs) var(--spacing-sm);
-  font-size: var(--font-size-sm);
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-sm);
+  padding: var(--space-1) var(--space-3);
+  font-size: 0.875rem;
   color: var(--color-text-secondary);
-  transition: border-color var(--transition-fast) ease;
+  transition: border-color var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-fast);
+  white-space: nowrap;
+  box-shadow: var(--shadow-surface);
 }
 
 .skillTag:hover {
   border-color: var(--color-accent);
   color: var(--color-text-primary);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
 }
 
-/* Optional section styling */
+/* --- Currently Exploring --- */
+
 .exploringSection {
-  margin-top: var(--spacing-3xl);
-  padding-top: var(--spacing-2xl);
-  border-top: 1px dashed var(--glass-border);
+  margin-top: var(--space-9);
+  padding-top: var(--space-8);
+  border-top: 1px dashed var(--color-border-soft);
 }
+

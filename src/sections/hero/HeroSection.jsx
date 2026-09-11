@@ -10,20 +10,20 @@ export default function HeroSection() {
           <p className={styles.eyebrow}>Hello, I'm</p>
           <h1 className={styles.headline}>
             <span className={styles.name}>Muhammad Azis Saputra</span>
-            <span className={styles.title}>Information Technology Graduate building practical solutions across Software, Data & AI.</span>
+            <span className={styles.title}>Building practical solutions across Software, Data &amp; AI.</span>
           </h1>
           <p className={styles.supportingCopy}>
-            I build web applications, data-driven solutions, and AI-powered systems with a focus on solving practical problems, understanding real workflows, and turning technical ideas into usable products.
+            An Information Technology graduate building web applications, data-driven solutions, and AI-powered systems — with a focus on solving practical problems, understanding real workflows, and turning technical ideas into usable products.
           </p>
           <div className={styles.ctaGroup}>
             <Button as="link" to="/#projects" variant="primary">
               View My Work
             </Button>
-            <Button 
-              as="a" 
-              href="/assets/documents/resume/muhammad-azis-saputra-resume.pdf" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+            <Button
+              as="a"
+              href="/assets/documents/resume/muhammad-azis-saputra-resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               variant="secondary"
             >
               Download Resume
@@ -33,9 +33,9 @@ export default function HeroSection() {
 
         <div className={styles.portraitCol}>
           <div className={styles.portraitStage}>
-            <img 
-              src="/assets/personal/portrait/profile-semi-formal.jpeg" 
-              alt="Muhammad Azis Saputra portrait" 
+            <img
+              src="/assets/personal/portrait/profile-semi-formal.jpeg"
+              alt="Muhammad Azis Saputra portrait"
               className={styles.portraitImage}
             />
             <div className={styles.badge}>

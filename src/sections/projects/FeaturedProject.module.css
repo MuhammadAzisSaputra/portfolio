@@ -8,7 +8,7 @@
   .featuredProject {
     flex-direction: row;
     align-items: center;
-    gap: var(--space-10);
+    gap: var(--space-9);
   }
 
   .reverse {
@@ -16,10 +16,15 @@
   }
 }
 
+/* --- Visual Column --- */
+
 .visualCol {
-  flex: 1;
+  flex: 1 1 0%;
+  min-width: 0;
   width: 100%;
 }
+
+/* --- Image / Placeholder --- */
 
 .imagePlaceholder {
   width: 100%;
@@ -47,14 +52,19 @@
   word-break: break-word;
 }
 
+/* --- Content Column --- */
+
 .contentCol {
-  flex: 1;
+  flex: 1 1 0%;
+  min-width: 0;
   display: flex;
   flex-direction: column;
 }
 
+/* --- Category --- */
+
 .category {
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 600;
   color: var(--color-accent);
   margin-bottom: var(--space-2);
@@ -62,28 +72,34 @@
   letter-spacing: 0.05em;
 }
 
+/* --- Project Name --- */
+
 .name {
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
   font-weight: 600;
   color: var(--color-text-primary);
-  margin-bottom: var(--space-4);
+  margin-bottom: var(--space-2);
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
 
+/* --- Summary --- */
+
 .summary {
   font-size: 1.125rem;
   color: var(--color-text-secondary);
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-5);
   line-height: 1.6;
   max-width: 60ch;
 }
+
+/* --- Meta Row --- */
 
 .meta {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-5);
   padding: var(--space-4);
   background-color: var(--color-bg-primary);
   border-radius: var(--radius-sm);
@@ -93,19 +109,21 @@
 @media (min-width: 640px) {
   .meta {
     flex-direction: row;
-    gap: var(--space-8);
+    flex-wrap: wrap;
+    gap: var(--space-5);
   }
 }
 
 .metaItem {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .metaLabel {
   font-size: 0.75rem;
   font-weight: 500;
-  color: var(--color-text-tertiary);
+  color: var(--color-text-tertiary-strong);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: var(--space-1);
@@ -115,13 +133,16 @@
   font-size: 1rem;
   font-weight: 500;
   color: var(--color-text-primary);
+  word-break: break-word;
 }
+
+/* --- Tags --- */
 
 .tags {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-5);
 }
 
 .tag {
@@ -131,8 +152,12 @@
   font-weight: 500;
   padding: var(--space-1) var(--space-3);
   border-radius: var(--radius-pill);
+  white-space: nowrap;
 }
+
+/* --- CTA --- */
 
 .cta {
   margin-top: auto;
 }
+

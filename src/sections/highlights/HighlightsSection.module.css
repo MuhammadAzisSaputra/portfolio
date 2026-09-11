@@ -1,16 +1,19 @@
 .highlightsSection {
-  padding-bottom: var(--space-10);
+  padding-top: var(--space-9);
+  padding-bottom: var(--space-9);
 }
 
 @media (min-width: 768px) {
   .highlightsSection {
-    padding-bottom: var(--space-12);
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-10);
   }
 }
 
 @media (min-width: 1024px) {
   .highlightsSection {
-    padding-bottom: var(--space-13);
+    padding-top: var(--space-10);
+    padding-bottom: var(--space-11);
   }
 }
 
@@ -28,8 +31,7 @@
   gap: var(--space-4);
 }
 
-/* On very small mobile (360px, 390px), 1 column is fine. 
-   Once we have a bit more room, try 2x2 */
+/* 2×2 layout once there's enough room */
 @media (min-width: 480px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
@@ -37,7 +39,7 @@
   }
 }
 
-/* On desktop, go 4 columns */
+/* 4 columns on desktop */
 @media (min-width: 1024px) {
   .grid {
     grid-template-columns: repeat(4, 1fr);
@@ -52,7 +54,8 @@
   background-color: var(--color-bg-primary);
   border: 1px solid var(--color-border-soft);
   border-radius: var(--radius-lg);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  box-shadow: var(--shadow-surface);
+  min-width: 0;
 }
 
 .metric {
@@ -62,6 +65,7 @@
   margin-bottom: var(--space-2);
   line-height: 1.3;
   letter-spacing: -0.01em;
+  word-break: break-word;
 }
 
 @media (min-width: 768px) {
@@ -72,7 +76,8 @@
 
 .description {
   font-size: 0.875rem;
-  color: var(--color-text-secondary);
+  color: var(--color-text-tertiary-strong);
   margin: 0;
-  line-height: 1.5;
+  line-height: 1.55;
 }
+

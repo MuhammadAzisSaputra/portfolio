@@ -1,35 +1,57 @@
 .experienceSection {
-  padding: var(--spacing-4xl) 0;
-  border-top: 1px solid var(--glass-border);
+  padding: var(--space-10) 0;
+  border-top: 1px solid var(--color-border-soft);
 }
 
+@media (min-width: 768px) {
+  .experienceSection {
+    padding: var(--space-11) 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .experienceSection {
+    padding: var(--space-12) 0;
+  }
+}
+
+/* --- Section Header --- */
+
 .header {
-  margin-bottom: var(--spacing-3xl);
+  margin-bottom: var(--space-9);
   max-width: 800px;
+}
+
+@media (min-width: 768px) {
+  .header {
+    margin-bottom: var(--space-10);
+  }
 }
 
 .label {
   display: block;
-  font-size: var(--font-size-sm);
+  font-size: 0.75rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--color-accent);
-  margin-bottom: var(--spacing-sm);
+  margin-bottom: var(--space-3);
 }
 
 .title {
-  font-size: var(--font-size-3xl);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
   font-weight: 600;
   line-height: 1.2;
   color: var(--color-text-primary);
   letter-spacing: -0.02em;
 }
 
+/* --- Timeline --- */
+
 .timeline {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-2xl);
+  gap: var(--space-9);
   position: relative;
 }
 
@@ -40,7 +62,7 @@
   bottom: 0;
   left: 0;
   width: 1px;
-  background-color: var(--glass-border);
+  background-color: var(--color-border-soft);
   display: none;
 }
 
@@ -51,20 +73,23 @@
   }
 }
 
+/* --- Experience Item --- */
+
 .experienceItem {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--spacing-md);
+  gap: var(--space-4);
   position: relative;
 }
 
 @media (min-width: 768px) {
   .experienceItem {
-    grid-template-columns: 240px 1fr;
-    gap: var(--spacing-2xl);
-    padding-left: var(--spacing-2xl);
+    /* Use auto for the meta column — it sizes to content, avoiding fixed-width overflow */
+    grid-template-columns: auto 1fr;
+    gap: var(--space-8);
+    padding-left: var(--space-8);
   }
-  
+
   .experienceItem::before {
     content: '';
     position: absolute;
@@ -74,52 +99,71 @@
     height: 9px;
     border-radius: 50%;
     background-color: var(--color-accent);
-    border: 2px solid var(--color-background);
+    border: 2px solid var(--color-bg);
   }
 }
+
+/* --- Meta Column --- */
 
 .meta {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-xs);
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+@media (min-width: 768px) {
+  .meta {
+    /* Enough for "May 2025 — Dec 2025" without wrapping, but can shrink */
+    min-width: 9rem;
+    max-width: 14rem;
+  }
 }
 
 .period {
-  font-family: var(--font-mono);
-  font-size: var(--font-size-sm);
+  font-size: 0.875rem;
   color: var(--color-text-tertiary);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
 .organization {
-  font-size: var(--font-size-base);
+  font-size: 1rem;
   font-weight: 600;
   color: var(--color-text-primary);
 }
 
 .location {
-  font-size: var(--font-size-sm);
+  font-size: 0.875rem;
   color: var(--color-text-secondary);
 }
+
+/* --- Content Column --- */
 
 .content {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-md);
+  gap: var(--space-4);
+  min-width: 0;
 }
 
 .role {
-  font-size: var(--font-size-xl);
+  font-size: 1.25rem;
   font-weight: 600;
   color: var(--color-text-primary);
   margin: 0;
+  line-height: 1.3;
 }
 
 .summary {
-  font-size: var(--font-size-base);
+  font-size: 1rem;
   color: var(--color-text-secondary);
-  line-height: 1.6;
+  line-height: 1.7;
   margin: 0;
+  max-width: 65ch;
 }
+
+/* --- Highlights List --- */
 
 .highlights {
   list-style: none;
@@ -127,14 +171,14 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-sm);
+  gap: var(--space-2);
 }
 
 .highlights li {
-  font-size: var(--font-size-sm);
+  font-size: 0.875rem;
   color: var(--color-text-secondary);
-  line-height: 1.6;
-  padding-left: var(--spacing-md);
+  line-height: 1.7;
+  padding-left: var(--space-4);
   position: relative;
 }
 
@@ -145,17 +189,21 @@
   color: var(--color-accent);
 }
 
+/* --- Related Projects --- */
+
 .relatedProject {
-  margin-top: var(--spacing-sm);
-  font-size: var(--font-size-sm);
+  margin-top: var(--space-2);
+  font-size: 0.875rem;
   font-weight: 500;
   color: var(--color-text-primary);
   display: inline-flex;
   align-items: center;
-  gap: var(--spacing-xs);
+  gap: var(--space-2);
+  flex-wrap: wrap;
 }
 
 .relatedProject span {
   color: var(--color-text-tertiary);
   font-weight: 400;
 }
+
