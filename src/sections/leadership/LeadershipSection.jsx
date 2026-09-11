@@ -1,0 +1,74 @@
+import Container from '../../components/ui/Container';
+import styles from './LeadershipSection.module.css';
+
+const leadershipRoles = [
+  {
+    organization: 'Startup Generation Community (SGC) USU',
+    role: 'Head of Innovate Hub Division',
+    period: 'Jan 2024 — Feb 2025',
+    logo: '/assets/organizations/Logo SGC USU.png',
+    summary: 'Led a 10-member division responsible for startup education, idea development, and solution experimentation programs.',
+    evidence: [
+      'Planned and coordinated annual work programs.',
+      'Initiated and managed EduHub, InHub, and ExHub.',
+      'Delegated responsibilities and monitored implementation progress.'
+    ]
+  },
+  {
+    organization: 'MPMF Fasilkom-TI USU',
+    role: 'Chairperson',
+    period: 'Aug 2023 — Dec 2023',
+    logo: '/assets/organizations/Logo MPMF USU.png',
+    summary: 'Led a 20-member student legislative council and coordinated governance, deliberation, oversight, and policy-development activities.',
+    evidence: [
+      'Coordinated council meetings and committee activities.',
+      'Supported accountability across faculty student-government programs.',
+      'Led drafting, review, and ratification of the Faculty Student Constitution.'
+    ]
+  }
+];
+
+export default function LeadershipSection() {
+  return (
+    <section id="leadership" className={styles.leadershipSection}>
+      <Container>
+        <header className={styles.header}>
+          <span className={styles.label}>Leadership</span>
+          <h2 className={styles.title}>
+            Experience leading teams, programs, and organizational initiatives.
+          </h2>
+        </header>
+
+        <div className={styles.grid}>
+          {leadershipRoles.map((item, index) => (
+            <div key={index} className={styles.card}>
+              <div className={styles.cardHeader}>
+                {item.logo && (
+                  <img 
+                    src={item.logo} 
+                    alt={`${item.organization} logo`} 
+                    className={styles.logo}
+                    loading="lazy"
+                  />
+                )}
+                <div className={styles.meta}>
+                  <h3 className={styles.organization}>{item.organization}</h3>
+                  <span className={styles.period}>{item.period}</span>
+                </div>
+              </div>
+              
+              <h4 className={styles.role}>{item.role}</h4>
+              <p className={styles.summary}>{item.summary}</p>
+              
+              <ul className={styles.evidence}>
+                {item.evidence.map((point, idx) => (
+                  <li key={idx}>{point}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+}
