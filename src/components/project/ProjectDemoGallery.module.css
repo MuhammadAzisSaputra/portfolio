@@ -94,10 +94,18 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 60vw; /* Responsive height */
-  min-height: 250px;
-  max-height: 600px;
+  height: 110vw; /* Taller on mobile to accommodate 9:16 screenshots */
+  min-height: 350px;
+  max-height: 700px;
   perspective: 1200px;
+}
+
+@media (min-width: 768px) {
+  .track {
+    height: 60vw;
+    max-height: 600px;
+    min-height: 400px;
+  }
 }
 
 .slide {

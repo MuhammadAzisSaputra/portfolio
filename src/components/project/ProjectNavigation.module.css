@@ -80,17 +80,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--space-4);
 }
 
 .backLink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  min-height: 44px;
   font-size: 0.875rem;
   font-weight: 600;
   color: var(--color-text-secondary);
   text-decoration: none;
-  transition: color var(--transition-fast);
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+  border-radius: var(--radius-sm);
 }
 
 .backLink:hover {
   color: var(--color-text-primary);
+  background-color: var(--color-bg-secondary);
 }
