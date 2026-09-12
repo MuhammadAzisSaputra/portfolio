@@ -15,6 +15,7 @@ import styles from './ProjectDetailPage.module.css';
 
 import SibukuCaseStudy from './projects/SibukuCaseStudy';
 import SuperSoybeanCaseStudy from './projects/SuperSoybeanCaseStudy';
+import GrahaRayaCaseStudy from './projects/GrahaRayaCaseStudy';
 export default function ProjectDetailPage() {
   const { slug } = useParams();
   const project = getProjectBySlug(slug);
@@ -47,6 +48,10 @@ export default function ProjectDetailPage() {
 
   if (slug === 'super-soybean') {
     return <SuperSoybeanCaseStudy project={project} />;
+  }
+
+  if (slug === 'graha-raya-project-management') {
+    return <GrahaRayaCaseStudy project={project} />;
   }
 
   // Fallback for projects without the full caseStudy object yet
