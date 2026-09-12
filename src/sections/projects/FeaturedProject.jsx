@@ -1,49 +1,26 @@
+import { Link } from 'react-router-dom';
 import Button from '../../components/ui/Button';
 import styles from './FeaturedProject.module.css';
 
-export default function FeaturedProject({ project, reverse }) {
-  // Collect a subset of technologies. Just flatten the first few keys and grab up to 4 items.
-  let techTags = [];
-  if (project.technologies) {
-    const allTechs = Object.values(project.technologies).flat();
-    techTags = allTechs.slice(0, 4);
-  }
-
+export default function FeaturedProject({ project }) {
   return (
-    <article className={`${styles.featuredProject} ${reverse ? styles.reverse : ''}`}>
+    <article className={styles.featuredProject}>
       <div className={styles.visualCol}>
-        <div className={styles.imagePlaceholder} aria-hidden="true">
-          <span className={styles.placeholderText}>
-            [Image Pending: {project.assetDirectory}cover.webp]
-          </span>
-        </div>
+        <Link to={project.route} className={styles.imageLink} aria-hidden="true" tabIndex="-1">
+          {project.coverImage ? (
+            <img src={project.coverImage} alt={`${project.name} preview`} className={styles.image} loading="lazy" />
+          ) : (
+            <div className={styles.imagePlaceholder}>
+              <span className={styles.placeholderText}>[Image Pending]</span>
+            </div>
+          )}
+        </Link>
       </div>
       <div className={styles.contentCol}>
         <p className={styles.category}>{project.category}</p>
         <h3 className={styles.name}>{project.name}</h3>
-        <p className={styles.summary}>{project.summary}</p>
+        <p className={styles.summary}>{project.cardDescription || project.summary}</p>
         
-        <div className={styles.meta}>
-          <div className={styles.metaItem}>
-            <span className={styles.metaLabel}>Role</span>
-            <span className={styles.metaValue}>{project.role}</span>
-          </div>
-          {project.keyMetric && (
-            <div className={styles.metaItem}>
-              <span className={styles.metaLabel}>Key Metric</span>
-              <span className={styles.metaValue}>{project.keyMetric}</span>
-            </div>
-          )}
-        </div>
-
-        {techTags.length > 0 && (
-          <div className={styles.tags}>
-            {techTags.map((tech, i) => (
-              <span key={i} className={styles.tag}>{tech}</span>
-            ))}
-          </div>
-        )}
-
         <div className={styles.cta}>
           <Button as="link" to={project.route} variant="primary">
             View Case Study

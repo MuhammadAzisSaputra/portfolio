@@ -50,6 +50,6 @@
 .secondary:hover {
   background-color: var(--color-bg-secondary);
   border-color: var(--color-border-strong);
-  color: var(--color-text-primary);
+  color: var(--color-accent);
 }
 

@@ -53,16 +53,23 @@
 }
 
 .featuredList {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-10);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
   margin-bottom: var(--space-10);
+  grid-auto-rows: 1fr;
 }
 
 @media (min-width: 768px) {
   .featuredList {
-    gap: var(--space-11);
-    margin-bottom: var(--space-11);
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8);
+  }
+}
+
+@media (min-width: 1024px) {
+  .featuredList {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
