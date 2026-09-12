@@ -18,6 +18,7 @@ import SuperSoybeanCaseStudy from './projects/SuperSoybeanCaseStudy';
 import GrahaRayaCaseStudy from './projects/GrahaRayaCaseStudy';
 import BrofinCaseStudy from './projects/BrofinCaseStudy';
 import BikeSharingCaseStudy from './projects/BikeSharingCaseStudy';
+import EtomacCaseStudy from './projects/EtomacCaseStudy';
 export default function ProjectDetailPage() {
   const { slug } = useParams();
   const project = getProjectBySlug(slug);
@@ -62,6 +63,10 @@ export default function ProjectDetailPage() {
 
   if (slug === 'bike-sharing-dashboard') {
     return <BikeSharingCaseStudy project={project} />;
+  }
+
+  if (slug === 'etomac') {
+    return <EtomacCaseStudy project={project} />;
   }
 
   // Fallback for projects without the full caseStudy object yet
