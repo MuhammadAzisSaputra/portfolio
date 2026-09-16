@@ -22,7 +22,7 @@ export const etomac = {
     server: ['Apache', 'XAMPP']
   },
   assetDirectory: '/assets/projects/etomac/',
-  coverImage: '/assets/projects/etomac/index-guest.png',
+  coverImage: '/assets/projects/etomac/Thumbnail.png',
   links: {
     repository: null,
     liveDemo: null,

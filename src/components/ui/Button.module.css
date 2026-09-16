@@ -13,13 +13,19 @@
     box-shadow var(--transition-fast),
     border-color var(--transition-fast);
   white-space: nowrap;
-  font-size: 1rem;
+  font-size: var(--text-body);
   border: 1px solid transparent;
   cursor: pointer;
 }
 
 .button:hover {
   transform: translateY(-1px);
+}
+
+.button:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-color: var(--color-accent);
 }
 
 .button:active {

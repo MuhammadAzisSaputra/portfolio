@@ -1,55 +1,52 @@
 .projectsSection {
-  padding-top: var(--space-10);
-  padding-bottom: var(--space-11);
+  padding: var(--space-section-mobile) 0;
   border-top: 1px solid var(--color-border-soft);
 }
 
 @media (min-width: 768px) {
   .projectsSection {
-    padding-top: var(--space-11);
-    padding-bottom: var(--space-12);
+    padding: var(--space-section-tablet) 0;
   }
 }
 
 @media (min-width: 1024px) {
   .projectsSection {
-    padding-top: var(--space-12);
-    padding-bottom: var(--space-12);
+    padding: var(--space-section-desktop) 0;
   }
 }
 
 .header {
-  margin-bottom: var(--space-9);
+  margin-bottom: var(--space-header-bottom-mobile);
   max-width: 65ch;
 }
 
 @media (min-width: 768px) {
   .header {
-    margin-bottom: var(--space-10);
+    margin-bottom: var(--space-header-bottom-desktop);
   }
 }
 
 .eyebrow {
-  font-size: 1.125rem;
+  font-size: var(--text-body-large);
   font-weight: 500;
   color: var(--color-text-secondary);
   margin-bottom: var(--space-2);
 }
 
 .heading {
-  font-size: clamp(1.75rem, 3.8vw, 3rem);
+  font-size: var(--text-h2);
   font-weight: 600;
   color: var(--color-text-primary);
   margin-bottom: var(--space-3);
-  line-height: 1.1;
+  line-height: var(--line-height-heading);
   letter-spacing: -0.03em;
 }
 
 .supportingCopy {
-  font-size: 1.125rem;
+  font-size: var(--text-body-large);
   color: var(--color-text-secondary);
   margin: 0;
-  line-height: 1.6;
+  line-height: var(--line-height-body);
 }
 
 .featuredList {
@@ -79,7 +76,7 @@
 }
 
 .secondaryHeading {
-  font-size: 1.5rem;
+  font-size: var(--text-h3);
   font-weight: 600;
   color: var(--color-text-primary);
   margin-bottom: var(--space-6);

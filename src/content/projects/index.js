@@ -10,9 +10,9 @@ export const projects = [
   superSoybean,
   grahaRaya,
   sibuku,
+  etomac,
   brofin,
-  bikeSharing,
-  etomac
+  bikeSharing
 ];
 
 export const featuredProjects = projects.filter(project => project.featured);

@@ -1,6 +1,6 @@
 .heroSection {
-  padding-top: var(--space-9);
-  padding-bottom: var(--space-10);
+  padding-top: var(--space-section-mobile);
+  padding-bottom: var(--space-section-mobile);
   background: radial-gradient(circle at 80% 10%, rgba(0, 113, 227, 0.04), transparent 40%), var(--color-bg);
 }
 
@@ -12,21 +12,26 @@
 
 @media (min-width: 768px) {
   .heroSection {
-    padding-top: var(--space-10);
-    padding-bottom: var(--space-11);
+    padding-top: var(--space-section-tablet);
+    padding-bottom: var(--space-section-tablet);
   }
 
   .heroContainer {
     flex-direction: row;
     align-items: center;
-    gap: var(--space-9);
+    justify-content: center;
+    gap: var(--space-6);
   }
 }
 
 @media (min-width: 1024px) {
   .heroSection {
-    padding-top: var(--space-12);
-    padding-bottom: var(--space-12);
+    padding-top: var(--space-section-desktop);
+    padding-bottom: var(--space-section-desktop);
+  }
+  
+  .heroContainer {
+    gap: var(--space-8);
   }
 }
 
@@ -39,15 +44,15 @@
 
 @media (min-width: 768px) {
   .contentCol {
-    flex: 0 0 55%;
+    flex: 1 1 50%;
     min-width: 0;
   }
 }
 
 @media (min-width: 1024px) {
   .contentCol {
-    flex: 0 0 55%;
-    padding-right: var(--space-6);
+    flex: 1 1 55%;
+    padding-right: var(--space-4);
     min-width: 0;
   }
 }
@@ -55,7 +60,7 @@
 /* --- Eyebrow --- */
 
 .eyebrow {
-  font-size: 1rem;
+  font-size: var(--text-body);
   font-weight: 500;
   color: var(--color-text-secondary);
   margin-bottom: var(--space-2);
@@ -71,7 +76,7 @@
 
 .name {
   display: block;
-  font-size: clamp(1rem, 1.8vw, 1.25rem);
+  font-size: var(--text-h3);
   font-weight: 500;
   color: var(--color-text-secondary);
   margin-bottom: var(--space-1);
@@ -80,8 +85,8 @@
 
 .title {
   display: block;
-  font-size: clamp(2.25rem, 5vw, 4.5rem);
-  line-height: 1.05;
+  font-size: var(--text-h1);
+  line-height: var(--line-height-heading);
   font-weight: 600;
   letter-spacing: -0.04em;
   color: var(--color-text-primary);
@@ -90,8 +95,8 @@
 /* --- Supporting Copy --- */
 
 .supportingCopy {
-  font-size: clamp(1rem, 1.4vw, 1.25rem);
-  line-height: 1.65;
+  font-size: var(--text-body-large);
+  line-height: var(--line-height-body);
   color: var(--color-text-secondary);
   margin-bottom: var(--space-7);
   max-width: 54ch;
@@ -126,7 +131,7 @@
 
 @media (min-width: 768px) {
   .portraitCol {
-    flex: 0 0 45%;
+    flex: 1 1 45%;
     justify-content: flex-end;
     min-width: 0;
   }
@@ -145,6 +150,17 @@
   padding: var(--space-1);
   box-shadow: var(--shadow-surface);
   border: 1px solid var(--color-border-soft);
+  
+  /* Entrance Animation */
+  opacity: 0;
+  animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portraitStage {
+    animation: none;
+    opacity: 1;
+  }
 }
 
 .portraitImage {
@@ -175,5 +191,17 @@
   color: var(--color-text-primary);
   white-space: nowrap;
   box-shadow: var(--shadow-sm);
+}
+
+
+@keyframes fadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 

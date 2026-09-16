@@ -1,36 +1,36 @@
 .experienceSection {
-  padding: var(--space-10) 0;
+  padding: var(--space-section-mobile) 0;
   border-top: 1px solid var(--color-border-soft);
 }
 
 @media (min-width: 768px) {
   .experienceSection {
-    padding: var(--space-11) 0;
+    padding: var(--space-section-tablet) 0;
   }
 }
 
 @media (min-width: 1024px) {
   .experienceSection {
-    padding: var(--space-12) 0;
+    padding: var(--space-section-desktop) 0;
   }
 }
 
 /* --- Section Header --- */
 
 .header {
-  margin-bottom: var(--space-9);
+  margin-bottom: var(--space-header-bottom-mobile);
   max-width: 800px;
 }
 
 @media (min-width: 768px) {
   .header {
-    margin-bottom: var(--space-10);
+    margin-bottom: var(--space-header-bottom-desktop);
   }
 }
 
 .label {
   display: block;
-  font-size: 0.75rem;
+  font-size: var(--text-metadata);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -39,9 +39,9 @@
 }
 
 .title {
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-size: var(--text-h2);
   font-weight: 600;
-  line-height: 1.2;
+  line-height: var(--line-height-heading);
   color: var(--color-text-primary);
   letter-spacing: -0.02em;
 }
@@ -84,7 +84,7 @@
 
 @media (min-width: 768px) {
   .experienceItem {
-    /* Use auto for the meta column — it sizes to content, avoiding fixed-width overflow */
+    /* Use auto for the meta column - it sizes to content, avoiding fixed-width overflow */
     grid-template-columns: auto 1fr;
     gap: var(--space-8);
     padding-left: var(--space-8);
@@ -115,27 +115,27 @@
 
 @media (min-width: 768px) {
   .meta {
-    /* Enough for "May 2025 — Dec 2025" without wrapping, but can shrink */
+    /* Enough for "May 2025 - Dec 2025" without wrapping, but can shrink */
     min-width: 9rem;
     max-width: 14rem;
   }
 }
 
 .period {
-  font-size: 0.875rem;
+  font-size: var(--text-metadata);
   color: var(--color-text-tertiary);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
 
 .organization {
-  font-size: 1rem;
+  font-size: var(--text-body);
   font-weight: 600;
   color: var(--color-text-primary);
 }
 
 .location {
-  font-size: 0.875rem;
+  font-size: var(--text-metadata);
   color: var(--color-text-secondary);
 }
 
@@ -149,17 +149,17 @@
 }
 
 .role {
-  font-size: 1.25rem;
+  font-size: var(--text-h3);
   font-weight: 600;
   color: var(--color-text-primary);
   margin: 0;
-  line-height: 1.3;
+  line-height: var(--line-height-heading);
 }
 
 .summary {
-  font-size: 1rem;
+  font-size: var(--text-body-large);
   color: var(--color-text-secondary);
-  line-height: 1.7;
+  line-height: var(--line-height-body);
   margin: 0;
   max-width: 65ch;
 }
@@ -176,9 +176,9 @@
 }
 
 .highlights li {
-  font-size: 0.875rem;
+  font-size: var(--text-body);
   color: var(--color-text-secondary);
-  line-height: 1.7;
+  line-height: var(--line-height-body);
   padding-left: var(--space-4);
   position: relative;
 }
@@ -208,3 +208,23 @@
   font-weight: 400;
 }
 
+
+.logoContainer {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: var(--space-2);
+}
+
+.logoImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 4px;
+}

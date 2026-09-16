@@ -19,9 +19,9 @@ export default function ProjectsSection() {
 
         <div className={styles.featuredList}>
           {projects.map((project) => (
-            <FeaturedProject 
-              key={project.slug} 
-              project={project} 
+            <FeaturedProject
+              key={project.slug}
+              project={project}
             />
           ))}
         </div>

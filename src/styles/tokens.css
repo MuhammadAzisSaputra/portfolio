@@ -4,20 +4,20 @@
   --color-bg-primary: #FFFFFF;
   --color-bg-secondary: #F2F2F0;
   --color-bg-tertiary: #EDEDEC;
-  
+
   --color-text-primary: #111111;
   --color-text-secondary: #5F6368;
   --color-text-tertiary: #6E6E73;
   --color-text-inverse: #FFFFFF;
-  
+
   --color-border-soft: rgba(17, 17, 17, 0.08);
   --color-border-medium: rgba(17, 17, 17, 0.14);
   --color-border-strong: rgba(17, 17, 17, 0.22);
-  
+
   --color-accent: #0071E3;
   --color-accent-hover: #0064CC;
   --color-accent-soft: rgba(0, 113, 227, 0.10);
-  
+
   --accent-software: #5E5CE6;
   --accent-data: #30A46C;
   --accent-ai: #BF5AF2;
@@ -30,25 +30,60 @@
   /* Typography */
   --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Helvetica, Arial, sans-serif;
   
+  /* Typography Hierarchy */
+  --text-h1: clamp(2.5rem, 5vw, 4.5rem);
+  --text-h2: clamp(2rem, 4vw, 3rem);
+  --text-h3: clamp(1.25rem, 2vw, 1.5rem);
+  --text-h4: 1.125rem;
+  
+  --text-body-large: clamp(1rem, 1.5vw, 1.125rem);
+  --text-body: 1rem;
+  --text-body-small: 0.875rem;
+  --text-metadata: 0.75rem;
+  
+  --line-height-heading: 1.15;
+  --line-height-body: 1.65;
+
   /* Spacing */
-  --space-1: 0.25rem;  /* 4 */
-  --space-2: 0.5rem;   /* 8 */
-  --space-3: 0.75rem;  /* 12 */
-  --space-4: 1rem;     /* 16 */
-  --space-5: 1.5rem;   /* 24 */
-  --space-6: 2rem;     /* 32 */
-  --space-7: 2.5rem;   /* 40 */
-  --space-8: 3rem;     /* 48 */
-  --space-9: 4rem;     /* 64 */
-  --space-10: 5rem;    /* 80 */
-  --space-11: 6rem;    /* 96 */
-  --space-12: 7.5rem;  /* 120 */
-  --space-13: 10rem;   /* 160 */
+  --space-1: 0.25rem;
+  /* 4 */
+  --space-2: 0.5rem;
+  /* 8 */
+  --space-3: 0.75rem;
+  /* 12 */
+  --space-4: 1rem;
+  /* 16 */
+  --space-5: 1.5rem;
+  /* 24 */
+  --space-6: 2rem;
+  /* 32 */
+  --space-7: 2.5rem;
+  /* 40 */
+  --space-8: 3rem;
+  /* 48 */
+  --space-9: 4rem;
+  /* 64 */
+  --space-10: 5rem;
+  /* 80 */
+  --space-11: 6rem;
+  /* 96 */
+  --space-12: 7.5rem;
+  /* 120 */
+  --space-13: 10rem;
+  /* 160 */
 
   /* Case Study Semantic Spacing */
   --space-cs-internal: var(--space-4);
   --space-cs-block: var(--space-8);
   --space-cs-section: var(--space-12);
+
+  /* Global Section Semantic Spacing */
+  --space-section-mobile: var(--space-10); /* 80px */
+  --space-section-tablet: var(--space-11); /* 96px */
+  --space-section-desktop: var(--space-12); /* 120px */
+  
+  --space-header-bottom-mobile: var(--space-9); /* 64px */
+  --space-header-bottom-desktop: var(--space-10); /* 80px */
 
   /* Border Radius */
   --radius-xs: 8px;
@@ -73,7 +108,7 @@
   --color-text-tertiary-strong: #6E6E73;
 
   /* Containers */
-  --container-base: min(100% - 32px, 1200px);
+  --container-base: min(100% - 32px, 1100px);
   --container-wide: 1440px;
   --container-reading: 760px;
   --container-longform: 1120px;

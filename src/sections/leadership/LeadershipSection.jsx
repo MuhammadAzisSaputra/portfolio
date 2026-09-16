@@ -6,7 +6,7 @@ const leadershipRoles = [
     organization: 'Startup Generation Community (SGC) USU',
     role: 'Head of Innovate Hub Division',
     period: 'Jan 2024 — Feb 2025',
-    logo: '/assets/organizations/Logo SGC USU.png',
+    logo: '/assets/organizations/logo-sgcusu.png',
     summary: 'Led a 10-member division responsible for startup education, idea development, and solution experimentation programs.',
     evidence: [
       'Planned and coordinated annual work programs.',
@@ -18,7 +18,7 @@ const leadershipRoles = [
     organization: 'MPMF Fasilkom-TI USU',
     role: 'Chairperson',
     period: 'Aug 2023 — Dec 2023',
-    logo: '/assets/organizations/Logo MPMF USU.png',
+    logo: '/assets/organizations/logo-mpmfusu.png',
     summary: 'Led a 20-member student legislative council and coordinated governance, deliberation, oversight, and policy-development activities.',
     evidence: [
       'Coordinated council meetings and committee activities.',

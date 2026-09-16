@@ -9,9 +9,9 @@ export default function SiteHeader() {
       <Container className={styles.headerContainer}>
         <div className={styles.navbar}>
           <Link to="/" className={styles.brand} aria-label="Muhammad Azis Saputra - Home">
-            AZIS.
+            <img src="/assets/branding/logo/logo-light.svg" alt="Muhammad Azis Saputra Logo" className={styles.logoImage} />
           </Link>
-          
+
           <nav className={styles.desktopNav} aria-label="Main Navigation">
             <ul className={styles.navList}>
               <li><Link to="/#about">About</Link></li>
@@ -22,7 +22,7 @@ export default function SiteHeader() {
               <li><a href="/assets/documents/resume/muhammad-azis-saputra-resume.pdf" target="_blank" rel="noopener noreferrer" className={styles.resumeLink}>Resume</a></li>
             </ul>
           </nav>
-          
+
           <MobileMenu />
         </div>
       </Container>

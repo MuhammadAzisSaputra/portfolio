@@ -1,7 +1,18 @@
 .footer {
-  padding: var(--space-9) 0 var(--space-6);
+  padding: var(--space-section-mobile) 0 var(--space-6);
   border-top: 1px solid var(--color-border-soft);
-  /* margin-top removed — Contact section bottom padding provides the gap */
+}
+
+@media (min-width: 768px) {
+  .footer {
+    padding-top: var(--space-section-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer {
+    padding-top: var(--space-section-desktop);
+  }
 }
 
 .footerContent {
@@ -29,15 +40,43 @@
   margin: 0;
 }
 
-.links {
+.socialLinks {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-4);
 }
 
-.links a {
-  font-size: 0.875rem;
-  font-weight: 500;
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border-soft);
+  background: var(--color-bg-primary);
+  transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+}
+
+.socialLink:hover {
+  border-color: var(--color-border-medium);
+  background: var(--color-bg-secondary);
+}
+
+.socialLink:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-color: var(--color-accent);
+}
+
+.socialLink:active {
+  transform: scale(0.96);
+}
+
+.socialIcon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
 }
 
 .copyright {

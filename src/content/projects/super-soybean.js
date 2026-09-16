@@ -28,7 +28,7 @@ export const superSoybean = {
     developmentEnvironment: ['Google Colab', 'GPU Training Environment']
   },
   assetDirectory: '/assets/projects/super-soybean/',
-  coverImage: '/assets/projects/super-soybean/dashboard-deploy-web-dark.png',
+  coverImage: '/assets/projects/super-soybean/Thumbnail.png',
   links: {
     repository: null,
     liveDemo: null,

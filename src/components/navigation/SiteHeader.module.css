@@ -31,6 +31,22 @@
   font-weight: 700;
   letter-spacing: -0.02em;
   flex-shrink: 0;
+  border-radius: var(--radius-sm);
+  padding: var(--space-1);
+  transition: opacity var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.brand:hover {
+  opacity: 0.8;
+}
+
+.brand:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.brand:active {
+  opacity: 0.6;
 }
 
 .desktopNav {
@@ -49,16 +65,47 @@
   padding: 0;
   display: flex;
   align-items: center;
-  gap: var(--space-5);
+  gap: var(--space-2);
 }
 
 .navList a {
   font-size: 0.875rem;
   font-weight: 500;
   white-space: nowrap;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast), background-color var(--transition-fast), box-shadow var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.navList a:hover {
+  color: var(--color-accent);
+  background-color: var(--color-bg-secondary);
+}
+
+.navList a:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  color: var(--color-accent);
+}
+
+.navList a:active {
+  background-color: var(--color-border-soft);
 }
 
 .resumeLink {
   color: var(--color-accent) !important;
 }
 
+.resumeLink:hover {
+  background-color: var(--color-accent-soft) !important;
+}
+
+
+.logoImage {
+  height: 24px;
+  width: auto;
+  display: block;
+}

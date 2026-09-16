@@ -1,36 +1,36 @@
 .aboutSection {
-  padding: var(--space-10) 0;
+  padding: var(--space-section-mobile) 0;
   border-top: 1px solid var(--color-border-soft);
 }
 
 @media (min-width: 768px) {
   .aboutSection {
-    padding: var(--space-11) 0;
+    padding: var(--space-section-tablet) 0;
   }
 }
 
 @media (min-width: 1024px) {
   .aboutSection {
-    padding: var(--space-12) 0;
+    padding: var(--space-section-desktop) 0;
   }
 }
 
 /* --- Section Header --- */
 
 .header {
-  margin-bottom: var(--space-9);
+  margin-bottom: var(--space-header-bottom-mobile);
   max-width: 800px;
 }
 
 @media (min-width: 768px) {
   .header {
-    margin-bottom: var(--space-10);
+    margin-bottom: var(--space-header-bottom-desktop);
   }
 }
 
 .label {
   display: block;
-  font-size: 0.75rem;
+  font-size: var(--text-metadata);
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -39,9 +39,9 @@
 }
 
 .title {
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-size: var(--text-h2);
   font-weight: 600;
-  line-height: 1.2;
+  line-height: var(--line-height-heading);
   color: var(--color-text-primary);
   letter-spacing: -0.02em;
 }
@@ -72,9 +72,9 @@
 }
 
 .textBlock p {
-  font-size: 1.125rem;
+  font-size: var(--text-body-large);
   color: var(--color-text-secondary);
-  line-height: 1.7;
+  line-height: var(--line-height-body);
   margin: 0;
   max-width: 65ch;
 }
@@ -102,7 +102,7 @@
 }
 
 .factLabel {
-  font-size: 0.75rem;
+  font-size: var(--text-metadata);
   color: var(--color-text-tertiary-strong);
   font-weight: 500;
   letter-spacing: 0.05em;
@@ -110,7 +110,7 @@
 }
 
 .factValue {
-  font-size: 1rem;
+  font-size: var(--text-body);
   color: var(--color-text-primary);
   font-weight: 500;
 }

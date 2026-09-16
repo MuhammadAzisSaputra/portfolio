@@ -20,7 +20,7 @@ export const bikeSharing = {
     environment: ['Conda', 'Virtual Environment', 'Pipenv']
   },
   assetDirectory: '/assets/projects/bike-sharing/',
-  coverImage: '/assets/projects/bike-sharing/simple_dashboard.png',
+  coverImage: '/assets/projects/bike-sharing/Thumbnail.png',
   links: {
     repository: null,
     liveDemo: null,

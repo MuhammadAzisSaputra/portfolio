@@ -23,7 +23,7 @@ export const grahaRaya = {
     libraries: ['PACE Loading Indicator', 'Perfect Scrollbar', 'MetisMenu', 'Bootstrap Icons', 'Ionicons']
   },
   assetDirectory: '/assets/projects/graha-raya/',
-  coverImage: '/assets/projects/graha-raya/dashboard-admin-dark.png',
+  coverImage: '/assets/projects/graha-raya/Thumbnail.png',
   links: {
     repository: null,
     liveDemo: null,

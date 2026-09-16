@@ -20,10 +20,10 @@ export default function FeaturedProject({ project }) {
         <p className={styles.category}>{project.category}</p>
         <h3 className={styles.name}>{project.name}</h3>
         <p className={styles.summary}>{project.cardDescription || project.summary}</p>
-        
+
         <div className={styles.cta}>
           <Button as="link" to={project.route} variant="primary">
-            View Case Study
+            View Project
           </Button>
         </div>
       </div>

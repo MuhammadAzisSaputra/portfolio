@@ -24,7 +24,7 @@ export const sibuku = {
     tools: ['Composer', 'XAMPP']
   },
   assetDirectory: '/assets/projects/sibuku/',
-  coverImage: '/assets/projects/sibuku/dashboard-admin-dark.png',
+  coverImage: '/assets/projects/sibuku/Thumbnail.png',
   links: {
     repository: null,
     liveDemo: null,

@@ -21,7 +21,7 @@ export const brofin = {
     cloudBackend: ['Firestore', 'Cloud Run', 'App Engine', 'Cloud Storage', 'API services', 'Authentication services']
   },
   assetDirectory: '/assets/projects/brofin/',
-  coverImage: '/assets/projects/brofin/App Show.png',
+  coverImage: '/assets/projects/brofin/Thumbnail.png',
   links: {
     repository: 'https://github.com/CP-Finance-Goals',
     liveDemo: null,

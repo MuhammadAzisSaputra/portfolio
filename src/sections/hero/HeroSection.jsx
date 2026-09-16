@@ -34,7 +34,7 @@ export default function HeroSection() {
         <div className={styles.portraitCol}>
           <div className={styles.portraitStage}>
             <img
-              src="/assets/personal/portrait/profile-semi-formal.jpeg"
+              src="/assets/personal/portrait/profile-semi-formal-no-background.png"
               alt="Muhammad Azis Saputra portrait"
               className={styles.portraitImage}
             />
