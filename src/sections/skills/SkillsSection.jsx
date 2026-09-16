@@ -91,7 +91,7 @@ export default function SkillsSection() {
               <div className={styles.skillList}>
                 {category.skills.map((skill, idx) => (
                   <span key={idx} className={styles.skillTag}>
-                    {skill.icon && <img src={skill.icon} alt={`${skill.name} icon`} className={styles.skillIcon} />}
+                    {skill.icon && <img src={skill.icon} alt={`${skill.name} icon`} className={styles.skillIcon} loading="lazy" />}
                     {skill.name}
                   </span>
                 ))}
@@ -106,7 +106,7 @@ export default function SkillsSection() {
             <div className={styles.skillList}>
               {exploringSkills.map((skill, idx) => (
                 <span key={idx} className={styles.skillTag}>
-                  {skill.icon && <img src={skill.icon} alt={`${skill.name} icon`} className={styles.skillIcon} />}
+                  {skill.icon && <img src={skill.icon} alt={`${skill.name} icon`} className={styles.skillIcon} loading="lazy" />}
                   {skill.name}
                 </span>
               ))}

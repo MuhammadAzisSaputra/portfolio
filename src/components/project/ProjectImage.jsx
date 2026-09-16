@@ -6,7 +6,7 @@ export default function ProjectImage({ src, alt, caption }) {
   return (
     <figure className={styles.figure}>
       <div className={styles.imageWrapper}>
-        <img src={src} alt={alt} className={styles.image} />
+        <img src={src} alt={alt} className={styles.image} loading="lazy" />
       </div>
       {caption && <figcaption className={styles.caption}>{caption}</figcaption>}
     </figure>

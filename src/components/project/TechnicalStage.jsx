@@ -13,6 +13,7 @@ export default function TechnicalStage({ title, description, imageSrc, imageAlt,
           alt={imageAlt || title || "Technical Diagram"} 
           className={styles.image}
           style={imageStyle}
+          loading="lazy"
         />
       </div>
     </div>

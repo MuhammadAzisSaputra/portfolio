@@ -8,6 +8,7 @@ export default function ProjectVisual({ project }) {
           src={project.coverImage} 
           alt={`${project.name} project cover`} 
           className={styles.image} 
+          loading="lazy"
         />
       </div>
     );
