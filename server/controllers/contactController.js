@@ -6,7 +6,7 @@ const normalizeText = (value) => {
     return typeof value === 'string' ? value.trim() : ''
 }
 
-export const createContactMessage = async (req, res) => {
+export const createContactMessage = async (req, res, next) => {
     const name = normalizeText(req.body.name)
     const email = normalizeText(req.body.email).toLowerCase()
     const subject = normalizeText(req.body.subject)
@@ -72,11 +72,6 @@ export const createContactMessage = async (req, res) => {
             },
         })
     } catch (error) {
-        console.error('Failed to save contact message:', error)
-
-        return res.status(500).json({
-            success: false,
-            message: 'Unable to send your message. Please try again later.',
-        })
+        next(error)
     }
 }
