@@ -173,13 +173,71 @@
   margin-top: var(--space-2);
 }
 
-/* --- Dev Notice --- */
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
 
-.devNotice {
+.textareaWrapper {
+  position: relative;
+  display: flex;
+}
+
+.inputIcon {
+  position: absolute;
+  right: var(--space-3);
+  color: var(--color-error);
+  pointer-events: none;
+}
+
+.textareaIcon {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  color: var(--color-error);
+  pointer-events: none;
+}
+
+/* --- Form Status and Errors --- */
+
+.inputError {
+  border-color: var(--color-error);
+  padding-right: var(--space-8);
+}
+
+.inputError:focus {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px rgba(217, 45, 32, 0.15); /* color-error with opacity */
+}
+
+.inputSuccess {
+  border-color: var(--color-success);
+  padding-right: var(--space-8);
+}
+
+.inputSuccess:focus {
+  border-color: var(--color-success);
+  box-shadow: 0 0 0 3px rgba(34, 164, 71, 0.15); /* color-success with opacity */
+}
+
+.successIcon {
+  color: var(--color-success);
+}
+
+.fieldError {
   font-size: var(--text-metadata);
-  color: var(--color-text-tertiary);
-  text-align: center;
-  margin-top: var(--space-2);
+  color: var(--color-error);
+  margin-top: var(--space-1);
+  display: flex;
+  align-items: center;
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
 }
 
 
