@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Users, Database, Package, CreditCard, FileText, CheckCircle, Server, Workflow, ArrowLeft, ArrowRight, Expand } from 'lucide-react';
 import ProjectDemoGallery from '../../components/project/ProjectDemoGallery';
-import TechnicalStage from '../../components/project/TechnicalStage';
-import ProjectNavigation from '../../components/project/ProjectNavigation';
+import Container from '../../components/ui/Container';
 import styles from './SibukuCaseStudy.module.css';
 import { projects } from '../../content/projects';
 
@@ -13,8 +14,8 @@ export default function SibukuCaseStudy({ project }) {
   const cs = project.caseStudy;
 
   const currentIndex = projects.findIndex(p => p.slug === project.slug);
-  const previous = currentIndex > 0 ? projects[currentIndex - 1] : null;
-  const next = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
+  const previous = projects[(currentIndex - 1 + projects.length) % projects.length];
+  const next = projects[(currentIndex + 1) % projects.length];
 
   const demoImages = [
     { src: '/assets/projects/sibuku/login-admin-light.png', alt: 'Login', isMobile: false },
@@ -48,8 +49,8 @@ export default function SibukuCaseStudy({ project }) {
 
   return (
     <main className={styles.page}>
-      <div className={styles.container}>
-        
+      <Container>
+
         {/* Project Hero */}
         <header className={styles.hero}>
           <div className={styles.category}>{project.category}</div>
@@ -94,32 +95,11 @@ export default function SibukuCaseStudy({ project }) {
           <div className={`${styles.balancedGrid} ${styles[`grid-len-${cs.solution.length}`]}`}>
             {cs.solution.map((item, i) => (
               <div key={i} className={`${styles.card} ${styles.balancedCard}`}>
+                <div className={styles.cardIconWrapper}>
+                  {i === 0 ? <Server className={styles.cardIcon} /> : i === 1 ? <Workflow className={styles.cardIcon} /> : <FileText className={styles.cardIcon} />}
+                </div>
                 <h3 className={styles.cardTitle}>{item.title}</h3>
                 <p className={styles.cardDesc}>{item.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Demo App */}
-        <ProjectDemoGallery images={demoImages} />
-
-        {/* My Contribution */}
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>My Contribution</h2>
-          <div className={styles.prose}>
-            <p><strong>Role:</strong> {cs.contribution.role}</p>
-            <p>{cs.contribution.focus}</p>
-          </div>
-          <div className={`${styles.balancedGrid} ${styles[`grid-len-${cs.contribution.sections.length}`]}`}>
-            {cs.contribution.sections.map((section, i) => (
-              <div key={i} className={`${styles.card} ${styles.balancedCard}`}>
-                <h3 className={styles.cardTitle}>{section.title}</h3>
-                <div className={styles.cardDesc}>
-                  {section.implementation.map((para, idx) => (
-                    <p key={idx} style={{marginBottom: idx === section.implementation.length - 1 ? 0 : '8px'}}>{para}</p>
-                  ))}
-                </div>
               </div>
             ))}
           </div>
@@ -131,6 +111,13 @@ export default function SibukuCaseStudy({ project }) {
           <div className={`${styles.balancedGrid} ${styles[`grid-len-${cs.keyFeatures.length}`]}`}>
             {cs.keyFeatures.map((item, i) => (
               <div key={i} className={`${styles.card} ${styles.balancedCard}`}>
+                <div className={styles.cardIconWrapper}>
+                  {i === 0 ? <Users className={styles.cardIcon} /> :
+                    i === 1 ? <Database className={styles.cardIcon} /> :
+                      i === 2 ? <Package className={styles.cardIcon} /> :
+                        i === 3 ? <CreditCard className={styles.cardIcon} /> :
+                          <FileText className={styles.cardIcon} />}
+                </div>
                 <h3 className={styles.cardTitle}>{item.title}</h3>
                 <p className={styles.cardDesc}>{item.description}</p>
               </div>
@@ -138,29 +125,65 @@ export default function SibukuCaseStudy({ project }) {
           </div>
         </section>
 
+        {/* Application Workflow */}
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Application Workflow</h2>
+          <p className={styles.prose}>End-to-end digital workflow from master data management to transaction processing and automated report generation.</p>
+          <div className={styles.stage}>
+            <img src={cs.workflow.image.src} alt={cs.workflow.image.alt} className={styles.stageImage} />
+          </div>
+        </section>
+
         {/* System Architecture */}
-        <TechnicalStage 
-          title="System Architecture"
-          description="The system uses the Yii2 MVC framework with an architecture that strictly separates views, business logic (models), and incoming requests (controllers)."
-          imageSrc={cs.architecture.image.src}
-          imageAlt={cs.architecture.image.alt}
-        />
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>System Architecture</h2>
+          <p className={styles.prose}>The system uses the Yii2 MVC framework with an architecture that strictly separates views, business logic (models), and incoming requests (controllers).</p>
+          <div className={styles.stage}>
+            <img src={cs.architecture.image.src} alt={cs.architecture.image.alt} className={styles.stageImage} />
+          </div>
+        </section>
 
         {/* Database Design */}
-        <TechnicalStage 
-          title="Database Design"
-          description="Relational database schema managing books, warehouse stock, customers, transactions, and payments with foreign key relationships for consistency."
-          imageSrc={cs.databaseDesign.image.src}
-          imageAlt={cs.databaseDesign.image.alt}
-        />
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Database Design</h2>
+          <p className={styles.prose}>Relational database schema managing books, warehouse stock, customers, transactions, and payments with foreign key relationships for consistency.</p>
+          <div className={styles.stage}>
+            <img src={cs.databaseDesign.image.src} alt={cs.databaseDesign.image.alt} className={styles.stageImage} />
+          </div>
+        </section>
 
-        {/* Application Workflow */}
-        <TechnicalStage 
-          title="Application Workflow"
-          description="End-to-end digital workflow from master data management to transaction processing and automated report generation."
-          imageSrc={cs.workflow.image.src}
-          imageAlt={cs.workflow.image.alt}
-        />
+        {/* Demo App */}
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Demo App</h2>
+          <p className={styles.prose}>Explore the application interface and primary workflows.</p>
+          <ProjectDemoGallery images={demoImages} title={null} description={null} />
+        </section>
+
+        {/* My Contribution */}
+        <section className={`${styles.section} ${styles.fullWidthPanel}`}>
+          <div className={styles.panelHeader}>
+            <Expand className={styles.panelIcon} size={32} />
+            <h2 className={styles.panelTitle}>Contribution</h2>
+            <div className={styles.panelRoleBadge}>{cs.contribution.role}</div>
+          </div>
+          <p className={styles.panelSummary}>{cs.contribution.focus}</p>
+
+          <div className={styles.panelGrid}>
+            {cs.contribution.sections.map((section, i) => (
+              <div key={i} className={styles.panelCard}>
+                <h3 className={styles.panelCardTitle}>{section.title}</h3>
+                <div className={styles.panelCardBody}>
+                  <div className={styles.panelCardCol}>
+                    <h4 className={styles.panelCardSubtitle}>Implementation</h4>
+                    {section.implementation.map((para, idx) => (
+                      <p key={idx} className={styles.panelText}>{para}</p>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
 
         {/* Technology Stack */}
         <section className={styles.section}>
@@ -193,7 +216,7 @@ export default function SibukuCaseStudy({ project }) {
                   <p className={styles.challengeText}>{item.challenge}</p>
                 </div>
                 <div className={styles.challengeBlock}>
-                  <div className={styles.challengeLabel}>Solution</div>
+                  <div className={styles.challengeLabelSuccess}>Solution</div>
                   <p className={styles.challengeText}>{item.solution}</p>
                 </div>
               </div>
@@ -204,14 +227,28 @@ export default function SibukuCaseStudy({ project }) {
         {/* Project Outcome */}
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Project Outcome</h2>
-          <div className={styles.prose}>
-            {cs.outcome.map((para, i) => <p key={i}>{para}</p>)}
+          <div className={`${styles.balancedGrid} ${styles['grid-len-3']}`}>
+            <div className={`${styles.card} ${styles.balancedCard}`}>
+              <div className={styles.cardIconWrapper}><Workflow className={styles.cardIcon} /></div>
+              <h3 className={styles.cardTitle}>Operational Digitalization</h3>
+              <p className={styles.cardDesc}>{cs.outcome[0]}</p>
+            </div>
+            <div className={`${styles.card} ${styles.balancedCard}`}>
+              <div className={styles.cardIconWrapper}><Database className={styles.cardIcon} /></div>
+              <h3 className={styles.cardTitle}>Integrated Capabilities</h3>
+              <p className={styles.cardDesc}>{cs.outcome[1]}</p>
+            </div>
+            <div className={`${styles.card} ${styles.balancedCard}`}>
+              <div className={styles.cardIconWrapper}><CheckCircle className={styles.cardIcon} /></div>
+              <h3 className={styles.cardTitle}>Complete System</h3>
+              <p className={styles.cardDesc}>{cs.outcome[2]}</p>
+            </div>
           </div>
         </section>
 
         {/* Key Learning */}
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>Key Learning</h2>
+          <h2 className={styles.sectionTitle}>What I Learned</h2>
           <div className={`${styles.balancedGrid} ${styles[`grid-len-${cs.learnings.length}`]}`}>
             {cs.learnings.map((item, i) => (
               <div key={i} className={`${styles.card} ${styles.balancedCard}`}>
@@ -222,9 +259,26 @@ export default function SibukuCaseStudy({ project }) {
           </div>
         </section>
 
-        <ProjectNavigation previous={previous} next={next} />
+        {/* Circular Project Navigation */}
+        <nav className={styles.compactNav}>
+          <Link to={previous.route} className={styles.compactNavLink}>
+            <ArrowLeft size={20} />
+            <div className={styles.compactNavGroup}>
+              <span className={styles.compactNavLabel}>Previous Project</span>
+              <span className={styles.compactNavTitle}>{previous.name}</span>
+            </div>
+          </Link>
 
-      </div>
+          <Link to={next.route} className={`${styles.compactNavLink} ${styles.compactNavLinkRight}`}>
+            <ArrowRight size={20} />
+            <div className={styles.compactNavGroup}>
+              <span className={styles.compactNavLabel}>Next Project</span>
+              <span className={styles.compactNavTitle}>{next.name}</span>
+            </div>
+          </Link>
+        </nav>
+
+      </Container>
     </main>
   );
 }

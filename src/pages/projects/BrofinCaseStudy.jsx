@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Wallet, Target, LineChart, ShoppingBag, Database, BrainCircuit, CloudCog, Users, Cloud, Smartphone, ArrowLeft, ArrowRight, CheckCircle, Award, Lightbulb, Expand } from 'lucide-react';
 import ProjectDemoGallery from '../../components/project/ProjectDemoGallery';
-import TechnicalStage from '../../components/project/TechnicalStage';
-import ProjectNavigation from '../../components/project/ProjectNavigation';
 import Button from '../../components/ui/Button';
+import Container from '../../components/ui/Container';
 import styles from './BrofinCaseStudy.module.css';
 import { projects } from '../../content/projects';
 
@@ -14,8 +15,8 @@ export default function BrofinCaseStudy({ project }) {
   const cs = project.caseStudy;
 
   const currentIndex = projects.findIndex(p => p.slug === project.slug);
-  const previous = currentIndex > 0 ? projects[currentIndex - 1] : null;
-  const next = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
+  const previous = projects[(currentIndex - 1 + projects.length) % projects.length];
+  const next = projects[(currentIndex + 1) % projects.length];
 
   const demoImages = [
     { src: '/assets/projects/brofin/Spalash Screen.jpg', alt: 'Splash Screen', isMobile: true },
@@ -41,8 +42,8 @@ export default function BrofinCaseStudy({ project }) {
 
   return (
     <main className={styles.page}>
-      <div className={styles.container}>
-        
+      <Container>
+
         {/* Project Hero */}
         <header className={styles.hero}>
           <div className={styles.category}>{project.category}</div>
@@ -92,6 +93,12 @@ export default function BrofinCaseStudy({ project }) {
           <div className={`${styles.balancedGrid} ${styles[`grid-len-${cs.solution.length}`]}`}>
             {cs.solution.map((item, i) => (
               <div key={i} className={`${styles.card} ${styles.balancedCard}`}>
+                <div className={styles.cardIconWrapper}>
+                  {i === 0 ? <Wallet className={styles.cardIcon} /> :
+                    i === 1 ? <Target className={styles.cardIcon} /> :
+                      i === 2 ? <LineChart className={styles.cardIcon} /> :
+                        <ShoppingBag className={styles.cardIcon} />}
+                </div>
                 <h3 className={styles.cardTitle}>{item.title}</h3>
                 <p className={styles.cardDesc}>{item.description}</p>
               </div>
@@ -99,61 +106,157 @@ export default function BrofinCaseStudy({ project }) {
           </div>
         </section>
 
-        {/* Application Workflow */}
-        <TechnicalStage 
-          title="Application Workflow"
-          description={cs.workflow.description}
-          imageSrc={cs.workflow.image.src}
-          imageAlt={cs.workflow.image.alt}
-        />
-
-        {/* ML Contribution & Process */}
+        {/* Cross-Functional Team Context */}
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>Machine Learning Contribution</h2>
-          <div className={styles.prose}>
-            <p><strong>Role:</strong> {cs.contribution.role}</p>
-            <p>{cs.contribution.focus}</p>
+          <h2 className={styles.sectionTitle}>Cross-Functional Team Context</h2>
+          <p className={styles.prose}>Brofin was developed by a multidisciplinary 7-member team, focusing on seamless collaboration across Machine Learning, Cloud, and Mobile development.</p>
+          <div className={`${styles.balancedGrid} ${styles['grid-len-3']}`}>
+            <div className={`${styles.card} ${styles.balancedCard}`}>
+              <div className={styles.cardIconWrapper}><BrainCircuit className={styles.cardIcon} /></div>
+              <h3 className={styles.cardTitle}>Machine Learning</h3>
+            </div>
+            <div className={`${styles.card} ${styles.balancedCard}`}>
+              <div className={styles.cardIconWrapper}><Cloud className={styles.cardIcon} /></div>
+              <h3 className={styles.cardTitle}>Cloud Computing</h3>
+            </div>
+            <div className={`${styles.card} ${styles.balancedCard}`}>
+              <div className={styles.cardIconWrapper}><Smartphone className={styles.cardIcon} /></div>
+              <h3 className={styles.cardTitle}>Mobile Development</h3>
+            </div>
           </div>
-          <div className={`${styles.balancedGrid} ${styles[`grid-len-${cs.contribution.sections.length}`]}`}>
+        </section>
+
+        {/* ML Contribution */}
+        <section className={`${styles.section} ${styles.fullWidthPanel}`}>
+          <div className={styles.panelHeader}>
+            <Expand className={styles.panelIcon} size={32} />
+            <h2 className={styles.panelTitle}>Contribution</h2>
+            <div className={styles.panelRoleBadge}>{cs.contribution.role}</div>
+          </div>
+          <p className={styles.panelSummary}>{cs.contribution.focus}</p>
+
+          <div className={styles.panelGrid}>
             {cs.contribution.sections.map((section, i) => (
-              <div key={i} className={`${styles.card} ${styles.balancedCard}`}>
-                <h3 className={styles.cardTitle}>{section.title}</h3>
-                <div className={styles.cardDesc}>
-                  {section.implementation.map((para, idx) => (
-                    <p key={idx} style={{marginBottom: idx === section.implementation.length - 1 ? 0 : 'var(--space-2)'}}>{para}</p>
-                  ))}
+              <div key={i} className={styles.panelCard}>
+                <div className={styles.cardIconWrapper} style={{ marginBottom: 'var(--space-2)' }}>
+                  {i === 0 ? <Database className={styles.cardIcon} /> :
+                    i === 1 ? <BrainCircuit className={styles.cardIcon} /> :
+                      i === 2 ? <CloudCog className={styles.cardIcon} /> :
+                        <Users className={styles.cardIcon} />}
+                </div>
+                <h3 className={styles.panelCardTitle}>{section.title}</h3>
+                <div className={styles.panelCardBody}>
+                  <div className={styles.panelCardCol}>
+                    <h4 className={styles.panelCardSubtitle}>Implementation</h4>
+                    {section.implementation.map((para, idx) => (
+                      <p key={idx} className={styles.panelText}>{para}</p>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
           </div>
         </section>
 
-        {/* ML Architecture */}
-        <TechnicalStage 
-          title="Machine Learning Workflow"
-          description="End-to-end data preparation, model training, evaluation, and deployment."
-          imageSrc="/assets/projects/brofin/Machine Learning Workflow.png"
-          imageAlt="Machine Learning Workflow"
-        />
+        {/* Machine Learning Architecture & Workflow */}
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Machine Learning Architecture & Workflow</h2>
+          <p className={styles.prose}>End-to-end data preparation, model training, evaluation, and deployment workflow integrated within the broader application.</p>
+          <div className={styles.stageGrid}>
+            <div className={styles.stageItem}>
+              <h3 className={styles.stageItemTitle}>ML Architecture</h3>
+              <img src="/assets/projects/brofin/Machine Learning Architecture.png" alt="Machine Learning Architecture" className={styles.stageImage} />
+            </div>
+            <div className={styles.stageItem}>
+              <h3 className={styles.stageItemTitle}>ML Workflow</h3>
+              <img src="/assets/projects/brofin/Machine Learning Workflow.png" alt="Machine Learning Workflow" className={styles.stageImage} />
+            </div>
+          </div>
+        </section>
 
-        {/* Cloud Architecture Decision */}
-        <TechnicalStage 
-          title="Architecture Trade-off"
-          description="Cloud SQL to Firestore migration decision to manage cost constraints and preserve cloud credits."
-          imageSrc="/assets/projects/brofin/Cloud to Firestore.png"
-          imageAlt="Cloud to Firestore Architecture Decision"
-        />
+        {/* Conceptual Models */}
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Conceptual Model Flows</h2>
+          <p className={styles.prose}>Detailed mapping of the predictive workflows for housing estimates and product recommendations.</p>
+          <div className={styles.stageGrid}>
+            <div className={styles.stageItem}>
+              <h3 className={styles.stageItemTitle}>House Planning Model</h3>
+              <img src="/assets/projects/brofin/Conceptual Flow House Planning Model.png" alt="House Planning Model Flow" className={styles.stageImage} />
+            </div>
+            <div className={styles.stageItem}>
+              <h3 className={styles.stageItemTitle}>Product Recommendation Model</h3>
+              <img src="/assets/projects/brofin/Conceptual Flow Product Recommendation Model.png" alt="Product Recommendation Model Flow" className={styles.stageImage} />
+            </div>
+          </div>
+        </section>
 
-        {/* System Architecture */}
-        <TechnicalStage 
-          title="System Architecture"
-          description={cs.architecture.description}
-          imageSrc={cs.architecture.image.src}
-          imageAlt={cs.architecture.image.alt}
-        />
+        {/* System & Cloud Architecture */}
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>System & Cloud Architecture</h2>
+          <p className={styles.prose}>{cs.architecture.description}</p>
+          <div className={styles.stageGrid}>
+            <div className={styles.stageItem}>
+              <h3 className={styles.stageItemTitle}>System Architecture</h3>
+              <img src={cs.architecture.image.src} alt={cs.architecture.image.alt} className={styles.stageImage} />
+            </div>
+            <div className={styles.stageItem}>
+              <h3 className={styles.stageItemTitle}>Cloud Architecture Design</h3>
+              <img src="/assets/projects/brofin/Cloud Architecture Design.png" alt="Cloud Architecture Design" className={styles.stageImage} />
+            </div>
+          </div>
+        </section>
+
+        {/* Cloud SQL to Firestore Decision */}
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Cloud SQL to Firestore Decision</h2>
+          <p className={styles.prose}>During development, the team needed to manage Google Cloud resource consumption and available credits to ensure long-term stability.</p>
+
+          <div className={styles.tradeoffContainer}>
+            <div className={styles.tradeoffItem}>
+              <span className={styles.tradeoffLabel}>Initial Approach</span>
+              <span className={styles.tradeoffTitle}>Cloud SQL</span>
+            </div>
+            <ArrowRight className={styles.tradeoffArrow} size={24} />
+            <div className={styles.tradeoffItem}>
+              <span className={styles.tradeoffLabel}>Final Approach</span>
+              <span className={styles.tradeoffTitle}>Firestore</span>
+            </div>
+          </div>
+
+          <p className={styles.prose}>This architectural change preserved cloud credits while still fully supporting the application's backend requirements and data structures.</p>
+        </section>
+
+        {/* Development Process & Deployment */}
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Development Process & Deployment</h2>
+          <p className={styles.prose}>A structured workflow ensuring smooth integration between machine learning development and production deployment.</p>
+          <div className={styles.stageGrid}>
+            <div className={styles.stageItem}>
+              <h3 className={styles.stageItemTitle}>Development Process</h3>
+              <img src="/assets/projects/brofin/Development Process.png" alt="Development Process" className={styles.stageImage} />
+            </div>
+            <div className={styles.stageItem}>
+              <h3 className={styles.stageItemTitle}>Deployment</h3>
+              <img src="/assets/projects/brofin/Deployment.png" alt="Deployment" className={styles.stageImage} />
+            </div>
+          </div>
+        </section>
+
+        {/* Application Workflow */}
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Application Workflow</h2>
+          <p className={styles.prose}>{cs.workflow.description}</p>
+          <div className={styles.stage}>
+            <img src={cs.workflow.image.src} alt={cs.workflow.image.alt} className={styles.stageImage} />
+          </div>
+        </section>
 
         {/* Demo App */}
-        <ProjectDemoGallery images={demoImages} />
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Interactive Demo App</h2>
+          <p className={styles.prose}>Explore the complete flow from authentication and budgeting to machine learning predictions.</p>
+          <ProjectDemoGallery images={demoImages} title={null} description={null} />
+        </section>
 
         {/* Technology Stack */}
         <section className={styles.section}>
@@ -186,7 +289,7 @@ export default function BrofinCaseStudy({ project }) {
                   <p className={styles.challengeText}>{item.challenge}</p>
                 </div>
                 <div className={styles.challengeBlock}>
-                  <div className={styles.challengeLabel}>Solution</div>
+                  <div className={styles.challengeLabelSuccess}>Solution</div>
                   <p className={styles.challengeText}>{item.solution}</p>
                 </div>
               </div>
@@ -197,8 +300,22 @@ export default function BrofinCaseStudy({ project }) {
         {/* Project Outcome */}
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Project Outcome</h2>
-          <div className={styles.prose}>
-            {cs.outcome.map((para, i) => <p key={i}>{para}</p>)}
+          <div className={`${styles.balancedGrid} ${styles['grid-len-3']}`}>
+            <div className={`${styles.card} ${styles.balancedCard}`}>
+              <div className={styles.cardIconWrapper}><CheckCircle className={styles.cardIcon} /></div>
+              <h3 className={styles.cardTitle}>100% Completed</h3>
+              <p className={styles.cardDesc}>{cs.outcome[0]}</p>
+            </div>
+            <div className={`${styles.card} ${styles.balancedCard}`}>
+              <div className={styles.cardIconWrapper}><Award className={styles.cardIcon} /></div>
+              <h3 className={styles.cardTitle}>Hybrid Experience</h3>
+              <p className={styles.cardDesc}>{cs.outcome[1]}</p>
+            </div>
+            <div className={`${styles.card} ${styles.balancedCard}`}>
+              <div className={styles.cardIconWrapper}><CloudCog className={styles.cardIcon} /></div>
+              <h3 className={styles.cardTitle}>Successful Deployment</h3>
+              <p className={styles.cardDesc}>{cs.outcome[2]}</p>
+            </div>
           </div>
         </section>
 
@@ -208,6 +325,9 @@ export default function BrofinCaseStudy({ project }) {
           <div className={`${styles.balancedGrid} ${styles[`grid-len-${cs.learnings.length}`]}`}>
             {cs.learnings.map((item, i) => (
               <div key={i} className={`${styles.card} ${styles.balancedCard}`}>
+                <div className={styles.cardIconWrapper} style={{ marginBottom: 'var(--space-2)' }}>
+                  <Lightbulb className={styles.cardIcon} size={20} />
+                </div>
                 <h3 className={styles.cardTitle}>{item.title}</h3>
                 <p className={styles.cardDesc}>{item.description}</p>
               </div>
@@ -216,19 +336,37 @@ export default function BrofinCaseStudy({ project }) {
         </section>
 
         {project.links && project.links.repository && (
-           <section className={styles.section}>
-             <h2 className={styles.sectionTitle}>Project Repository</h2>
-             <div className={styles.prose}>
-                <Button as="a" href={project.links.repository} target="_blank" rel="noreferrer" variant="outline">
-                  View Repository on GitHub
-                </Button>
-             </div>
-           </section>
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Project Repository</h2>
+            <div className={styles.prose}>
+              <Button as="a" href={project.links.repository} target="_blank" rel="noreferrer" variant="outline">
+                View Repository on GitHub
+              </Button>
+            </div>
+          </section>
         )}
 
-        <ProjectNavigation previous={previous} next={next} />
+        {/* Circular Project Navigation */}
+        <nav className={styles.compactNav}>
+          <Link to={previous.route} className={styles.compactNavLink}>
+            <ArrowLeft size={20} />
+            <div className={styles.compactNavGroup}>
+              <span className={styles.compactNavLabel}>Previous Project</span>
+              <span className={styles.compactNavTitle}>{previous.name}</span>
+            </div>
+          </Link>
 
-      </div>
+          <Link to={next.route} className={`${styles.compactNavLink} ${styles.compactNavLinkRight}`}>
+            <ArrowRight size={20} />
+            <div className={styles.compactNavGroup}>
+              <span className={styles.compactNavLabel}>Next Project</span>
+              <span className={styles.compactNavTitle}>{next.name}</span>
+            </div>
+          </Link>
+        </nav>
+
+      </Container>
     </main>
   );
 }
+

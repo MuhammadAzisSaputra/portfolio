@@ -58,7 +58,6 @@
   color: var(--color-text-secondary);
   margin-bottom: var(--space-6);
   line-height: 1.55;
-  flex-grow: 1;
   /* max-width from globals.css p rule is overridden here for card context */
   max-width: 100%;
 }
@@ -69,5 +68,6 @@
   color: var(--color-text-primary);
   display: flex;
   align-items: center;
+  justify-content: center;
+  margin-top: auto;
 }
-

@@ -1,4 +1,3 @@
-import Container from '../../components/ui/Container';
 import styles from './ResearchSection.module.css';
 
 const interests = [
@@ -18,24 +17,15 @@ const interests = [
 
 export default function ResearchSection() {
   return (
-    <section id="research" className={styles.researchSection}>
-      <Container>
-        <header className={styles.header}>
-          <span className={styles.label}>Research Interest</span>
-          <h2 className={styles.title}>
-            Areas of technical exploration.
-          </h2>
-        </header>
-
-        <div className={styles.grid}>
-          {interests.map((item, index) => (
-            <div key={index} className={styles.card}>
-              <h3 className={styles.cardTitle}>{item.title}</h3>
-              <p className={styles.cardDesc}>{item.description}</p>
-            </div>
-          ))}
-        </div>
-      </Container>
-    </section>
+    <div className={styles.researchSection}>
+      <div className={styles.grid}>
+        {interests.map((item, index) => (
+          <div key={index} className={styles.card}>
+            <h3 className={styles.cardTitle}>{item.title}</h3>
+            <p className={styles.cardDesc}>{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }

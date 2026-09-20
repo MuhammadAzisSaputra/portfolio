@@ -3,11 +3,11 @@ export const superSoybean = {
   shortName: 'Super Soybean',
   slug: 'super-soybean',
   route: '/projects/super-soybean',
-  category: 'AI / Computer Vision / Smart Agriculture',
+  category: 'Computer Vision',
   projectType: 'Product-based Research Project',
-  role: 'AI Engineer, UI/UX Designer, Backend Developer',
+  role: 'AI Engineer',
   teamSize: '4 Members',
-  timeline: 'September — December 2025',
+  timeline: 'September 2025 — December 2025',
   duration: '3 Months',
   platform: 'Web Application',
   status: 'Completed',
@@ -71,11 +71,11 @@ export const superSoybean = {
       }
     ],
     contribution: {
-      role: 'AI Engineer, UI/UX Designer, Backend Developer',
+      role: 'AI Engineer & Fullstack Developer',
       focus: 'The contribution covered the AI development pipeline, application interface design, and backend integration. The strongest technical focus is YOLO26 Seed Counting.',
       sections: [
         {
-          title: 'AI Development — YOLO26 Seed Counting',
+          title: 'AI Development — Soybean Seed Counting',
           objective: 'Develop an object-detection model capable of detecting and counting soybean seeds, including cases where objects are small, close together, or overlapping.',
           process: [
             'Dataset Collection',

@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Search, ShoppingCart, LayoutDashboard, Rocket, CheckCircle, ArrowLeft, ArrowRight, Expand } from 'lucide-react';
 import ProjectDemoGallery from '../../components/project/ProjectDemoGallery';
-import TechnicalStage from '../../components/project/TechnicalStage';
-import ProjectNavigation from '../../components/project/ProjectNavigation';
+import Container from '../../components/ui/Container';
 import styles from './EtomacCaseStudy.module.css';
 import { projects } from '../../content/projects';
 
@@ -13,8 +14,8 @@ export default function EtomacCaseStudy({ project }) {
   const cs = project.caseStudy;
 
   const currentIndex = projects.findIndex(p => p.slug === project.slug);
-  const previous = currentIndex > 0 ? projects[currentIndex - 1] : null;
-  const next = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
+  const previous = projects[(currentIndex - 1 + projects.length) % projects.length];
+  const next = projects[(currentIndex + 1) % projects.length];
 
   const demoImages = [
     { src: '/assets/projects/etomac/index-guest.png', alt: 'Homepage', isMobile: false },
@@ -42,8 +43,8 @@ export default function EtomacCaseStudy({ project }) {
 
   return (
     <main className={styles.page}>
-      <div className={styles.container}>
-        
+      <Container>
+
         {/* Project Hero */}
         <header className={styles.hero}>
           <div className={styles.category}>{project.category}</div>
@@ -93,6 +94,9 @@ export default function EtomacCaseStudy({ project }) {
           <div className={`${styles.balancedGrid} ${styles[`grid-len-${cs.solution.length}`]}`}>
             {cs.solution.map((item, i) => (
               <div key={i} className={`${styles.card} ${styles.balancedCard}`}>
+                <div className={styles.cardIconWrapper}>
+                  {i === 0 ? <Search className={styles.cardIcon} /> : i === 1 ? <ShoppingCart className={styles.cardIcon} /> : <LayoutDashboard className={styles.cardIcon} />}
+                </div>
                 <h3 className={styles.cardTitle}>{item.title}</h3>
                 <p className={styles.cardDesc}>{item.description}</p>
               </div>
@@ -101,47 +105,59 @@ export default function EtomacCaseStudy({ project }) {
         </section>
 
         {/* Application Workflow */}
-        <TechnicalStage 
-          title="Application Workflow"
-          description={cs.workflow.description}
-          imageSrc={cs.workflow.image.src}
-          imageAlt={cs.workflow.image.alt}
-        />
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Application Workflow</h2>
+          <p className={styles.prose}>{cs.workflow.description}</p>
+          <div className={styles.stage}>
+            <img src={cs.workflow.image.src} alt={cs.workflow.image.alt} className={styles.stageImage} />
+          </div>
+        </section>
 
         {/* System Architecture */}
-        <TechnicalStage 
-          title="System Architecture"
-          description={cs.architecture.description}
-          imageSrc={cs.architecture.image.src}
-          imageAlt={cs.architecture.image.alt}
-        />
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>System Architecture</h2>
+          <p className={styles.prose}>{cs.architecture.description}</p>
+          <div className={styles.stage}>
+            <img src={cs.architecture.image.src} alt={cs.architecture.image.alt} className={styles.stageImage} />
+          </div>
+        </section>
 
         {/* Database Relationship */}
-        <TechnicalStage 
-          title="Database Relationship"
-          description="Relational database structure linking users, products, categories, orders, and payments."
-          imageSrc={cs.databaseDesign.image.src}
-          imageAlt={cs.databaseDesign.image.alt}
-        />
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Database Relationship</h2>
+          <p className={styles.prose}>Relational database structure linking users, products, categories, orders, and payments.</p>
+          <div className={styles.stage}>
+            <img src={cs.databaseDesign.image.src} alt={cs.databaseDesign.image.alt} className={styles.stageImage} />
+          </div>
+        </section>
 
         {/* Demo App Gallery */}
-        <ProjectDemoGallery images={demoImages} />
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Demo App Gallery</h2>
+          <p className={styles.prose}>Explore the complete customer e-commerce journey and the administrative management dashboard.</p>
+          <ProjectDemoGallery images={demoImages} title={null} description={null} />
+        </section>
 
         {/* My Contribution */}
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>My Contribution</h2>
-          <div className={styles.prose}>
-            <p><strong>Role:</strong> {cs.contribution.role}</p>
-            <p>{cs.contribution.focus}</p>
+        <section className={`${styles.section} ${styles.fullWidthPanel}`}>
+          <div className={styles.panelHeader}>
+            <Expand className={styles.panelIcon} size={32} />
+            <h2 className={styles.panelTitle}>Contribution</h2>
+            <div className={styles.panelRoleBadge}>{cs.contribution.role}</div>
           </div>
-          <div className={`${styles.balancedGrid} ${styles[`grid-len-${cs.contribution.sections.length}`]}`}>
+          <p className={styles.panelSummary}>{cs.contribution.focus}</p>
+
+          <div className={styles.panelGrid}>
             {cs.contribution.sections.map((section, i) => (
-              <div key={i} className={`${styles.card} ${styles.balancedCard}`}>
-                <h3 className={styles.cardTitle}>{section.title}</h3>
-                <div className={styles.cardDesc}>
-                  {section.implementation.map((para, idx) => (
-                    <p key={idx} style={{marginBottom: idx === section.implementation.length - 1 ? 0 : 'var(--space-2)'}}>{para}</p>
-                  ))}
+              <div key={i} className={styles.panelCard}>
+                <h3 className={styles.panelCardTitle}>{section.title}</h3>
+                <div className={styles.panelCardBody}>
+                  <div className={styles.panelCardCol}>
+                    <h4 className={styles.panelCardSubtitle}>Implementation</h4>
+                    {section.implementation.map((para, idx) => (
+                      <p key={idx} className={styles.panelText}>{para}</p>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
@@ -179,7 +195,7 @@ export default function EtomacCaseStudy({ project }) {
                   <p className={styles.challengeText}>{item.challenge}</p>
                 </div>
                 <div className={styles.challengeBlock}>
-                  <div className={styles.challengeLabel}>Solution</div>
+                  <div className={styles.challengeLabelSuccess}>Solution</div>
                   <p className={styles.challengeText}>{item.solution}</p>
                 </div>
               </div>
@@ -190,8 +206,17 @@ export default function EtomacCaseStudy({ project }) {
         {/* Project Outcome */}
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Project Outcome</h2>
-          <div className={styles.prose}>
-            {cs.outcome.map((para, i) => <p key={i}>{para}</p>)}
+          <div className={`${styles.balancedGrid} ${styles['grid-len-2']}`}>
+            <div className={`${styles.card} ${styles.balancedCard}`}>
+              <div className={styles.cardIconWrapper}><Rocket className={styles.cardIcon} /></div>
+              <h3 className={styles.cardTitle}>Rapid Delivery</h3>
+              <p className={styles.cardDesc}>{cs.outcome[0]}</p>
+            </div>
+            <div className={`${styles.card} ${styles.balancedCard}`}>
+              <div className={styles.cardIconWrapper}><CheckCircle className={styles.cardIcon} /></div>
+              <h3 className={styles.cardTitle}>Complete Workflow</h3>
+              <p className={styles.cardDesc}>{cs.outcome[1]}</p>
+            </div>
           </div>
         </section>
 
@@ -208,9 +233,26 @@ export default function EtomacCaseStudy({ project }) {
           </div>
         </section>
 
-        <ProjectNavigation previous={previous} next={next} />
+        {/* Circular Project Navigation */}
+        <nav className={styles.compactNav}>
+          <Link to={previous.route} className={styles.compactNavLink}>
+            <ArrowLeft size={20} />
+            <div className={styles.compactNavGroup}>
+              <span className={styles.compactNavLabel}>Previous Project</span>
+              <span className={styles.compactNavTitle}>{previous.name}</span>
+            </div>
+          </Link>
 
-      </div>
+          <Link to={next.route} className={`${styles.compactNavLink} ${styles.compactNavLinkRight}`}>
+            <ArrowRight size={20} />
+            <div className={styles.compactNavGroup}>
+              <span className={styles.compactNavLabel}>Next Project</span>
+              <span className={styles.compactNavTitle}>{next.name}</span>
+            </div>
+          </Link>
+        </nav>
+
+      </Container>
     </main>
   );
 }

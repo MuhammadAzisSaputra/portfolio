@@ -1,16 +1,16 @@
 .researchSection {
-  padding: var(--space-section-mobile) 0;
+  margin-top: var(--space-10);
 }
 
 @media (min-width: 768px) {
   .researchSection {
-    padding: var(--space-section-tablet) 0;
+    margin-top: var(--space-11);
   }
 }
 
 @media (min-width: 1024px) {
   .researchSection {
-    padding: var(--space-section-desktop) 0;
+    margin-top: var(--space-12);
   }
 }
 
@@ -54,6 +54,13 @@
 @media (min-width: 768px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--space-8);
   }
 }

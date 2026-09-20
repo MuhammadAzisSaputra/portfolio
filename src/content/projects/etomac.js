@@ -3,7 +3,7 @@ export const etomac = {
   shortName: 'Etomac',
   slug: 'etomac',
   route: '/projects/etomac',
-  category: 'Software Engineering / E-Commerce',
+  category: 'Web App Development',
   projectType: 'Freelance Project',
   role: 'Full Stack Web Developer',
   teamSize: 'Independent',

@@ -1,9 +1,9 @@
 export const brofin = {
-  name: 'Brofin — Brother Financial',
+  name: 'Brofin',
   shortName: 'Brofin',
   slug: 'brofin',
   route: '/projects/brofin',
-  category: 'Machine Learning / Product Development',
+  category: 'Mobile App Development',
   projectType: 'Product-based Capstone Project',
   role: 'Machine Learning Engineer',
   teamSize: '7 members',

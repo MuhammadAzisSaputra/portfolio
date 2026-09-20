@@ -1,9 +1,9 @@
 export const bikeSharing = {
-  name: 'Bike-Sharing Analysis Dashboard',
+  name: 'Bike-Sharing Dashboard',
   shortName: 'Bike-Sharing Dashboard',
   slug: 'bike-sharing-dashboard',
   route: '/projects/bike-sharing-dashboard',
-  category: 'Data Analytics / Dashboard',
+  category: 'Dashboard',
   projectType: 'Data Analytics Project',
   role: 'Data Analyst',
   platform: 'Interactive Dashboard',

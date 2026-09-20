@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Target, Lightbulb, Rocket, Brain, Layers, LayoutTemplate, ArrowLeft, ArrowRight, Shield, Zap, Tally5, Shapes, Expand } from 'lucide-react';
 import ProjectDemoGallery from '../../components/project/ProjectDemoGallery';
-import TechnicalStage from '../../components/project/TechnicalStage';
-import ProjectNavigation from '../../components/project/ProjectNavigation';
 import ProjectMetrics from '../../components/project/ProjectMetrics';
+import Container from '../../components/ui/Container';
 import styles from './SuperSoybeanCaseStudy.module.css';
 import { projects } from '../../content/projects';
 
@@ -14,8 +15,8 @@ export default function SuperSoybeanCaseStudy({ project }) {
   const cs = project.caseStudy;
 
   const currentIndex = projects.findIndex(p => p.slug === project.slug);
-  const previous = currentIndex > 0 ? projects[currentIndex - 1] : null;
-  const next = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
+  const previous = projects[(currentIndex - 1 + projects.length) % projects.length];
+  const next = projects[(currentIndex + 1) % projects.length];
 
   const demoImages = [
     { src: '/assets/projects/super-soybean/dashboard-deploy-web-light.png', alt: 'Dashboard', isMobile: false },
@@ -40,10 +41,12 @@ export default function SuperSoybeanCaseStudy({ project }) {
     { src: '/assets/projects/super-soybean/about-local-web-light.png', alt: 'Local About', isMobile: false }
   ];
 
+  const cardIcons = [Target, Tally5, Shapes, Shield, Zap];
+
   return (
     <main className={styles.page}>
-      <div className={styles.container}>
-        
+      <Container>
+
         {/* Project Hero */}
         <header className={styles.hero}>
           <div className={styles.category}>{project.category}</div>
@@ -82,42 +85,56 @@ export default function SuperSoybeanCaseStudy({ project }) {
         {/* Problem & Solution */}
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Problem & Solution</h2>
+
           <div className={styles.prose}>
             {cs.problem.map((para, i) => <p key={i}>{para}</p>)}
           </div>
-          <div className={`${styles.balancedGrid} ${styles[`grid-len-${cs.solution.length}`]}`}>
-            {cs.solution.map((item, i) => (
-              <div key={i} className={`${styles.card} ${styles.balancedCard}`}>
-                <h3 className={styles.cardTitle}>{item.title}</h3>
-                <p className={styles.cardDesc}>{item.description}</p>
-              </div>
-            ))}
+
+          <div className={`${styles.balancedGrid} ${styles['grid-len-5']}`}>
+            {cs.solution.map((item, i) => {
+              const IconComponent = cardIcons[i] || Lightbulb;
+              return (
+                <div key={i} className={`${styles.solutionCard} ${styles.balancedCard}`}>
+                  <div className={styles.cardIconWrapper}>
+                    <IconComponent className={styles.cardIcon} />
+                  </div>
+                  <h3 className={styles.cardTitle}>{item.title}</h3>
+                  <p className={styles.cardDesc}>{item.description}</p>
+                </div>
+              );
+            })}
           </div>
         </section>
 
         {/* My Contribution (AI Development) */}
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>AI Contribution</h2>
-          <div className={styles.prose}>
-            <p><strong>Role:</strong> {cs.contribution.role}</p>
-            <p>{cs.contribution.focus}</p>
+        <section className={`${styles.section} ${styles.fullWidthPanel}`}>
+          <div className={styles.panelHeader}>
+            <Expand className={styles.panelIcon} size={32} />
+            <h2 className={styles.panelTitle}>Contribution</h2>
+            <div className={styles.panelRoleBadge}>{cs.contribution.role}</div>
           </div>
-          <div className={`${styles.balancedGrid} ${styles[`grid-len-${cs.contribution.sections.length}`]}`}>
+          <p className={styles.panelSummary}>{cs.contribution.focus}</p>
+
+          <div className={styles.panelGrid}>
             {cs.contribution.sections.map((section, i) => (
-              <div key={i} className={`${styles.card} ${styles.balancedCard}`}>
-                <h3 className={styles.cardTitle}>{section.title}</h3>
-                <div className={styles.cardDesc}>
-                  <p><strong>Objective:</strong> {section.objective}</p>
-                  <p style={{ marginTop: 'var(--space-4)', marginBottom: 'var(--space-2)' }}><strong>Development Process:</strong></p>
-                  <ul style={{ paddingLeft: 'var(--space-4)', marginBottom: 'var(--space-4)' }}>
-                    {section.process.map((step, idx) => (
-                      <li key={idx} style={{ marginBottom: 'var(--space-1)' }}>{step}</li>
+              <div key={i} className={styles.panelCard}>
+                <h3 className={styles.panelCardTitle}>{section.title}</h3>
+                <p className={styles.panelCardObjective}><strong>Objective:</strong> {section.objective}</p>
+                <div className={styles.panelCardBody}>
+                  <div className={styles.panelCardCol}>
+                    <h4 className={styles.panelCardSubtitle}>Development Process</h4>
+                    <ul className={styles.panelList}>
+                      {section.process.map((step, idx) => (
+                        <li key={idx}>{step}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className={styles.panelCardCol}>
+                    <h4 className={styles.panelCardSubtitle}>Implementation</h4>
+                    {section.implementation.map((para, idx) => (
+                      <p key={idx} className={styles.panelText}>{para}</p>
                     ))}
-                  </ul>
-                  <p style={{ marginBottom: 'var(--space-2)' }}><strong>Implementation:</strong></p>
-                  {section.implementation.map((para, idx) => (
-                    <p key={idx} style={{marginBottom: idx === section.implementation.length - 1 ? 0 : 'var(--space-2)'}}>{para}</p>
-                  ))}
+                  </div>
                 </div>
               </div>
             ))}
@@ -131,34 +148,40 @@ export default function SuperSoybeanCaseStudy({ project }) {
         </section>
 
         {/* Inference Evidence */}
-        <TechnicalStage 
-          title="Inference Evidence"
-          description={cs.performanceImage.caption}
-          imageSrc={cs.performanceImage.src}
-          imageAlt={cs.performanceImage.alt}
-        />
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Inference Evidence</h2>
+          <p className={styles.prose}>{cs.performanceImage.caption}</p>
+          <div className={styles.stage}>
+            <img src={cs.performanceImage.src} alt={cs.performanceImage.alt} className={styles.stageImage} />
+          </div>
+        </section>
 
         {/* System Architecture */}
-        <TechnicalStage 
-          title="System Architecture"
-          description={cs.architecture.description}
-          imageSrc={cs.architecture.image.src}
-          imageAlt={cs.architecture.image.alt}
-        />
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>System Architecture</h2>
+          <p className={styles.prose}>{cs.architecture.description}</p>
+          <div className={styles.stage}>
+            <img src={cs.architecture.image.src} alt={cs.architecture.image.alt} className={styles.stageImage} />
+          </div>
+        </section>
 
         {/* Application Workflow */}
-        <TechnicalStage 
-          title="Application Workflow"
-          description="End-to-end digital workflow from user selection to real-time object detection processing."
-          imageSrc={cs.workflow.image.src}
-          imageAlt={cs.workflow.image.alt}
-        />
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Application Workflow</h2>
+          <p className={styles.prose}>End-to-end digital workflow from user selection to real-time object detection processing.</p>
+          <div className={styles.stage}>
+            <img src={cs.workflow.image.src} alt={cs.workflow.image.alt} className={styles.stageImage} />
+          </div>
+        </section>
 
         {/* Backend & Frontend Workflow */}
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Web Development</h2>
           <div className={`${styles.balancedGrid} ${styles[`grid-len-2`]}`}>
             <div className={`${styles.card} ${styles.balancedCard}`}>
+              <div className={styles.cardIconWrapper}>
+                <Layers className={styles.cardIcon} />
+              </div>
               <h3 className={styles.cardTitle}>Backend (Flask)</h3>
               <p className={styles.cardDesc} style={{ marginBottom: 'var(--space-4)' }}>{cs.backend.description}</p>
               <ul className={styles.cardDesc} style={{ paddingLeft: 'var(--space-4)' }}>
@@ -168,6 +191,9 @@ export default function SuperSoybeanCaseStudy({ project }) {
               </ul>
             </div>
             <div className={`${styles.card} ${styles.balancedCard}`}>
+              <div className={styles.cardIconWrapper}>
+                <LayoutTemplate className={styles.cardIcon} />
+              </div>
               <h3 className={styles.cardTitle}>Frontend & UI/UX</h3>
               <p className={styles.cardDesc} style={{ marginBottom: 'var(--space-4)' }}>{cs.frontend.description}</p>
               <ul className={styles.cardDesc} style={{ paddingLeft: 'var(--space-4)' }}>
@@ -180,7 +206,11 @@ export default function SuperSoybeanCaseStudy({ project }) {
         </section>
 
         {/* Demo App */}
-        <ProjectDemoGallery images={demoImages} />
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Demo App</h2>
+          <p className={styles.prose}>Explore the application interface and primary workflows.</p>
+          <ProjectDemoGallery images={demoImages} title={null} description={null} />
+        </section>
 
         {/* Technology Stack */}
         <section className={styles.section}>
@@ -213,7 +243,7 @@ export default function SuperSoybeanCaseStudy({ project }) {
                   <p className={styles.challengeText}>{item.challenge}</p>
                 </div>
                 <div className={styles.challengeBlock}>
-                  <div className={styles.challengeLabel}>Solution</div>
+                  <div className={styles.challengeLabelSuccess}>Solution</div>
                   <p className={styles.challengeText}>{item.solution}</p>
                 </div>
               </div>
@@ -224,8 +254,23 @@ export default function SuperSoybeanCaseStudy({ project }) {
         {/* Project Outcome */}
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Project Outcome</h2>
-          <div className={styles.prose}>
-            {cs.outcome.map((para, i) => <p key={i}>{para}</p>)}
+          <p className={styles.prose}>{cs.outcome[0]}</p>
+          <div className={`${styles.balancedGrid} ${styles['grid-len-3']}`}>
+            <div className={`${styles.card} ${styles.balancedCard}`}>
+              <div className={styles.cardIconWrapper}><Brain className={styles.cardIcon} /></div>
+              <h3 className={styles.cardTitle}>Agricultural AI Features</h3>
+              <p className={styles.cardDesc}>Delivered AI-based soybean seed detection and multi-feature agricultural analysis workflows.</p>
+            </div>
+            <div className={`${styles.card} ${styles.balancedCard}`}>
+              <div className={styles.cardIconWrapper}><Layers className={styles.cardIcon} /></div>
+              <h3 className={styles.cardTitle}>Web Application Platform</h3>
+              <p className={styles.cardDesc}>Built a responsive web interface integrated with a robust Flask-based backend system.</p>
+            </div>
+            <div className={`${styles.card} ${styles.balancedCard}`}>
+              <div className={styles.cardIconWrapper}><Rocket className={styles.cardIcon} /></div>
+              <h3 className={styles.cardTitle}>Real-time Capabilities</h3>
+              <p className={styles.cardDesc}>Enabled real-time Computer Vision capability for continuous monitoring and immediate inference results.</p>
+            </div>
           </div>
         </section>
 
@@ -242,9 +287,29 @@ export default function SuperSoybeanCaseStudy({ project }) {
           </div>
         </section>
 
-        <ProjectNavigation previous={previous} next={next} />
+        {/* Circular Project Navigation */}
+        <nav className={styles.compactNav}>
+          <Link to={previous.route} className={styles.compactNavLink}>
+            <ArrowLeft size={20} />
+            <div className={styles.compactNavGroup}>
+              <span className={styles.compactNavLabel}>Previous Project</span>
+              <span className={styles.compactNavTitle}>{previous.name}</span>
+            </div>
+          </Link>
 
-      </div>
+          <Link to={next.route} className={`${styles.compactNavLink} ${styles.compactNavLinkRight}`}>
+            <ArrowRight size={20} />
+            <div className={styles.compactNavGroup}>
+              <span className={styles.compactNavLabel}>Next Project</span>
+              <span className={styles.compactNavTitle}>{next.name}</span>
+            </div>
+          </Link>
+        </nav>
+
+      </Container>
     </main>
   );
 }
+
+
+

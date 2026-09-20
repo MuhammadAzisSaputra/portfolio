@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Shield, User, Database, Workflow, Sparkles, CheckCircle, ArrowLeft, ArrowRight, UserShield, UsersRound, Folder, CreditCard, CalendarCheck, Megaphone, Expand } from 'lucide-react';
 import ProjectDemoGallery from '../../components/project/ProjectDemoGallery';
-import TechnicalStage from '../../components/project/TechnicalStage';
-import ProjectNavigation from '../../components/project/ProjectNavigation';
+import Container from '../../components/ui/Container';
 import styles from './GrahaRayaCaseStudy.module.css';
 import { projects } from '../../content/projects';
 
@@ -13,8 +14,8 @@ export default function GrahaRayaCaseStudy({ project }) {
   const cs = project.caseStudy;
 
   const currentIndex = projects.findIndex(p => p.slug === project.slug);
-  const previous = currentIndex > 0 ? projects[currentIndex - 1] : null;
-  const next = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
+  const previous = projects[(currentIndex - 1 + projects.length) % projects.length];
+  const next = projects[(currentIndex + 1) % projects.length];
 
   const demoImages = [
     { src: '/assets/projects/graha-raya/login-light.png', alt: 'Login', isMobile: false },
@@ -30,10 +31,17 @@ export default function GrahaRayaCaseStudy({ project }) {
     { src: '/assets/projects/graha-raya/tahapanaktif-mandor-light.png', alt: 'Active Stages Mandor', isMobile: false }
   ];
 
+  // Helper for key feature icons
+  const getKeyFeatureIcon = (i) => {
+    const icons = [Shield, Database, Folder, CreditCard, CalendarCheck, CheckCircle, Megaphone];
+    const Icon = icons[i % icons.length];
+    return <Icon className={styles.cardIcon} />;
+  };
+
   return (
     <main className={styles.page}>
-      <div className={styles.container}>
-        
+      <Container>
+
         {/* Project Hero */}
         <header className={styles.hero}>
           <div className={styles.category}>{project.category}</div>
@@ -83,6 +91,9 @@ export default function GrahaRayaCaseStudy({ project }) {
           <div className={`${styles.balancedGrid} ${styles[`grid-len-${cs.solution.length}`]}`}>
             {cs.solution.map((item, i) => (
               <div key={i} className={`${styles.card} ${styles.balancedCard}`}>
+                <div className={styles.cardIconWrapper}>
+                  {i === 0 ? <UserShield className={styles.cardIcon} /> : i === 1 ? <User className={styles.cardIcon} /> : <UsersRound className={styles.cardIcon} />}
+                </div>
                 <h3 className={styles.cardTitle}>{item.title}</h3>
                 <p className={styles.cardDesc}>{item.description}</p>
               </div>
@@ -96,6 +107,9 @@ export default function GrahaRayaCaseStudy({ project }) {
           <div className={`${styles.balancedGrid} ${styles[`grid-len-${cs.keyFeatures.length}`]}`}>
             {cs.keyFeatures.map((item, i) => (
               <div key={i} className={`${styles.card} ${styles.balancedCard}`}>
+                <div className={styles.cardIconWrapper}>
+                  {getKeyFeatureIcon(i)}
+                </div>
                 <h3 className={styles.cardTitle}>{item.title}</h3>
                 <p className={styles.cardDesc}>{item.description}</p>
               </div>
@@ -104,47 +118,59 @@ export default function GrahaRayaCaseStudy({ project }) {
         </section>
 
         {/* Application Workflow */}
-        <TechnicalStage 
-          title="Application Workflow"
-          description="End-to-end operational sequence from project initiation to final field approval."
-          imageSrc={cs.workflow.image.src}
-          imageAlt={cs.workflow.image.alt}
-        />
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Application Workflow</h2>
+          <p className={styles.prose}>End-to-end operational sequence from project initiation to final field approval.</p>
+          <div className={styles.stage}>
+            <img src={cs.workflow.image.src} alt={cs.workflow.image.alt} className={styles.stageImage} />
+          </div>
+        </section>
 
         {/* System Architecture */}
-        <TechnicalStage 
-          title="System Architecture"
-          description="Custom MVC architecture separating concerns across Router, Controller, Model, and View layers."
-          imageSrc={cs.architecture.image.src}
-          imageAlt={cs.architecture.image.alt}
-        />
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>System Architecture</h2>
+          <p className={styles.prose}>Custom MVC architecture separating concerns across Router, Controller, Model, and View layers.</p>
+          <div className={styles.stage}>
+            <img src={cs.architecture.image.src} alt={cs.architecture.image.alt} className={styles.stageImage} />
+          </div>
+        </section>
 
         {/* Database Design */}
-        <TechnicalStage 
-          title="Database Design"
-          description="Relational data model structuring employees, clients, projects, schedules, and payments."
-          imageSrc={cs.databaseDesign.image.src}
-          imageAlt={cs.databaseDesign.image.alt}
-        />
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Database Design</h2>
+          <p className={styles.prose}>Relational data model structuring employees, clients, projects, schedules, and payments.</p>
+          <div className={styles.stage}>
+            <img src={cs.databaseDesign.image.src} alt={cs.databaseDesign.image.alt} className={styles.stageImage} />
+          </div>
+        </section>
 
         {/* Demo App */}
-        <ProjectDemoGallery images={demoImages} />
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Demo App</h2>
+          <p className={styles.prose}>Explore the application interface and primary workflows.</p>
+          <ProjectDemoGallery images={demoImages} title={null} description={null} />
+        </section>
 
         {/* My Contribution */}
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>My Contribution</h2>
-          <div className={styles.prose}>
-            <p><strong>Role:</strong> {cs.contribution.role}</p>
-            <p>{cs.contribution.focus}</p>
+        <section className={`${styles.section} ${styles.fullWidthPanel}`}>
+          <div className={styles.panelHeader}>
+            <Expand className={styles.panelIcon} size={32} />
+            <h2 className={styles.panelTitle}>Contribution</h2>
+            <div className={styles.panelRoleBadge}>{cs.contribution.role}</div>
           </div>
-          <div className={`${styles.balancedGrid} ${styles[`grid-len-${cs.contribution.sections.length}`]}`}>
+          <p className={styles.panelSummary}>{cs.contribution.focus}</p>
+
+          <div className={styles.panelGrid}>
             {cs.contribution.sections.map((section, i) => (
-              <div key={i} className={`${styles.card} ${styles.balancedCard}`}>
-                <h3 className={styles.cardTitle}>{section.title}</h3>
-                <div className={styles.cardDesc}>
-                  {section.implementation.map((para, idx) => (
-                    <p key={idx} style={{marginBottom: idx === section.implementation.length - 1 ? 0 : 'var(--space-2)'}}>{para}</p>
-                  ))}
+              <div key={i} className={styles.panelCard}>
+                <h3 className={styles.panelCardTitle}>{section.title}</h3>
+                <div className={styles.panelCardBody}>
+                  <div className={styles.panelCardCol}>
+                    <h4 className={styles.panelCardSubtitle}>Implementation</h4>
+                    {section.implementation.map((para, idx) => (
+                      <p key={idx} className={styles.panelText}>{para}</p>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
@@ -182,7 +208,7 @@ export default function GrahaRayaCaseStudy({ project }) {
                   <p className={styles.challengeText}>{item.challenge}</p>
                 </div>
                 <div className={styles.challengeBlock}>
-                  <div className={styles.challengeLabel}>Solution</div>
+                  <div className={styles.challengeLabelSuccess}>Solution</div>
                   <p className={styles.challengeText}>{item.solution}</p>
                 </div>
               </div>
@@ -193,8 +219,22 @@ export default function GrahaRayaCaseStudy({ project }) {
         {/* Project Outcome */}
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Project Outcome</h2>
-          <div className={styles.prose}>
-            {cs.outcome.map((para, i) => <p key={i}>{para}</p>)}
+          <div className={`${styles.balancedGrid} ${styles['grid-len-3']}`}>
+            <div className={`${styles.card} ${styles.balancedCard}`}>
+              <div className={styles.cardIconWrapper}><Workflow className={styles.cardIcon} /></div>
+              <h3 className={styles.cardTitle}>Structured Workflow</h3>
+              <p className={styles.cardDesc}>{cs.outcome[0]}</p>
+            </div>
+            <div className={`${styles.card} ${styles.balancedCard}`}>
+              <div className={styles.cardIconWrapper}><CheckCircle className={styles.cardIcon} /></div>
+              <h3 className={styles.cardTitle}>Improved Monitoring</h3>
+              <p className={styles.cardDesc}>{cs.outcome[1]}</p>
+            </div>
+            <div className={`${styles.card} ${styles.balancedCard}`}>
+              <div className={styles.cardIconWrapper}><Sparkles className={styles.cardIcon} /></div>
+              <h3 className={styles.cardTitle}>Complete System</h3>
+              <p className={styles.cardDesc}>{cs.outcome[2]}</p>
+            </div>
           </div>
         </section>
 
@@ -211,9 +251,26 @@ export default function GrahaRayaCaseStudy({ project }) {
           </div>
         </section>
 
-        <ProjectNavigation previous={previous} next={next} />
+        {/* Circular Project Navigation */}
+        <nav className={styles.compactNav}>
+          <Link to={previous.route} className={styles.compactNavLink}>
+            <ArrowLeft size={20} />
+            <div className={styles.compactNavGroup}>
+              <span className={styles.compactNavLabel}>Previous Project</span>
+              <span className={styles.compactNavTitle}>{previous.name}</span>
+            </div>
+          </Link>
 
-      </div>
+          <Link to={next.route} className={`${styles.compactNavLink} ${styles.compactNavLinkRight}`}>
+            <ArrowRight size={20} />
+            <div className={styles.compactNavGroup}>
+              <span className={styles.compactNavLabel}>Next Project</span>
+              <span className={styles.compactNavTitle}>{next.name}</span>
+            </div>
+          </Link>
+        </nav>
+
+      </Container>
     </main>
   );
 }

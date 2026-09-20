@@ -26,11 +26,19 @@
   }
 }
 
-.eyebrow {
-  font-size: var(--text-body-large);
+.label {
+  display: block;
+  font-size: var(--text-metadata);
   font-weight: 500;
-  color: var(--color-text-secondary);
-  margin-bottom: var(--space-2);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  margin-bottom: var(--space-3);
+}
+
+.descriptionArea {
+  margin-top: var(--space-10);
+  max-width: 65ch;
 }
 
 .heading {
@@ -54,7 +62,6 @@
   grid-template-columns: 1fr;
   gap: var(--space-6);
   margin-bottom: var(--space-10);
-  grid-auto-rows: 1fr;
 }
 
 @media (min-width: 768px) {

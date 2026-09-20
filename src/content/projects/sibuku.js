@@ -1,9 +1,9 @@
 export const sibuku = {
-  name: 'SIBUKU',
-  shortName: 'SIBUKU',
+  name: 'Sibuku',
+  shortName: 'Sibuku',
   slug: 'sibuku',
   route: '/projects/sibuku',
-  category: 'Software Engineering / Information System',
+  category: 'Web App Development',
   projectType: 'Intern Project',
   role: 'Full Stack Web Developer',
   teamSize: 'Independent',
@@ -11,7 +11,7 @@ export const sibuku = {
   duration: '1 month',
   architecture: 'Yii2 MVC Framework',
   platform: 'Web Application',
-  status: 'Completed on Local',
+  status: 'Completed',
   featured: true,
   featuredOrder: 3,
   summary: 'A Yii2-based bookstore management system integrating inventory, sales transactions, payments, courier handling, and automated reporting.',
@@ -19,9 +19,8 @@ export const sibuku = {
   technologies: {
     backend: ['PHP', 'Yii2 Framework'],
     frontend: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap 5'],
-    database: ['MySQL'],
+    database: ['MySQL', 'XAMPP'],
     libraries: ['mPDF', 'PhpSpreadsheet', 'Kartik-v Widgets', 'CKEditor', 'yii2-multiple-input'],
-    tools: ['Composer', 'XAMPP']
   },
   assetDirectory: '/assets/projects/sibuku/',
   coverImage: '/assets/projects/sibuku/Thumbnail.png',

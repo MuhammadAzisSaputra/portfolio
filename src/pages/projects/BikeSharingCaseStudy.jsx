@@ -1,6 +1,8 @@
 import { useEffect } from 'react';
-import TechnicalStage from '../../components/project/TechnicalStage';
-import ProjectNavigation from '../../components/project/ProjectNavigation';
+import { Link } from 'react-router-dom';
+import { Search, LayoutDashboard, Database, BarChart3, LineChart, Lightbulb, CheckCircle, TrendingUp, Presentation, ArrowLeft, ArrowRight } from 'lucide-react';
+import Button from '../../components/ui/Button';
+import Container from '../../components/ui/Container';
 import styles from './BikeSharingCaseStudy.module.css';
 import { projects } from '../../content/projects';
 
@@ -12,13 +14,13 @@ export default function BikeSharingCaseStudy({ project }) {
   const cs = project.caseStudy;
 
   const currentIndex = projects.findIndex(p => p.slug === project.slug);
-  const previous = currentIndex > 0 ? projects[currentIndex - 1] : null;
-  const next = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
+  const previous = projects[(currentIndex - 1 + projects.length) % projects.length];
+  const next = projects[(currentIndex + 1) % projects.length];
 
   return (
     <main className={styles.page}>
-      <div className={styles.container}>
-        
+      <Container>
+
         {/* Project Hero */}
         <header className={styles.hero}>
           <div className={styles.category}>{project.category}</div>
@@ -68,6 +70,9 @@ export default function BikeSharingCaseStudy({ project }) {
           <div className={`${styles.balancedGrid} ${styles[`grid-len-${cs.solution.length}`]}`}>
             {cs.solution.map((item, i) => (
               <div key={i} className={`${styles.card} ${styles.balancedCard}`}>
+                <div className={styles.cardIconWrapper}>
+                  {i === 0 ? <Search className={styles.cardIcon} /> : <LayoutDashboard className={styles.cardIcon} />}
+                </div>
                 <h3 className={styles.cardTitle}>{item.title}</h3>
                 <p className={styles.cardDesc}>{item.description}</p>
               </div>
@@ -75,13 +80,34 @@ export default function BikeSharingCaseStudy({ project }) {
           </div>
         </section>
 
-        {/* Data Analysis Workflow */}
-        <TechnicalStage 
-          title="Data Analysis Workflow"
-          description={cs.workflow.description}
-          imageSrc={cs.workflow.image.src}
-          imageAlt={cs.workflow.image.alt}
-        />
+        {/* Data Analysis Contribution Panel */}
+        <section className={`${styles.section} ${styles.fullWidthPanel}`}>
+          <div className={styles.panelHeader}>
+            <LineChart className={styles.panelIcon} size={32} />
+            <h2 className={styles.panelTitle}>Data Analysis Contribution</h2>
+            <div className={styles.panelRoleBadge}>{cs.contribution.role}</div>
+          </div>
+          <p className={styles.panelSummary}>{cs.contribution.focus}</p>
+
+          <div className={styles.panelGrid}>
+            {cs.contribution.sections.map((section, i) => (
+              <div key={i} className={styles.panelCard}>
+                <div className={styles.cardIconWrapper} style={{ marginBottom: 'var(--space-2)' }}>
+                  {i === 0 ? <Database className={styles.cardIcon} /> : <BarChart3 className={styles.cardIcon} />}
+                </div>
+                <h3 className={styles.panelCardTitle}>{section.title}</h3>
+                <div className={styles.panelCardBody}>
+                  <div className={styles.panelCardCol}>
+                    <h4 className={styles.panelCardSubtitle}>Implementation</h4>
+                    {section.implementation.map((para, idx) => (
+                      <p key={idx} className={styles.panelText}>{para}</p>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
 
         {/* Analytical Approach */}
         <section className={styles.section}>
@@ -96,13 +122,23 @@ export default function BikeSharingCaseStudy({ project }) {
           </div>
         </section>
 
+        {/* Data Analysis Workflow */}
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Data Analysis Workflow</h2>
+          <p className={styles.prose}>{cs.workflow.description}</p>
+          <div className={styles.stage}>
+            <img src={cs.workflow.image.src} alt={cs.workflow.image.alt} className={styles.stageImage} />
+          </div>
+        </section>
+
         {/* Dashboard Architecture */}
-        <TechnicalStage 
-          title="Dashboard Architecture"
-          description={cs.architecture.description}
-          imageSrc={cs.architecture.image.src}
-          imageAlt={cs.architecture.image.alt}
-        />
+        <section className={styles.section}>
+          <h2 className={styles.sectionTitle}>Dashboard Architecture</h2>
+          <p className={styles.prose}>{cs.architecture.description}</p>
+          <div className={styles.stage}>
+            <img src={cs.architecture.image.src} alt={cs.architecture.image.alt} className={styles.stageImage} />
+          </div>
+        </section>
 
         {/* Dashboard Implementation */}
         <section className={styles.section}>
@@ -117,32 +153,12 @@ export default function BikeSharingCaseStudy({ project }) {
           </div>
         </section>
 
-        {/* Dashboard Screenshot (Single Image, No Carousel) */}
-        <TechnicalStage 
-          title="Interactive Dashboard"
-          description="The final interactive dashboard providing summary metrics, seasonal comparisons, and hourly activity charts."
-          imageSrc={cs.dashboard.images[0].src}
-          imageAlt={cs.dashboard.images[0].alt}
-        />
-
-        {/* My Contribution */}
+        {/* Dashboard Screenshot (Single Image) */}
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>My Contribution</h2>
-          <div className={styles.prose}>
-            <p><strong>Role:</strong> {cs.contribution.role}</p>
-            <p>{cs.contribution.focus}</p>
-          </div>
-          <div className={`${styles.balancedGrid} ${styles[`grid-len-${cs.contribution.sections.length}`]}`}>
-            {cs.contribution.sections.map((section, i) => (
-              <div key={i} className={`${styles.card} ${styles.balancedCard}`}>
-                <h3 className={styles.cardTitle}>{section.title}</h3>
-                <div className={styles.cardDesc}>
-                  {section.implementation.map((para, idx) => (
-                    <p key={idx} style={{marginBottom: idx === section.implementation.length - 1 ? 0 : 'var(--space-2)'}}>{para}</p>
-                  ))}
-                </div>
-              </div>
-            ))}
+          <h2 className={styles.sectionTitle}>Interactive Dashboard</h2>
+          <p className={styles.prose}>The final interactive dashboard providing summary metrics, seasonal comparisons, and hourly activity charts.</p>
+          <div className={styles.stage}>
+            <img src={cs.dashboard.images[0].src} alt={cs.dashboard.images[0].alt} className={styles.stageImage} />
           </div>
         </section>
 
@@ -168,8 +184,22 @@ export default function BikeSharingCaseStudy({ project }) {
         {/* Project Outcome */}
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Findings & Outcome</h2>
-          <div className={styles.prose}>
-            {cs.outcome.map((para, i) => <p key={i}>{para}</p>)}
+          <div className={`${styles.balancedGrid} ${styles['grid-len-3']}`}>
+            <div className={`${styles.card} ${styles.balancedCard}`}>
+              <div className={styles.cardIconWrapper}><Presentation className={styles.cardIcon} /></div>
+              <h3 className={styles.cardTitle}>Accessible Interface</h3>
+              <p className={styles.cardDesc}>{cs.outcome[0]}</p>
+            </div>
+            <div className={`${styles.card} ${styles.balancedCard}`}>
+              <div className={styles.cardIconWrapper}><TrendingUp className={styles.cardIcon} /></div>
+              <h3 className={styles.cardTitle}>Operational Insight</h3>
+              <p className={styles.cardDesc}>{cs.outcome[1]}</p>
+            </div>
+            <div className={`${styles.card} ${styles.balancedCard}`}>
+              <div className={styles.cardIconWrapper}><CheckCircle className={styles.cardIcon} /></div>
+              <h3 className={styles.cardTitle}>End-to-End Analytics</h3>
+              <p className={styles.cardDesc}>{cs.outcome[2]}</p>
+            </div>
           </div>
         </section>
 
@@ -179,6 +209,11 @@ export default function BikeSharingCaseStudy({ project }) {
           <div className={`${styles.balancedGrid} ${styles[`grid-len-${cs.learnings.length}`]}`}>
             {cs.learnings.map((item, i) => (
               <div key={i} className={`${styles.card} ${styles.balancedCard}`}>
+                <div className={styles.cardIconWrapper} style={{ marginBottom: 'var(--space-2)' }}>
+                  {i === 0 ? <Database className={styles.cardIcon} size={20} /> :
+                    i === 1 ? <BarChart3 className={styles.cardIcon} size={20} /> :
+                      <Lightbulb className={styles.cardIcon} size={20} />}
+                </div>
                 <h3 className={styles.cardTitle}>{item.title}</h3>
                 <p className={styles.cardDesc}>{item.description}</p>
               </div>
@@ -186,9 +221,37 @@ export default function BikeSharingCaseStudy({ project }) {
           </div>
         </section>
 
-        <ProjectNavigation previous={previous} next={next} />
+        {project.links && project.links.repository && (
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Project Repository</h2>
+            <div className={styles.prose}>
+              <Button as="a" href={project.links.repository} target="_blank" rel="noreferrer" variant="outline">
+                View Repository on GitHub
+              </Button>
+            </div>
+          </section>
+        )}
 
-      </div>
+        {/* Circular Project Navigation */}
+        <nav className={styles.compactNav}>
+          <Link to={previous.route} className={styles.compactNavLink}>
+            <ArrowLeft size={20} />
+            <div className={styles.compactNavGroup}>
+              <span className={styles.compactNavLabel}>Previous Project</span>
+              <span className={styles.compactNavTitle}>{previous.name}</span>
+            </div>
+          </Link>
+
+          <Link to={next.route} className={`${styles.compactNavLink} ${styles.compactNavLinkRight}`}>
+            <ArrowRight size={20} />
+            <div className={styles.compactNavGroup}>
+              <span className={styles.compactNavLabel}>Next Project</span>
+              <span className={styles.compactNavTitle}>{next.name}</span>
+            </div>
+          </Link>
+        </nav>
+
+      </Container>
     </main>
   );
 }

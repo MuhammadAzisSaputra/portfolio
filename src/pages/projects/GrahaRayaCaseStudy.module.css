@@ -17,11 +17,7 @@
   }
 }
 
-.container {
-  max-width: var(--container-base, 1200px);
-  margin-inline: auto;
-  width: 100%;
-}
+
 
 .hero {
   margin-bottom: var(--space-cs-section, var(--space-12));
@@ -49,7 +45,7 @@
   font-size: clamp(1.125rem, 2vw, 1.375rem);
   color: var(--color-text-secondary);
   line-height: 1.6;
-  max-width: 68ch;
+  max-width: none;
 }
 
 .metadataGrid {
@@ -114,12 +110,13 @@
   font-size: 1.125rem;
   color: var(--color-text-secondary);
   line-height: 1.65;
-  max-width: 68ch;
+  max-width: none;
   margin-bottom: var(--space-cs-block, var(--space-6));
 }
 
 .prose p {
   margin-bottom: var(--space-4);
+  max-width: none;
 }
 
 .balancedGrid {
@@ -173,6 +170,18 @@
   .grid-len-6 {
     grid-template-columns: repeat(3, 1fr);
   }
+
+  /* 7 items: 4 on top, 3 centered on bottom (using 8 column grid) */
+  .grid-len-7 {
+    grid-template-columns: repeat(8, 1fr);
+  }
+  .grid-len-7 .balancedCard {
+    grid-column: span 2;
+  }
+  /* Center the 5th item natively */
+  .grid-len-7 .balancedCard:nth-child(5) {
+    grid-column: 2 / span 2;
+  }
 }
 
 
@@ -199,6 +208,7 @@
   color: var(--color-text-secondary);
   line-height: 1.5;
   margin: 0;
+  max-width: none;
 }
 
 .techStack {
@@ -267,9 +277,13 @@
 }
 
 .challengeLabel {
+  display: inline-block;
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--color-accent);
+  color: var(--color-text-secondary);
+  background-color: var(--color-bg-secondary);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-xs);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: var(--space-2);
@@ -280,4 +294,224 @@
   color: var(--color-text-secondary);
   line-height: 1.6;
   margin: 0;
+  max-width: none;
+}
+
+
+/* Icons */
+.cardIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-accent-soft);
+  color: var(--color-accent);
+  margin-bottom: var(--space-4);
+}
+
+.cardIcon {
+  width: 24px;
+  height: 24px;
+}
+
+/* My Contribution Panel */
+.fullWidthPanel {
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  border: 1px solid var(--color-border-soft);
+  margin-bottom: var(--space-12);
+}
+
+@media (min-width: 1024px) {
+  .fullWidthPanel {
+    padding: var(--space-10);
+  }
+}
+
+.panelHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.panelIcon {
+  color: var(--color-accent);
+}
+
+.panelTitle {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.panelRoleBadge {
+  background-color: var(--color-accent);
+  color: #fff;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.panelSummary {
+  font-size: 1.125rem;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+  margin-bottom: var(--space-8);
+  max-width: none;
+}
+
+.panelGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+.panelCard {
+  background-color: var(--color-bg-primary);
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-md);
+  padding: var(--space-6);
+}
+
+.panelCardTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-2);
+}
+
+.panelCardObjective {
+  font-size: 0.9375rem;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-6);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border-soft);
+  max-width: none;
+}
+
+.panelCardBody {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+
+
+.panelCardSubtitle {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-3);
+}
+
+.panelList {
+  padding-left: var(--space-4);
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.panelList li {
+  margin-bottom: var(--space-2);
+}
+
+.panelText {
+  color: var(--color-text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  margin-bottom: var(--space-3);
+  max-width: none;
+}
+.panelText:last-child {
+  margin-bottom: 0;
+}
+
+/* Custom Technical Stage Styles */
+.stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.stageImage {
+  object-fit: contain;
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border-soft);
+  box-shadow: var(--shadow-surface);
+}
+
+/* Custom Navigation Styles */
+.compactNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--space-12);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border-soft);
+}
+
+.compactNavLink {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.compactNavLink:hover {
+  color: var(--color-accent);
+}
+
+.compactNavTitle {
+  color: var(--color-text-primary);
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+
+.compactNavGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.compactNavLabel {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--space-1);
+}
+
+.compactNavLinkRight {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.challengeLabelSuccess {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  background-color: var(--color-accent-soft);
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-2);
 }

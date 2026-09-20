@@ -1,9 +1,9 @@
 export const grahaRaya = {
-  name: 'Manajemen Proyek CV Graha Raya Consultant',
-  shortName: 'Project Management System — CV Graha Raya Consultant',
+  name: 'Graha Raya',
+  shortName: 'Graha Raya',
   slug: 'graha-raya-project-management',
   route: '/projects/graha-raya-project-management',
-  category: 'Software Engineering / Business Information System',
+  category: 'Web App Development',
   projectType: 'Freelance Project',
   role: 'Full Stack Web Developer',
   teamSize: 'Independent',
@@ -11,7 +11,7 @@ export const grahaRaya = {
   duration: '1 month',
   platform: 'Web Application',
   architecture: 'Custom MVC PHP Native',
-  status: 'Completed on Local',
+  status: 'Completed',
   featured: true,
   featuredOrder: 2,
   summary: 'A web-based project-management information system designed to centralize client data, payments, scheduling, field progress reporting, and approval workflows.',
@@ -52,13 +52,13 @@ export const grahaRaya = {
         description: 'Creating project schedules, managing project stages, reviewing field progress, and approving or rejecting progress submissions.'
       },
       {
-        title: 'Mandor (Field Supervisor)',
+        title: 'Mandor',
         description: 'Receiving project assignments, reporting field progress, and uploading progress evidence such as photos and documents.'
       }
     ],
     keyFeatures: [
       {
-        title: 'Role-Based Access Control (RBAC)',
+        title: 'Role-Based Access Control',
         description: 'Dynamic access management for Admin, Project Manager, and Mandor. Each role receives different dashboards and permissions.'
       },
       {

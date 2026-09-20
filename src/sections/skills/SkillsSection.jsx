@@ -3,44 +3,59 @@ import styles from './SkillsSection.module.css';
 
 const skillCategories = [
   {
-    title: 'Software Engineering',
+    title: 'Back End',
     skills: [
       { name: 'JavaScript', icon: '/assets/tech/backend/JavaScript.svg' },
       { name: 'React', icon: '/assets/tech/backend/React.svg' },
-      { name: 'Next.js', icon: null },
+      { name: 'Next.js', icon: '/assets/tech/backend/Next.js.svg' },
       { name: 'PHP', icon: '/assets/tech/backend/PHP.svg' },
       { name: 'Laravel', icon: '/assets/tech/backend/Laravel.svg' },
       { name: 'Yii', icon: '/assets/tech/backend/Yii Framework.svg' },
       { name: 'Flask', icon: '/assets/tech/backend/Flask.svg' },
+      { name: 'MySQL', icon: '/assets/tech/databases/MySQL.svg' },
+      { name: 'PostgreSQL', icon: '/assets/tech/databases/PostgresSQL.svg' },
+      { name: 'Express', icon: '/assets/tech/frontend/Express.svg' },
       { name: 'REST API', icon: null },
       { name: 'Object-Oriented Programming', icon: null },
-      { name: 'MVC Architecture', icon: null },
-      { name: 'Git', icon: '/assets/tech/tools/Git.svg' },
-      { name: 'MySQL', icon: '/assets/tech/databases/MySQL.svg' }
+      { name: 'MVC Architecture', icon: null }
     ]
   },
   {
-    title: 'Data & Analytics',
+    title: 'Front End',
+    skills: [
+      { name: 'CSS', icon: '/assets/tech/frontend/CSS3.svg' },
+      { name: 'Bootstrap', icon: '/assets/tech/frontend/Bootstrap.svg' },
+      { name: 'Tailwind', icon: '/assets/tech/frontend/Tailwind CSS.svg' },
+      { name: 'Vite', icon: '/assets/tech/frontend/Vite.js.svg' },
+      { name: 'Canva', icon: '/assets/tech/frontend/Canva.svg' },
+      { name: 'Figma', icon: '/assets/tech/frontend/Figma.svg' }
+    ]
+  },
+  {
+    title: 'Data Analytics & AI',
     skills: [
       { name: 'Python', icon: '/assets/tech/backend/Python.svg' },
+      { name: 'TensorFlow', icon: '/assets/tech/backend/TensorFlow.svg' },
+      { name: 'PyTorch', icon: '/assets/tech/backend/PyTorch.svg' },
+      { name: 'YOLO', icon: null },
       { name: 'SQL', icon: null },
       { name: 'Excel', icon: null },
       { name: 'Google Sheets', icon: null },
       { name: 'Data Cleaning', icon: null },
       { name: 'Data Preprocessing', icon: null },
       { name: 'Exploratory Data Analysis', icon: null },
-      { name: 'Data Visualization', icon: null }
+      { name: 'Data Visualization', icon: null },
+      { name: 'Computer Vision', icon: null }
     ]
   },
   {
-    title: 'Artificial Intelligence',
+    title: 'Tools',
     skills: [
-      { name: 'Machine Learning', icon: null },
-      { name: 'TensorFlow', icon: null },
-      { name: 'PyTorch', icon: null },
-      { name: 'Computer Vision', icon: null },
-      { name: 'YOLO', icon: null },
-      { name: 'Model Evaluation', icon: null }
+      { name: 'Visual Studio Code', icon: '/assets/tech/tools/Visual Studio Code (VS Code).svg' },
+      { name: 'Git', icon: '/assets/tech/tools/Git.svg' },
+      { name: 'GitHub', icon: '/assets/tech/tools/GitHub.svg' },
+      { name: 'Anaconda', icon: '/assets/tech/tools/Anaconda.svg' },
+      { name: 'Jupyter', icon: '/assets/tech/tools/Jupyter.svg' }
     ]
   },
   {
@@ -63,14 +78,6 @@ const skillCategories = [
       { name: 'Public Speaking', icon: null }
     ]
   }
-];
-
-const exploringSkills = [
-  { name: 'PostgreSQL', icon: '/assets/tech/databases/PostgresSQL.svg' },
-  { name: 'Node.js', icon: null },
-  { name: 'Express.js', icon: null },
-  { name: 'Modern React workflow', icon: null },
-  { name: 'Production deployment with Vercel', icon: null }
 ];
 
 export default function SkillsSection() {
@@ -98,20 +105,6 @@ export default function SkillsSection() {
               </div>
             </div>
           ))}
-        </div>
-
-        <div className={styles.exploringSection}>
-          <div className={styles.category}>
-            <h3 className={styles.categoryTitle}>Currently Exploring</h3>
-            <div className={styles.skillList}>
-              {exploringSkills.map((skill, idx) => (
-                <span key={idx} className={styles.skillTag}>
-                  {skill.icon && <img src={skill.icon} alt={`${skill.name} icon`} className={styles.skillIcon} loading="lazy" />}
-                  {skill.name}
-                </span>
-              ))}
-            </div>
-          </div>
         </div>
       </Container>
     </section>
