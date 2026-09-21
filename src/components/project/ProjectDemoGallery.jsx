@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import styles from './ProjectDemoGallery.module.css';
 
-export default function ProjectDemoGallery({ images, title = "Demo App", description = "Explore the application interface and primary workflows." }) {
+export default function ProjectDemoGallery({ images, title = "Demo App", description = "Explore the application interface and primary workflows.", minimal = false }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const containerRef = useRef(null);
   const touchStartX = useRef(0);
@@ -76,12 +76,14 @@ export default function ProjectDemoGallery({ images, title = "Demo App", descrip
 
   return (
     <div className={styles.gallerySection}>
-      <div className={styles.header}>
-        <div className={styles.textContent}>
-          {title && <h3 className={styles.title}>{title}</h3>}
-          {description && <p className={styles.description}>{description}</p>}
+      {(title || description) && (
+        <div className={styles.header}>
+          <div className={styles.textContent}>
+            {title && <h3 className={styles.title}>{title}</h3>}
+            {description && <p className={styles.description}>{description}</p>}
+          </div>
         </div>
-      </div>
+      )}
 
       <div 
         className={styles.stage}
@@ -109,7 +111,7 @@ export default function ProjectDemoGallery({ images, title = "Demo App", descrip
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
         </button>
 
-        <div className={styles.track}>
+        <div className={`${styles.track} ${minimal ? styles.trackMinimal : ''}`}>
           {images.map((img, idx) => {
             let offset = idx - currentIndex;
             const total = images.length;
@@ -140,12 +142,12 @@ export default function ProjectDemoGallery({ images, title = "Demo App", descrip
                 }}
                 aria-hidden={!isCenter}
               >
-                <div className={styles.imageWrapper}>
+                <div className={`${styles.imageWrapper} ${minimal ? styles.wrapperMinimal : ''}`}>
                   <img 
                     src={img.src} 
                     alt={img.alt} 
                     loading={isCenter ? "eager" : "lazy"}
-                    className={`${styles.image} ${img.isMobile ? styles.imageMobile : styles.imageDesktop}`} 
+                    className={`${styles.image} ${img.isMobile ? styles.imageMobile : styles.imageDesktop} ${minimal ? styles.imageMinimal : ''}`} 
                   />
                   {!isCenter && <div className={styles.imageOverlay} />}
                 </div>

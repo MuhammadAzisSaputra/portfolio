@@ -51,19 +51,27 @@ export const bikeSharing = {
     ],
     contribution: {
       role: 'Data Analyst',
-      focus: 'I performed the complete analytical workflow from data cleaning to dashboard development.',
+      focus: 'I led the complete end-to-end analytical workflow, from initial data cleaning to final dashboard presentation.',
       sections: [
         {
-          title: 'Data Preparation & Cleaning',
+          title: 'Data Preparation & Transformation',
           implementation: [
-            'Loaded the dataset using Pandas, converted date columns into datetime format, and prepared aggregated data.',
-            'Grouped data based on season, hour, and user type.'
+            'Preparing and transforming raw datasets for robust analysis.',
+            'Conducting exploratory data analysis (EDA) to identify underlying trends and usage patterns.'
           ]
         },
         {
-          title: 'Data Visualization & Dashboarding',
+          title: 'Metric Definition & Architecture',
           implementation: [
-            'Designed interactive charts using Plotly and built the dashboard interface using Streamlit to present findings clearly.'
+            'Defining important analytical metrics and key performance indicators (KPIs).',
+            'Designing the logical dashboard structure and data aggregation components.'
+          ]
+        },
+        {
+          title: 'Visualization & Dashboarding',
+          implementation: [
+            'Selecting appropriate charts and visualizations to communicate insights effectively.',
+            'Presenting analytical findings through a deployed, interactive data visualization dashboard.'
           ]
         }
       ]

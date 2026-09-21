@@ -369,16 +369,21 @@
 }
 
 .panelGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
 }
 
 .panelCard {
-  background-color: var(--color-bg-primary);
-  border: 1px solid var(--color-border-soft);
-  border-radius: var(--radius-md);
-  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  padding-bottom: var(--space-8);
+  border-bottom: 1px solid var(--color-border-soft);
+}
+
+.panelCard:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
 .panelCardTitle {
@@ -391,9 +396,7 @@
 .panelCardObjective {
   font-size: 0.9375rem;
   color: var(--color-text-primary);
-  margin-bottom: var(--space-6);
-  padding-bottom: var(--space-4);
-  border-bottom: 1px solid var(--color-border-soft);
+  margin-bottom: var(--space-4);
   max-width: none;
 }
 
@@ -514,4 +517,10 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: var(--space-2);
+}
+/* Demo App Mobile Spacing Refinement */
+@media (max-width: 767px) {
+  .demoAppDescription {
+    margin-bottom: var(--space-2) !important;
+  }
 }

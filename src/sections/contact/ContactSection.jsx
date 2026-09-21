@@ -23,7 +23,7 @@ export default function ContactSection() {
       ...prev,
       [name]: value
     }));
-    
+
     if (fieldErrors[name]) {
       setFieldErrors((prev) => ({
         ...prev,
@@ -35,7 +35,7 @@ export default function ContactSection() {
   const validateForm = () => {
     const errors = {};
     if (!formData.name.trim()) errors.name = 'Name is required.';
-    
+
     if (!formData.email.trim()) {
       errors.email = 'Email is required.';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
@@ -50,14 +50,14 @@ export default function ContactSection() {
 
   const isValid = (fieldName) => {
     if (fieldErrors[fieldName]) return false;
-    
+
     const value = formData[fieldName].trim();
     if (!value) return false;
 
     if (fieldName === 'email') {
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
     }
-    
+
     return true;
   };
 
@@ -127,14 +127,14 @@ export default function ContactSection() {
                   rel="noopener noreferrer"
                   className={styles.detailValue}
                 >
-                  https://www.linkedin.com/in/azisputra
+                  linkedin.com/in/azisputra
                 </a>
               </div>
 
               <div className={styles.detailItem}>
                 <span className={styles.detailLabel}>GitHub</span>
                 <a href="https://github.com/MuhammadAzisSaputra" target="_blank" rel="noopener noreferrer" className={styles.detailValue}>
-                  https://github.com/MuhammadAzisSaputra
+                  github.com/MuhammadAzisSaputra
                 </a>
               </div>
             </div>
@@ -244,9 +244,9 @@ export default function ContactSection() {
               )}
             </div>
 
-            <Button 
-              type="submit" 
-              variant="primary" 
+            <Button
+              type="submit"
+              variant="primary"
               className={styles.submitButton}
               disabled={status === 'submitting'}
             >
@@ -256,10 +256,10 @@ export default function ContactSection() {
 
         </div>
       </Container>
-      <Toast 
-        type={toast.type} 
-        message={toast.show ? toast.message : ''} 
-        onClose={() => setToast(prev => ({ ...prev, show: false }))} 
+      <Toast
+        type={toast.type}
+        message={toast.show ? toast.message : ''}
+        onClose={() => setToast(prev => ({ ...prev, show: false }))}
       />
     </section>
   );

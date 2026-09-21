@@ -35,12 +35,12 @@ export default function BikeSharingCaseStudy({ project }) {
             <span className={styles.metaValue}>{project.role}</span>
           </div>
           <div className={styles.metaItem}>
-            <span className={styles.metaLabel}>Project Type</span>
-            <span className={styles.metaValue}>{project.projectType}</span>
+            <span className={styles.metaLabel}>Timeline</span>
+            <span className={styles.metaValue}>{project.timeline || '2 Weeks'}</span>
           </div>
           <div className={styles.metaItem}>
-            <span className={styles.metaLabel}>Platform</span>
-            <span className={styles.metaValue}>{project.platform}</span>
+            <span className={styles.metaLabel}>Team</span>
+            <span className={styles.metaValue}>{project.teamSize || 'Solo Project'}</span>
           </div>
           <div className={styles.metaItem}>
             <span className={styles.metaLabel}>Status</span>
@@ -50,23 +50,18 @@ export default function BikeSharingCaseStudy({ project }) {
 
         {/* Project Overview */}
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>Project Overview</h2>
+          <h2 className={styles.sectionTitle}>Overview</h2>
           <div className={styles.prose}>
             {cs.overview.map((para, i) => <p key={i}>{para}</p>)}
           </div>
         </section>
 
-        {/* Analytical Objective / Problem */}
+        {/* Challenge & Solution */}
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>Analytical Objective</h2>
+          <h2 className={styles.sectionTitle}>Challenge & Solution</h2>
           <div className={styles.prose}>
             {cs.problem.map((para, i) => <p key={i}>{para}</p>)}
           </div>
-        </section>
-
-        {/* Solution Approach */}
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>Approach</h2>
           <div className={`${styles.balancedGrid} ${styles[`grid-len-${cs.solution.length}`]}`}>
             {cs.solution.map((item, i) => (
               <div key={i} className={`${styles.card} ${styles.balancedCard}`}>
@@ -77,48 +72,6 @@ export default function BikeSharingCaseStudy({ project }) {
                 <p className={styles.cardDesc}>{item.description}</p>
               </div>
             ))}
-          </div>
-        </section>
-
-        {/* Data Analysis Contribution Panel */}
-        <section className={`${styles.section} ${styles.fullWidthPanel}`}>
-          <div className={styles.panelHeader}>
-            <LineChart className={styles.panelIcon} size={32} />
-            <h2 className={styles.panelTitle}>Data Analysis Contribution</h2>
-            <div className={styles.panelRoleBadge}>{cs.contribution.role}</div>
-          </div>
-          <p className={styles.panelSummary}>{cs.contribution.focus}</p>
-
-          <div className={styles.panelGrid}>
-            {cs.contribution.sections.map((section, i) => (
-              <div key={i} className={styles.panelCard}>
-                <div className={styles.cardIconWrapper} style={{ marginBottom: 'var(--space-2)' }}>
-                  {i === 0 ? <Database className={styles.cardIcon} /> : <BarChart3 className={styles.cardIcon} />}
-                </div>
-                <h3 className={styles.panelCardTitle}>{section.title}</h3>
-                <div className={styles.panelCardBody}>
-                  <div className={styles.panelCardCol}>
-                    <h4 className={styles.panelCardSubtitle}>Implementation</h4>
-                    {section.implementation.map((para, idx) => (
-                      <p key={idx} className={styles.panelText}>{para}</p>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Analytical Approach */}
-        <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>Analytical Approach</h2>
-          <div className={styles.prose}>
-            <p>{cs.analysis.description}</p>
-            <ul style={{ paddingLeft: 'var(--space-4)', marginTop: 'var(--space-2)' }}>
-              {cs.analysis.steps.map((step, i) => (
-                <li key={i} style={{ marginBottom: 'var(--space-1)' }}>{step}</li>
-              ))}
-            </ul>
           </div>
         </section>
 
@@ -140,25 +93,66 @@ export default function BikeSharingCaseStudy({ project }) {
           </div>
         </section>
 
-        {/* Dashboard Implementation */}
+        {/* Key Features (Mapped from Dashboard Implementation) */}
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>Dashboard Implementation</h2>
+          <h2 className={styles.sectionTitle}>Key Features</h2>
           <div className={styles.prose}>
             <p>{cs.dashboard.description}</p>
-            <ul style={{ paddingLeft: 'var(--space-4)', marginTop: 'var(--space-2)', marginBottom: 'var(--space-4)' }}>
-              {cs.dashboard.features.map((feature, i) => (
-                <li key={i} style={{ marginBottom: 'var(--space-1)' }}>{feature}</li>
-              ))}
-            </ul>
+          </div>
+          <div className={`${styles.balancedGrid} ${styles[`grid-len-${cs.dashboard.features.length}`]}`}>
+            {cs.dashboard.features.map((feature, i) => (
+              <div key={i} className={`${styles.card} ${styles.balancedCard}`}>
+                <div className={styles.cardIconWrapper} style={{ marginBottom: 'var(--space-2)' }}>
+                  {i === 0 ? <BarChart3 className={styles.cardIcon} /> :
+                   i === 1 ? <TrendingUp className={styles.cardIcon} /> :
+                   i === 2 ? <LineChart className={styles.cardIcon} /> :
+                             <Search className={styles.cardIcon} />}
+                </div>
+                <h3 className={styles.cardTitle}>{feature.split(':')[0]}</h3>
+                <p className={styles.cardDesc}>{feature.split(':')[1]?.trim() || feature}</p>
+              </div>
+            ))}
           </div>
         </section>
 
-        {/* Dashboard Screenshot (Single Image) */}
+        {/* Final Dashboard Presentation */}
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>Interactive Dashboard</h2>
-          <p className={styles.prose}>The final interactive dashboard providing summary metrics, seasonal comparisons, and hourly activity charts.</p>
+          <h2 className={styles.sectionTitle}>Interactive Dashboard Presentation</h2>
+          <p className={styles.prose}>The final output visualizes summary metrics, seasonal comparisons, and hourly activity charts.</p>
           <div className={styles.stage}>
             <img src={cs.dashboard.images[0].src} alt={cs.dashboard.images[0].alt} className={styles.stageImage} />
+          </div>
+        </section>
+
+        {/* Contribution */}
+        <section className={`${styles.section} ${styles.fullWidthPanel}`}>
+          <div className={styles.panelHeader}>
+            <LineChart className={styles.panelIcon} size={32} />
+            <h2 className={styles.panelTitle}>Contribution</h2>
+            <div className={styles.panelRoleBadge}>{cs.contribution.role}</div>
+          </div>
+          <p className={styles.panelSummary}>{cs.contribution.focus}</p>
+
+          <div className={styles.panelGrid}>
+            {cs.contribution.sections.map((section, i) => (
+              <div key={i} className={styles.panelCard}>
+                <div className={styles.cardIconWrapper} style={{ marginBottom: 'var(--space-2)' }}>
+                  {i === 0 ? <Database className={styles.cardIcon} /> : 
+                   i === 1 ? <Search className={styles.cardIcon} /> :
+                   i === 2 ? <BarChart3 className={styles.cardIcon} /> :
+                             <Presentation className={styles.cardIcon} />}
+                </div>
+                <h3 className={styles.panelCardTitle}>{section.title}</h3>
+                <div className={styles.panelCardBody}>
+                  <div className={styles.panelCardCol}>
+                    <h4 className={styles.panelCardSubtitle}>Implementation</h4>
+                    {section.implementation.map((para, idx) => (
+                      <p key={idx} className={styles.panelText}>{para}</p>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
@@ -205,14 +199,14 @@ export default function BikeSharingCaseStudy({ project }) {
 
         {/* Key Learning */}
         <section className={styles.section}>
-          <h2 className={styles.sectionTitle}>Skills Demonstrated</h2>
+          <h2 className={styles.sectionTitle}>Key Learning</h2>
           <div className={`${styles.balancedGrid} ${styles[`grid-len-${cs.learnings.length}`]}`}>
             {cs.learnings.map((item, i) => (
               <div key={i} className={`${styles.card} ${styles.balancedCard}`}>
                 <div className={styles.cardIconWrapper} style={{ marginBottom: 'var(--space-2)' }}>
                   {i === 0 ? <Database className={styles.cardIcon} size={20} /> :
-                    i === 1 ? <BarChart3 className={styles.cardIcon} size={20} /> :
-                      <Lightbulb className={styles.cardIcon} size={20} />}
+                   i === 1 ? <BarChart3 className={styles.cardIcon} size={20} /> :
+                             <Lightbulb className={styles.cardIcon} size={20} />}
                 </div>
                 <h3 className={styles.cardTitle}>{item.title}</h3>
                 <p className={styles.cardDesc}>{item.description}</p>

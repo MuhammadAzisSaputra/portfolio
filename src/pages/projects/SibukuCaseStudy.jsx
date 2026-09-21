@@ -155,8 +155,8 @@ export default function SibukuCaseStudy({ project }) {
         {/* Demo App */}
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Demo App</h2>
-          <p className={styles.prose}>Explore the application interface and primary workflows.</p>
-          <ProjectDemoGallery images={demoImages} title={null} description={null} />
+          <p className={`${styles.prose} ${styles.demoAppDescription}`}>Explore the application interface and primary workflows.</p>
+          <ProjectDemoGallery images={demoImages} title={null} description={null} minimal={true} />
         </section>
 
         {/* My Contribution */}

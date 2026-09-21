@@ -134,8 +134,8 @@ export default function EtomacCaseStudy({ project }) {
         {/* Demo App Gallery */}
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Demo App Gallery</h2>
-          <p className={styles.prose}>Explore the complete customer e-commerce journey and the administrative management dashboard.</p>
-          <ProjectDemoGallery images={demoImages} title={null} description={null} />
+          <p className={`${styles.prose} ${styles.demoAppDescription}`}>Explore the complete customer e-commerce journey and the administrative management dashboard.</p>
+          <ProjectDemoGallery images={demoImages} title={null} description={null} minimal={true} />
         </section>
 
         {/* My Contribution */}
