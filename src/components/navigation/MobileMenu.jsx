@@ -20,7 +20,7 @@ export default function MobileMenu() {
         closeMenu();
       }
     };
-    
+
     document.addEventListener('keydown', handleKeyDown);
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
@@ -28,11 +28,11 @@ export default function MobileMenu() {
   }, [isOpen]);
 
   // Trap focus or just rely on DOM order for now, keeping it simple as required
-  
+
   return (
     <div className={styles.mobileMenuWrapper} ref={menuRef}>
-      <button 
-        className={styles.menuButton} 
+      <button
+        className={styles.menuButton}
         onClick={toggleMenu}
         aria-expanded={isOpen}
         aria-controls="mobile-nav"
@@ -45,11 +45,11 @@ export default function MobileMenu() {
         <nav id="mobile-nav" className={styles.mobileNav}>
           <ul className={styles.navList}>
             <li><Link to="/#about" onClick={closeMenu}>About</Link></li>
-            <li><Link to="/#experience" onClick={closeMenu}>Experience</Link></li>
             <li><Link to="/#projects" onClick={closeMenu}>Projects</Link></li>
+            <li><Link to="/#experience" onClick={closeMenu}>Experience</Link></li>
+            <li><Link to="/#leadership" onClick={closeMenu}>Organization</Link></li>
             <li><Link to="/#skills" onClick={closeMenu}>Skills</Link></li>
             <li><Link to="/#contact" onClick={closeMenu}>Contact</Link></li>
-            <li><a href="/assets/documents/resume/muhammad-azis-saputra-resume.pdf" target="_blank" rel="noopener noreferrer" onClick={closeMenu}>Resume</a></li>
           </ul>
         </nav>
       )}
