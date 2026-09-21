@@ -1,5 +1,7 @@
+const API_BASE_URL = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '')
+
 export async function sendContactMessage(payload) {
-    const response = await fetch('/api/contact', {
+    const response = await fetch(`${API_BASE_URL}/api/contact`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
