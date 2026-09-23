@@ -19,25 +19,25 @@ export default function BrofinCaseStudy({ project }) {
   const next = projects[(currentIndex + 1) % projects.length];
 
   const demoImages = [
-    { src: '/assets/projects/brofin/Spalash Screen.jpg', alt: 'Splash Screen', isMobile: true },
-    { src: '/assets/projects/brofin/Login.jpg', alt: 'Login', isMobile: true },
+    { src: '/assets/projects/brofin/Spalash Screen.webp', alt: 'Splash Screen', isMobile: true },
+    { src: '/assets/projects/brofin/Login.webp', alt: 'Login', isMobile: true },
     { src: '/assets/projects/brofin/Register.jpeg', alt: 'Register', isMobile: true },
-    { src: '/assets/projects/brofin/Homepage.jpg', alt: 'Homepage', isMobile: true },
-    { src: '/assets/projects/brofin/Budgeting.jpg', alt: 'Budgeting', isMobile: true },
-    { src: '/assets/projects/brofin/View Budgeting Kebutuhan Pokok.jpg', alt: 'Budgeting Needs', isMobile: true },
-    { src: '/assets/projects/brofin/View Budgeting Keinginan.jpg', alt: 'Budgeting Wants', isMobile: true },
-    { src: '/assets/projects/brofin/List Pengeluaran.jpg', alt: 'Expense List', isMobile: true },
-    { src: '/assets/projects/brofin/Tambah Pengeluaran - Empty.jpg', alt: 'Add Expense', isMobile: true },
-    { src: '/assets/projects/brofin/Prediksi Rumah - Empty.jpg', alt: 'House Prediction Empty', isMobile: true },
-    { src: '/assets/projects/brofin/Prediksi Rumah - Fill1.jpg', alt: 'House Prediction Result', isMobile: true },
-    { src: '/assets/projects/brofin/Prediksi Rekomendasi Item - Empty.jpg', alt: 'Item Recommendation', isMobile: true },
-    { src: '/assets/projects/brofin/Prediksi Mobil - Fill.jpg', alt: 'Car Prediction', isMobile: true },
-    { src: '/assets/projects/brofin/Prediksi Motor - Fill.jpg', alt: 'Motorcycle Prediction', isMobile: true },
-    { src: '/assets/projects/brofin/Prediksi Gadget - Fill.jpg', alt: 'Gadget Prediction', isMobile: true },
-    { src: '/assets/projects/brofin/Prediksi Game - Fill.jpg', alt: 'Game Prediction', isMobile: true },
-    { src: '/assets/projects/brofin/Prediksi Barang Mewah - Fill.jpg', alt: 'Luxury Item Prediction', isMobile: true },
-    { src: '/assets/projects/brofin/Prediksi Favorit - View.jpg', alt: 'Favorite Predictions', isMobile: true },
-    { src: '/assets/projects/brofin/Setting.jpg', alt: 'Settings', isMobile: true }
+    { src: '/assets/projects/brofin/Homepage.webp', alt: 'Homepage', isMobile: true },
+    { src: '/assets/projects/brofin/Budgeting.webp', alt: 'Budgeting', isMobile: true },
+    { src: '/assets/projects/brofin/View Budgeting Kebutuhan Pokok.webp', alt: 'Budgeting Needs', isMobile: true },
+    { src: '/assets/projects/brofin/View Budgeting Keinginan.webp', alt: 'Budgeting Wants', isMobile: true },
+    { src: '/assets/projects/brofin/List Pengeluaran.webp', alt: 'Expense List', isMobile: true },
+    { src: '/assets/projects/brofin/Tambah Pengeluaran - Empty.webp', alt: 'Add Expense', isMobile: true },
+    { src: '/assets/projects/brofin/Prediksi Rumah - Empty.webp', alt: 'House Prediction Empty', isMobile: true },
+    { src: '/assets/projects/brofin/Prediksi Rumah - Fill1.webp', alt: 'House Prediction Result', isMobile: true },
+    { src: '/assets/projects/brofin/Prediksi Rekomendasi Item - Empty.webp', alt: 'Item Recommendation', isMobile: true },
+    { src: '/assets/projects/brofin/Prediksi Mobil - Fill.webp', alt: 'Car Prediction', isMobile: true },
+    { src: '/assets/projects/brofin/Prediksi Motor - Fill.webp', alt: 'Motorcycle Prediction', isMobile: true },
+    { src: '/assets/projects/brofin/Prediksi Gadget - Fill.webp', alt: 'Gadget Prediction', isMobile: true },
+    { src: '/assets/projects/brofin/Prediksi Game - Fill.webp', alt: 'Game Prediction', isMobile: true },
+    { src: '/assets/projects/brofin/Prediksi Barang Mewah - Fill.webp', alt: 'Luxury Item Prediction', isMobile: true },
+    { src: '/assets/projects/brofin/Prediksi Favorit - View.webp', alt: 'Favorite Predictions', isMobile: true },
+    { src: '/assets/projects/brofin/Setting.webp', alt: 'Settings', isMobile: true }
   ];
 
   return (
@@ -165,11 +165,11 @@ export default function BrofinCaseStudy({ project }) {
           <div className={styles.stageGrid}>
             <div className={styles.stageItem}>
               <h3 className={styles.stageItemTitle}>ML Architecture</h3>
-              <img src="/assets/projects/brofin/Machine Learning Architecture.png" alt="Machine Learning Architecture" className={styles.stageImage} />
+              <img src="/assets/projects/brofin/Machine Learning Architecture.webp" alt="Machine Learning Architecture" className={styles.stageImage} />
             </div>
             <div className={styles.stageItem}>
               <h3 className={styles.stageItemTitle}>ML Workflow</h3>
-              <img src="/assets/projects/brofin/Machine Learning Workflow.png" alt="Machine Learning Workflow" className={styles.stageImage} />
+              <img src="/assets/projects/brofin/Machine Learning Workflow.webp" alt="Machine Learning Workflow" className={styles.stageImage} />
             </div>
           </div>
         </section>
@@ -181,11 +181,11 @@ export default function BrofinCaseStudy({ project }) {
           <div className={styles.stageGrid}>
             <div className={styles.stageItem}>
               <h3 className={styles.stageItemTitle}>House Planning Model</h3>
-              <img src="/assets/projects/brofin/Conceptual Flow House Planning Model.png" alt="House Planning Model Flow" className={styles.stageImage} />
+              <img src="/assets/projects/brofin/Conceptual Flow House Planning Model.webp" alt="House Planning Model Flow" className={styles.stageImage} />
             </div>
             <div className={styles.stageItem}>
               <h3 className={styles.stageItemTitle}>Product Recommendation Model</h3>
-              <img src="/assets/projects/brofin/Conceptual Flow Product Recommendation Model.png" alt="Product Recommendation Model Flow" className={styles.stageImage} />
+              <img src="/assets/projects/brofin/Conceptual Flow Product Recommendation Model.webp" alt="Product Recommendation Model Flow" className={styles.stageImage} />
             </div>
           </div>
         </section>
@@ -201,7 +201,7 @@ export default function BrofinCaseStudy({ project }) {
             </div>
             <div className={styles.stageItem}>
               <h3 className={styles.stageItemTitle}>Cloud Architecture Design</h3>
-              <img src="/assets/projects/brofin/Cloud Architecture Design.png" alt="Cloud Architecture Design" className={styles.stageImage} />
+              <img src="/assets/projects/brofin/Cloud Architecture Design.webp" alt="Cloud Architecture Design" className={styles.stageImage} />
             </div>
           </div>
         </section>
@@ -233,11 +233,11 @@ export default function BrofinCaseStudy({ project }) {
           <div className={styles.stageGrid}>
             <div className={styles.stageItem}>
               <h3 className={styles.stageItemTitle}>Development Process</h3>
-              <img src="/assets/projects/brofin/Development Process.png" alt="Development Process" className={styles.stageImage} />
+              <img src="/assets/projects/brofin/Development Process.webp" alt="Development Process" className={styles.stageImage} />
             </div>
             <div className={styles.stageItem}>
               <h3 className={styles.stageItemTitle}>Deployment</h3>
-              <img src="/assets/projects/brofin/Deployment.png" alt="Deployment" className={styles.stageImage} />
+              <img src="/assets/projects/brofin/Deployment.webp" alt="Deployment" className={styles.stageImage} />
             </div>
           </div>
         </section>

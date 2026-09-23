@@ -20,7 +20,6 @@ export const bikeSharing = {
     environment: ['Conda', 'Virtual Environment', 'Pipenv']
   },
   assetDirectory: '/assets/projects/bike-sharing/',
-  coverImage: '/assets/projects/bike-sharing/Thumbnail.png',
   thumbnailImage: '/assets/projects/bike-sharing/thumbnail-optimized.webp',
   links: {
     repository: null,
@@ -95,20 +94,20 @@ export const bikeSharing = {
         'Date Filtering: Dynamic dashboard updates based on a selected date range'
       ],
       images: [
-        { src: '/assets/projects/bike-sharing/simple_dashboard.png', alt: 'Bike-Sharing Interactive Dashboard' }
+        { src: '/assets/projects/bike-sharing/simple_dashboard.webp', alt: 'Bike-Sharing Interactive Dashboard' }
       ]
     },
     architecture: {
       description: 'The dashboard architecture relies on Pandas for data processing and Plotly for visualization, all served through a Streamlit application.',
       image: {
-        src: '/assets/projects/bike-sharing/Architecture.png',
+        src: '/assets/projects/bike-sharing/Architecture.webp',
         alt: 'Dashboard Architecture'
       }
     },
     workflow: {
       description: 'Data Analysis Workflow from Raw Dataset to Interactive Dashboard.',
       image: {
-        src: '/assets/projects/bike-sharing/Workflow.png',
+        src: '/assets/projects/bike-sharing/Workflow.webp',
         alt: 'Data Analysis Workflow'
       }
     },

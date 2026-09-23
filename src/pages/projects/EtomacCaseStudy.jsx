@@ -18,27 +18,27 @@ export default function EtomacCaseStudy({ project }) {
   const next = projects[(currentIndex + 1) % projects.length];
 
   const demoImages = [
-    { src: '/assets/projects/etomac/index-guest.png', alt: 'Homepage', isMobile: false },
-    { src: '/assets/projects/etomac/login.png', alt: 'Login', isMobile: false },
-    { src: '/assets/projects/etomac/register1.png', alt: 'Register Step 1', isMobile: false },
-    { src: '/assets/projects/etomac/showcase-all-guest.png', alt: 'Product Showcase', isMobile: false },
-    { src: '/assets/projects/etomac/showcase-traktorindustri-guest.png', alt: 'Industrial Tractor Showcase', isMobile: false },
-    { src: '/assets/projects/etomac/dashboard-pelanggan.png', alt: 'Customer Dashboard', isMobile: false },
-    { src: '/assets/projects/etomac/allproduct-pelanggan.png', alt: 'Customer Catalog', isMobile: false },
-    { src: '/assets/projects/etomac/detailproduk-pelanggan.png', alt: 'Product Detail', isMobile: false },
-    { src: '/assets/projects/etomac/keranjang-pelanggan.png', alt: 'Shopping Cart', isMobile: false },
-    { src: '/assets/projects/etomac/checkout-pelanggan.png', alt: 'Checkout', isMobile: false },
-    { src: '/assets/projects/etomac/konfirmasicheckout-pelanggan.png', alt: 'Checkout Confirmation', isMobile: false },
-    { src: '/assets/projects/etomac/pembayaran-pelanggan.png', alt: 'Payment Form', isMobile: false },
-    { src: '/assets/projects/etomac/konfirmasipembayaran-pelanggan.png', alt: 'Payment Confirmation', isMobile: false },
-    { src: '/assets/projects/etomac/orderhistory-pelanggan.png', alt: 'Order History', isMobile: false },
-    { src: '/assets/projects/etomac/profile-index-pelanggan.png', alt: 'Customer Profile', isMobile: false },
-    { src: '/assets/projects/etomac/dashboard-admin.png', alt: 'Admin Dashboard', isMobile: false },
-    { src: '/assets/projects/etomac/dataproduk-index-admin.png', alt: 'Admin Product Management', isMobile: false },
-    { src: '/assets/projects/etomac/dataedisiproduk-index-admin.png', alt: 'Admin Product Editions', isMobile: false },
-    { src: '/assets/projects/etomac/daftarorderan-index-admin.png', alt: 'Admin Order List', isMobile: false },
-    { src: '/assets/projects/etomac/daftarorderan-view-admin.png', alt: 'Admin Order View', isMobile: false },
-    { src: '/assets/projects/etomac/datauser-index-admin.png', alt: 'Admin User Data', isMobile: false }
+    { src: '/assets/projects/etomac/index-guest.webp', alt: 'Homepage', isMobile: false },
+    { src: '/assets/projects/etomac/login.webp', alt: 'Login', isMobile: false },
+    { src: '/assets/projects/etomac/register1.webp', alt: 'Register Step 1', isMobile: false },
+    { src: '/assets/projects/etomac/showcase-all-guest.webp', alt: 'Product Showcase', isMobile: false },
+    { src: '/assets/projects/etomac/showcase-traktorindustri-guest.webp', alt: 'Industrial Tractor Showcase', isMobile: false },
+    { src: '/assets/projects/etomac/dashboard-pelanggan.webp', alt: 'Customer Dashboard', isMobile: false },
+    { src: '/assets/projects/etomac/allproduct-pelanggan.webp', alt: 'Customer Catalog', isMobile: false },
+    { src: '/assets/projects/etomac/detailproduk-pelanggan.webp', alt: 'Product Detail', isMobile: false },
+    { src: '/assets/projects/etomac/keranjang-pelanggan.webp', alt: 'Shopping Cart', isMobile: false },
+    { src: '/assets/projects/etomac/checkout-pelanggan.webp', alt: 'Checkout', isMobile: false },
+    { src: '/assets/projects/etomac/konfirmasicheckout-pelanggan.webp', alt: 'Checkout Confirmation', isMobile: false },
+    { src: '/assets/projects/etomac/pembayaran-pelanggan.webp', alt: 'Payment Form', isMobile: false },
+    { src: '/assets/projects/etomac/konfirmasipembayaran-pelanggan.webp', alt: 'Payment Confirmation', isMobile: false },
+    { src: '/assets/projects/etomac/orderhistory-pelanggan.webp', alt: 'Order History', isMobile: false },
+    { src: '/assets/projects/etomac/profile-index-pelanggan.webp', alt: 'Customer Profile', isMobile: false },
+    { src: '/assets/projects/etomac/dashboard-admin.webp', alt: 'Admin Dashboard', isMobile: false },
+    { src: '/assets/projects/etomac/dataproduk-index-admin.webp', alt: 'Admin Product Management', isMobile: false },
+    { src: '/assets/projects/etomac/dataedisiproduk-index-admin.webp', alt: 'Admin Product Editions', isMobile: false },
+    { src: '/assets/projects/etomac/daftarorderan-index-admin.webp', alt: 'Admin Order List', isMobile: false },
+    { src: '/assets/projects/etomac/daftarorderan-view-admin.webp', alt: 'Admin Order View', isMobile: false },
+    { src: '/assets/projects/etomac/datauser-index-admin.webp', alt: 'Admin User Data', isMobile: false }
   ];
 
   return (

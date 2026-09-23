@@ -23,7 +23,6 @@ export const sibuku = {
     libraries: ['mPDF', 'PhpSpreadsheet', 'Kartik-v Widgets', 'CKEditor', 'yii2-multiple-input'],
   },
   assetDirectory: '/assets/projects/sibuku/',
-  coverImage: '/assets/projects/sibuku/Thumbnail.png',
   thumbnailImage: '/assets/projects/sibuku/thumbnail-optimized.webp',
   links: {
     repository: null,
@@ -107,26 +106,26 @@ export const sibuku = {
     },
     architecture: {
       image: {
-        src: '/assets/projects/sibuku/System Architecture.png',
+        src: '/assets/projects/sibuku/System Architecture.webp',
         alt: 'Yii2 System Architecture'
       }
     },
     databaseDesign: {
       image: {
-        src: '/assets/projects/sibuku/Database Design.png',
+        src: '/assets/projects/sibuku/Database Design.webp',
         alt: 'Database Design'
       }
     },
     frontend: {
       images: [
-        { src: '/assets/projects/sibuku/databuku-admin-dark.png', alt: 'Book Data Management' },
-        { src: '/assets/projects/sibuku/datatransaksi-admin-dark.png', alt: 'Transaction Processing' },
-        { src: '/assets/projects/sibuku/datalaporan-admin-dark.png', alt: 'Automated Reporting' }
+        { src: '/assets/projects/sibuku/databuku-admin-dark.webp', alt: 'Book Data Management' },
+        { src: '/assets/projects/sibuku/datatransaksi-admin-dark.webp', alt: 'Transaction Processing' },
+        { src: '/assets/projects/sibuku/datalaporan-admin-dark.webp', alt: 'Automated Reporting' }
       ]
     },
     workflow: {
       image: {
-        src: '/assets/projects/sibuku/Application Workflow.png',
+        src: '/assets/projects/sibuku/Application Workflow.webp',
         alt: 'Application Workflow'
       }
     },

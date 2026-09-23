@@ -22,7 +22,6 @@ export const etomac = {
     server: ['Apache', 'XAMPP']
   },
   assetDirectory: '/assets/projects/etomac/',
-  coverImage: '/assets/projects/etomac/Thumbnail.png',
   thumbnailImage: '/assets/projects/etomac/thumbnail-optimized.webp',
   links: {
     repository: null,
@@ -81,28 +80,28 @@ export const etomac = {
     architecture: {
       description: 'The application follows a standard LAMP stack architecture where client browsers communicate with an Apache server running native PHP scripts and a MySQL database, along with a custom shipping simulation module.',
       image: {
-        src: '/assets/projects/etomac/System Architecture.png',
+        src: '/assets/projects/etomac/System Architecture.webp',
         alt: 'System Architecture'
       }
     },
     databaseDesign: {
       image: {
-        src: '/assets/projects/etomac/Database Relationship.png',
+        src: '/assets/projects/etomac/Database Relationship.webp',
         alt: 'Database Relationship Diagram'
       }
     },
     workflow: {
       description: 'The e-commerce transaction workflow from product discovery to admin validation.',
       image: {
-        src: '/assets/projects/etomac/Application Workflow.png',
+        src: '/assets/projects/etomac/Application Workflow.webp',
         alt: 'Application Workflow'
       }
     },
     frontend: {
       images: [
-        { src: '/assets/projects/etomac/detailproduk-pelanggan.png', alt: 'Product Detail Interface' },
-        { src: '/assets/projects/etomac/checkout-pelanggan.png', alt: 'Checkout Workflow' },
-        { src: '/assets/projects/etomac/dashboard-admin.png', alt: 'Admin Management Dashboard' }
+        { src: '/assets/projects/etomac/detailproduk-pelanggan.webp', alt: 'Product Detail Interface' },
+        { src: '/assets/projects/etomac/checkout-pelanggan.webp', alt: 'Checkout Workflow' },
+        { src: '/assets/projects/etomac/dashboard-admin.webp', alt: 'Admin Management Dashboard' }
       ]
     },
     challenges: [

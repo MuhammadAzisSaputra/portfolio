@@ -19,26 +19,26 @@ export default function SuperSoybeanCaseStudy({ project }) {
   const next = projects[(currentIndex + 1) % projects.length];
 
   const demoImages = [
-    { src: '/assets/projects/super-soybean/dashboard-deploy-web-light.png', alt: 'Dashboard', isMobile: false },
-    { src: '/assets/projects/super-soybean/hitungbijikedelai-deploy-web-light.png', alt: 'Seed Counting', isMobile: false },
-    { src: '/assets/projects/super-soybean/hitungbijikedelairealtime-deploy-web-light.png', alt: 'Real-time Seed Counting', isMobile: false },
-    { src: '/assets/projects/super-soybean/hitungbijikedelaiupload-deploy-web-light.png', alt: 'Upload Seed Counting', isMobile: false },
-    { src: '/assets/projects/super-soybean/hitungbijiuploadhasil-deploy-web-light.png', alt: 'Seed Counting Result', isMobile: false },
-    { src: '/assets/projects/super-soybean/hitungpolong-deploy-web-light.png', alt: 'Pod Counting', isMobile: false },
-    { src: '/assets/projects/super-soybean/identifikasi-deploy-web-light.png', alt: 'Identification', isMobile: false },
-    { src: '/assets/projects/super-soybean/klasifikasi-deploy-web-light.png', alt: 'Classification', isMobile: false },
-    { src: '/assets/projects/super-soybean/prediksi-deploy-web-light.png', alt: 'Chlorophyll Prediction', isMobile: false },
-    { src: '/assets/projects/super-soybean/about-deploy-web-light.png', alt: 'About', isMobile: false },
-    { src: '/assets/projects/super-soybean/dashboard-local-web-light.png', alt: 'Local Dashboard', isMobile: false },
-    { src: '/assets/projects/super-soybean/hitungbijikedelai-local-web-light.png', alt: 'Local Seed Counting', isMobile: false },
-    { src: '/assets/projects/super-soybean/hitungbijikedelairealtime-local-web-light.png', alt: 'Local Real-time Seed Counting', isMobile: false },
-    { src: '/assets/projects/super-soybean/hitungbijikedelaiupload-local-web-light.png', alt: 'Local Upload Seed Counting', isMobile: false },
-    { src: '/assets/projects/super-soybean/hitungbijikedelaiuploadhasil-local-web-light.png', alt: 'Local Seed Counting Result', isMobile: false },
-    { src: '/assets/projects/super-soybean/hitungpolong-local-web-light.png', alt: 'Local Pod Counting', isMobile: false },
-    { src: '/assets/projects/super-soybean/identifikasi-local-web-light.png', alt: 'Local Identification', isMobile: false },
-    { src: '/assets/projects/super-soybean/klasifikasi-local-web-light.png', alt: 'Local Classification', isMobile: false },
-    { src: '/assets/projects/super-soybean/prediksi-local-web-light.png', alt: 'Local Prediction', isMobile: false },
-    { src: '/assets/projects/super-soybean/about-local-web-light.png', alt: 'Local About', isMobile: false }
+    { src: '/assets/projects/super-soybean/dashboard-deploy-web-light.webp', alt: 'Dashboard', isMobile: false },
+    { src: '/assets/projects/super-soybean/hitungbijikedelai-deploy-web-light.webp', alt: 'Seed Counting', isMobile: false },
+    { src: '/assets/projects/super-soybean/hitungbijikedelairealtime-deploy-web-light.webp', alt: 'Real-time Seed Counting', isMobile: false },
+    { src: '/assets/projects/super-soybean/hitungbijikedelaiupload-deploy-web-light.webp', alt: 'Upload Seed Counting', isMobile: false },
+    { src: '/assets/projects/super-soybean/hitungbijiuploadhasil-deploy-web-light.webp', alt: 'Seed Counting Result', isMobile: false },
+    { src: '/assets/projects/super-soybean/hitungpolong-deploy-web-light.webp', alt: 'Pod Counting', isMobile: false },
+    { src: '/assets/projects/super-soybean/identifikasi-deploy-web-light.webp', alt: 'Identification', isMobile: false },
+    { src: '/assets/projects/super-soybean/klasifikasi-deploy-web-light.webp', alt: 'Classification', isMobile: false },
+    { src: '/assets/projects/super-soybean/prediksi-deploy-web-light.webp', alt: 'Chlorophyll Prediction', isMobile: false },
+    { src: '/assets/projects/super-soybean/about-deploy-web-light.webp', alt: 'About', isMobile: false },
+    { src: '/assets/projects/super-soybean/dashboard-local-web-light.webp', alt: 'Local Dashboard', isMobile: false },
+    { src: '/assets/projects/super-soybean/hitungbijikedelai-local-web-light.webp', alt: 'Local Seed Counting', isMobile: false },
+    { src: '/assets/projects/super-soybean/hitungbijikedelairealtime-local-web-light.webp', alt: 'Local Real-time Seed Counting', isMobile: false },
+    { src: '/assets/projects/super-soybean/hitungbijikedelaiupload-local-web-light.webp', alt: 'Local Upload Seed Counting', isMobile: false },
+    { src: '/assets/projects/super-soybean/hitungbijikedelaiuploadhasil-local-web-light.webp', alt: 'Local Seed Counting Result', isMobile: false },
+    { src: '/assets/projects/super-soybean/hitungpolong-local-web-light.webp', alt: 'Local Pod Counting', isMobile: false },
+    { src: '/assets/projects/super-soybean/identifikasi-local-web-light.webp', alt: 'Local Identification', isMobile: false },
+    { src: '/assets/projects/super-soybean/klasifikasi-local-web-light.webp', alt: 'Local Classification', isMobile: false },
+    { src: '/assets/projects/super-soybean/prediksi-local-web-light.webp', alt: 'Local Prediction', isMobile: false },
+    { src: '/assets/projects/super-soybean/about-local-web-light.webp', alt: 'Local About', isMobile: false }
   ];
 
   const cardIcons = [Target, Tally5, Shapes, Shield, Zap];

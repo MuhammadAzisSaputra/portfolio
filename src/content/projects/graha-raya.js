@@ -23,7 +23,6 @@ export const grahaRaya = {
     libraries: ['PACE Loading Indicator', 'Perfect Scrollbar', 'MetisMenu', 'Bootstrap Icons', 'Ionicons']
   },
   assetDirectory: '/assets/projects/graha-raya/',
-  coverImage: '/assets/projects/graha-raya/Thumbnail.png',
   thumbnailImage: '/assets/projects/graha-raya/thumbnail-optimized.webp',
   links: {
     repository: null,
@@ -115,26 +114,26 @@ export const grahaRaya = {
     },
     architecture: {
       image: {
-        src: '/assets/projects/graha-raya/System Architecture.png',
+        src: '/assets/projects/graha-raya/System Architecture.webp',
         alt: 'System Architecture'
       }
     },
     databaseDesign: {
       image: {
-        src: '/assets/projects/graha-raya/Database Design.png',
+        src: '/assets/projects/graha-raya/Database Design.webp',
         alt: 'Database Design'
       }
     },
     frontend: {
       images: [
-        { src: '/assets/projects/graha-raya/pembayaran-admin-dark.png', alt: 'Admin Payment Management' },
-        { src: '/assets/projects/graha-raya/penjadwalan-pm-dark.png', alt: 'Project Manager Scheduling' },
-        { src: '/assets/projects/graha-raya/tahapanaktif-mandor-dark.png', alt: 'Mandor Active Stages' }
+        { src: '/assets/projects/graha-raya/pembayaran-admin-dark.webp', alt: 'Admin Payment Management' },
+        { src: '/assets/projects/graha-raya/penjadwalan-pm-dark.webp', alt: 'Project Manager Scheduling' },
+        { src: '/assets/projects/graha-raya/tahapanaktif-mandor-dark.webp', alt: 'Mandor Active Stages' }
       ]
     },
     workflow: {
       image: {
-        src: '/assets/projects/graha-raya/Application Workflow.png',
+        src: '/assets/projects/graha-raya/Application Workflow.webp',
         alt: 'Application Workflow'
       }
     },

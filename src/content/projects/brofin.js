@@ -21,7 +21,6 @@ export const brofin = {
     cloudBackend: ['Firestore', 'Cloud Run', 'App Engine', 'Cloud Storage', 'API services', 'Authentication services']
   },
   assetDirectory: '/assets/projects/brofin/',
-  coverImage: '/assets/projects/brofin/Thumbnail.png',
   thumbnailImage: '/assets/projects/brofin/thumbnail-optimized.webp',
   links: {
     repository: 'https://github.com/CP-Finance-Goals',
@@ -93,14 +92,14 @@ export const brofin = {
     architecture: {
       description: 'Brofin combines an Android application, Cloud API services, a Cloud Database, Authentication, and Deployed ML Models.',
       image: {
-        src: '/assets/projects/brofin/System Architecture.png',
+        src: '/assets/projects/brofin/System Architecture.webp',
         alt: 'System Architecture'
       }
     },
     workflow: {
       description: 'Simplified user workflow covering Authentication, Dashboard, Financial Data Tracking, and ML Insights.',
       image: {
-        src: '/assets/projects/brofin/Application Workflow.png',
+        src: '/assets/projects/brofin/Application Workflow.webp',
         alt: 'Application Workflow'
       }
     },

@@ -28,7 +28,6 @@ export const superSoybean = {
     developmentEnvironment: ['Google Colab', 'GPU Training Environment']
   },
   assetDirectory: '/assets/projects/super-soybean/',
-  coverImage: '/assets/projects/super-soybean/Thumbnail.png',
   thumbnailImage: '/assets/projects/super-soybean/thumbnail-optimized.webp',
   links: {
     repository: null,
@@ -103,14 +102,14 @@ export const superSoybean = {
       ]
     },
     performanceImage: {
-      src: '/assets/projects/super-soybean/hitungbijiuploadhasil-deploy-web-dark.png',
+      src: '/assets/projects/super-soybean/hitungbijiuploadhasil-deploy-web-dark.webp',
       alt: 'Seed Counting Inference Result',
       caption: 'Seed Counting Inference Result using YOLO26'
     },
     architecture: {
       description: 'The system architecture consists of a Researcher interacting with a Web Interface, which sends requests to a Flask Backend. The backend routes features to the YOLO26 Seed Detection model or other AI models. The detection results are then returned to the Web Interface.',
       image: {
-        src: '/assets/projects/super-soybean/System Architecture.png',
+        src: '/assets/projects/super-soybean/System Architecture.webp',
         alt: 'Super Soybean System Architecture'
       },
       flow: [
@@ -142,14 +141,14 @@ export const superSoybean = {
       ],
       description: 'The interface was designed for researchers who may use the application in laboratory and field environments.',
       images: [
-        { src: '/assets/projects/super-soybean/about-deploy-web-dark.png', alt: 'Super Soybean About Interface' },
-        { src: '/assets/projects/super-soybean/klasifikasi-deploy-web-dark.png', alt: 'Super Soybean Classification Interface' },
-        { src: '/assets/projects/super-soybean/prediksi-deploy-web-dark.png', alt: 'Super Soybean Chlorophyll Prediction Interface' }
+        { src: '/assets/projects/super-soybean/about-deploy-web-dark.webp', alt: 'Super Soybean About Interface' },
+        { src: '/assets/projects/super-soybean/klasifikasi-deploy-web-dark.webp', alt: 'Super Soybean Classification Interface' },
+        { src: '/assets/projects/super-soybean/prediksi-deploy-web-dark.webp', alt: 'Super Soybean Chlorophyll Prediction Interface' }
       ]
     },
     workflow: {
       image: {
-        src: '/assets/projects/super-soybean/Workflow.png',
+        src: '/assets/projects/super-soybean/Workflow.webp',
         alt: 'Super Soybean Application Workflow'
       },
       flow: [

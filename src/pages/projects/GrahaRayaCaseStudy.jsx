@@ -18,17 +18,17 @@ export default function GrahaRayaCaseStudy({ project }) {
   const next = projects[(currentIndex + 1) % projects.length];
 
   const demoImages = [
-    { src: '/assets/projects/graha-raya/login-light.png', alt: 'Login', isMobile: false },
-    { src: '/assets/projects/graha-raya/dashboard-admin-light.png', alt: 'Dashboard Admin', isMobile: false },
-    { src: '/assets/projects/graha-raya/datakaryawan-admin-light.png', alt: 'Employee Data Admin', isMobile: false },
-    { src: '/assets/projects/graha-raya/dataklien-admin-light.png', alt: 'Client Data Admin', isMobile: false },
-    { src: '/assets/projects/graha-raya/manajemenproyek-admin-light.png', alt: 'Project Management Admin', isMobile: false },
-    { src: '/assets/projects/graha-raya/pembayaran-admin-light.png', alt: 'Payment Management Admin', isMobile: false },
-    { src: '/assets/projects/graha-raya/daftartahapanproyek-admin-light.png', alt: 'Project Stages Admin', isMobile: false },
-    { src: '/assets/projects/graha-raya/progresproyek-admin-light.png', alt: 'Project Progress Admin', isMobile: false },
-    { src: '/assets/projects/graha-raya/penjadwalan-pm-light.png', alt: 'Scheduling PM', isMobile: false },
-    { src: '/assets/projects/graha-raya/persetujuantahapan-pm-light.png', alt: 'Stage Approval PM', isMobile: false },
-    { src: '/assets/projects/graha-raya/tahapanaktif-mandor-light.png', alt: 'Active Stages Mandor', isMobile: false }
+    { src: '/assets/projects/graha-raya/login-light.webp', alt: 'Login', isMobile: false },
+    { src: '/assets/projects/graha-raya/dashboard-admin-light.webp', alt: 'Dashboard Admin', isMobile: false },
+    { src: '/assets/projects/graha-raya/datakaryawan-admin-light.webp', alt: 'Employee Data Admin', isMobile: false },
+    { src: '/assets/projects/graha-raya/dataklien-admin-light.webp', alt: 'Client Data Admin', isMobile: false },
+    { src: '/assets/projects/graha-raya/manajemenproyek-admin-light.webp', alt: 'Project Management Admin', isMobile: false },
+    { src: '/assets/projects/graha-raya/pembayaran-admin-light.webp', alt: 'Payment Management Admin', isMobile: false },
+    { src: '/assets/projects/graha-raya/daftartahapanproyek-admin-light.webp', alt: 'Project Stages Admin', isMobile: false },
+    { src: '/assets/projects/graha-raya/progresproyek-admin-light.webp', alt: 'Project Progress Admin', isMobile: false },
+    { src: '/assets/projects/graha-raya/penjadwalan-pm-light.webp', alt: 'Scheduling PM', isMobile: false },
+    { src: '/assets/projects/graha-raya/persetujuantahapan-pm-light.webp', alt: 'Stage Approval PM', isMobile: false },
+    { src: '/assets/projects/graha-raya/tahapanaktif-mandor-light.webp', alt: 'Active Stages Mandor', isMobile: false }
   ];
 
   // Helper for key feature icons
