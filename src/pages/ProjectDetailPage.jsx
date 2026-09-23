@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react';
 import { useParams } from 'react-router-dom';
 import Container from '../components/ui/Container';
 import Button from '../components/ui/Button';
@@ -13,12 +14,18 @@ import ProjectFeatureGrid from '../components/project/ProjectFeatureGrid';
 import { getProjectBySlug, projects } from '../content/projects';
 import styles from './ProjectDetailPage.module.css';
 
-import SibukuCaseStudy from './projects/SibukuCaseStudy';
-import SuperSoybeanCaseStudy from './projects/SuperSoybeanCaseStudy';
-import GrahaRayaCaseStudy from './projects/GrahaRayaCaseStudy';
-import BrofinCaseStudy from './projects/BrofinCaseStudy';
-import BikeSharingCaseStudy from './projects/BikeSharingCaseStudy';
-import EtomacCaseStudy from './projects/EtomacCaseStudy';
+const SibukuCaseStudy = lazy(() => import('./projects/SibukuCaseStudy'));
+const SuperSoybeanCaseStudy = lazy(() => import('./projects/SuperSoybeanCaseStudy'));
+const GrahaRayaCaseStudy = lazy(() => import('./projects/GrahaRayaCaseStudy'));
+const BrofinCaseStudy = lazy(() => import('./projects/BrofinCaseStudy'));
+const BikeSharingCaseStudy = lazy(() => import('./projects/BikeSharingCaseStudy'));
+const EtomacCaseStudy = lazy(() => import('./projects/EtomacCaseStudy'));
+const CaseStudyLoader = () => (
+  <div style={{ minHeight: '30vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <span style={{ color: 'var(--color-text-secondary, #666)' }}>Loading case study...</span>
+  </div>
+);
+
 export default function ProjectDetailPage() {
   const { slug } = useParams();
   const project = getProjectBySlug(slug);
@@ -45,28 +52,30 @@ export default function ProjectDetailPage() {
   const previous = currentIndex > 0 ? projects[currentIndex - 1] : null;
   const next = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : null;
 
+
+
   if (slug === 'sibuku') {
-    return <SibukuCaseStudy project={project} />;
+    return <Suspense fallback={<CaseStudyLoader />}><SibukuCaseStudy project={project} /></Suspense>;
   }
 
   if (slug === 'super-soybean') {
-    return <SuperSoybeanCaseStudy project={project} />;
+    return <Suspense fallback={<CaseStudyLoader />}><SuperSoybeanCaseStudy project={project} /></Suspense>;
   }
 
   if (slug === 'graha-raya-project-management') {
-    return <GrahaRayaCaseStudy project={project} />;
+    return <Suspense fallback={<CaseStudyLoader />}><GrahaRayaCaseStudy project={project} /></Suspense>;
   }
 
   if (slug === 'brofin') {
-    return <BrofinCaseStudy project={project} />;
+    return <Suspense fallback={<CaseStudyLoader />}><BrofinCaseStudy project={project} /></Suspense>;
   }
 
   if (slug === 'bike-sharing-dashboard') {
-    return <BikeSharingCaseStudy project={project} />;
+    return <Suspense fallback={<CaseStudyLoader />}><BikeSharingCaseStudy project={project} /></Suspense>;
   }
 
   if (slug === 'etomac') {
-    return <EtomacCaseStudy project={project} />;
+    return <Suspense fallback={<CaseStudyLoader />}><EtomacCaseStudy project={project} /></Suspense>;
   }
 
   // Fallback for projects without the full caseStudy object yet

@@ -1,16 +1,27 @@
+/* eslint-disable react-refresh/only-export-components */
+import { lazy, Suspense } from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import PageShell from '../components/layout/PageShell';
-import HomePage from '../pages/HomePage';
-import ProjectsPage from '../pages/ProjectsPage';
-import ProjectDetailPage from '../pages/ProjectDetailPage';
-import NotFoundPage from '../pages/NotFoundPage';
+
+const HomePage = lazy(() => import('../pages/HomePage'));
+const ProjectsPage = lazy(() => import('../pages/ProjectsPage'));
+const ProjectDetailPage = lazy(() => import('../pages/ProjectDetailPage'));
+const NotFoundPage = lazy(() => import('../pages/NotFoundPage'));
+
+const PageLoader = () => (
+  <div style={{ minHeight: '50vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <span style={{ color: 'var(--color-text-secondary, #666)' }}>Loading...</span>
+  </div>
+);
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: (
       <PageShell>
-        <HomePage />
+        <Suspense fallback={<PageLoader />}>
+          <HomePage />
+        </Suspense>
       </PageShell>
     ),
   },
@@ -18,7 +29,9 @@ export const router = createBrowserRouter([
     path: '/projects',
     element: (
       <PageShell>
-        <ProjectsPage />
+        <Suspense fallback={<PageLoader />}>
+          <ProjectsPage />
+        </Suspense>
       </PageShell>
     ),
   },
@@ -26,7 +39,9 @@ export const router = createBrowserRouter([
     path: '/projects/:slug',
     element: (
       <PageShell>
-        <ProjectDetailPage />
+        <Suspense fallback={<PageLoader />}>
+          <ProjectDetailPage />
+        </Suspense>
       </PageShell>
     ),
   },
@@ -34,7 +49,9 @@ export const router = createBrowserRouter([
     path: '*',
     element: (
       <PageShell>
-        <NotFoundPage />
+        <Suspense fallback={<PageLoader />}>
+          <NotFoundPage />
+        </Suspense>
       </PageShell>
     ),
   },
