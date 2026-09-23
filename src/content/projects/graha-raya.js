@@ -24,6 +24,7 @@ export const grahaRaya = {
   },
   assetDirectory: '/assets/projects/graha-raya/',
   coverImage: '/assets/projects/graha-raya/Thumbnail.png',
+  thumbnailImage: '/assets/projects/graha-raya/thumbnail-optimized.webp',
   links: {
     repository: null,
     liveDemo: null,

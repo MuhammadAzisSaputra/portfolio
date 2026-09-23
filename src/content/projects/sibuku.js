@@ -24,6 +24,7 @@ export const sibuku = {
   },
   assetDirectory: '/assets/projects/sibuku/',
   coverImage: '/assets/projects/sibuku/Thumbnail.png',
+  thumbnailImage: '/assets/projects/sibuku/thumbnail-optimized.webp',
   links: {
     repository: null,
     liveDemo: null,

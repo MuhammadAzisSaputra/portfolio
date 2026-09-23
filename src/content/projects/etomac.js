@@ -23,6 +23,7 @@ export const etomac = {
   },
   assetDirectory: '/assets/projects/etomac/',
   coverImage: '/assets/projects/etomac/Thumbnail.png',
+  thumbnailImage: '/assets/projects/etomac/thumbnail-optimized.webp',
   links: {
     repository: null,
     liveDemo: null,

@@ -22,6 +22,7 @@ export const brofin = {
   },
   assetDirectory: '/assets/projects/brofin/',
   coverImage: '/assets/projects/brofin/Thumbnail.png',
+  thumbnailImage: '/assets/projects/brofin/thumbnail-optimized.webp',
   links: {
     repository: 'https://github.com/CP-Finance-Goals',
     liveDemo: null,

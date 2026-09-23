@@ -7,8 +7,8 @@ export default function FeaturedProject({ project }) {
     <article className={styles.featuredProject}>
       <div className={styles.visualCol}>
         <Link to={project.route} className={styles.imageLink} aria-hidden="true" tabIndex="-1">
-          {project.coverImage ? (
-            <img src={project.coverImage} alt={`${project.name} preview`} className={styles.image} loading="lazy" />
+          {(project.thumbnailImage || project.coverImage) ? (
+            <img src={project.thumbnailImage || project.coverImage} alt={`${project.name} preview`} className={styles.image} loading="lazy" />
           ) : (
             <div className={styles.imagePlaceholder}>
               <span className={styles.placeholderText}>[Image Pending]</span>

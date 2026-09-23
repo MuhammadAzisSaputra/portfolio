@@ -29,6 +29,7 @@ export const superSoybean = {
   },
   assetDirectory: '/assets/projects/super-soybean/',
   coverImage: '/assets/projects/super-soybean/Thumbnail.png',
+  thumbnailImage: '/assets/projects/super-soybean/thumbnail-optimized.webp',
   links: {
     repository: null,
     liveDemo: null,

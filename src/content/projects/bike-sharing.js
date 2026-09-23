@@ -21,6 +21,7 @@ export const bikeSharing = {
   },
   assetDirectory: '/assets/projects/bike-sharing/',
   coverImage: '/assets/projects/bike-sharing/Thumbnail.png',
+  thumbnailImage: '/assets/projects/bike-sharing/thumbnail-optimized.webp',
   links: {
     repository: null,
     liveDemo: null,
